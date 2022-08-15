@@ -68,9 +68,26 @@ Website thats lets you know if a movie or tv show is a good adaptation that is a
 -------------------------------------------------------------------------------------------------------
 ## Badges
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Target Audience 
+-------------------------------------------------------------------------------------------------------
+Film fans, comic book fans, nerds. People that want something close to their favorite piece of media. Community for people that share the same interests and like to share their opinion 
 
-
-
+------------------------------------------------------------------------------------------------------
+## Functionality
+------------------------------------------------------------------------------------------------------
+- Rating movie on adaptation
+- list of movies and tv shows given by admin
+    - displays:
+        -name
+        -poster
+        -rating 
+        -description
+- users can share opinions on wether or not it is accurate  
+- users can submit requests for their movie or show to be added 
+- if you want to watch a movie or show it tells you where you can watch it 
+- displays highest rated and most accurate movie 
+- least accurate but rated highly 
+--------------------------------------------------------------------------------------------------------
 
 ## Visuals
 Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
@@ -86,6 +103,10 @@ Tell people where they can go to for help. It can be any combination of an issue
 
 ## Roadmap
 If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+-make it block out spoilers 
+
+
 
 ## Contributing
 State if you are open to contributions and what your requirements are for accepting them.
