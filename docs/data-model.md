@@ -38,6 +38,7 @@
 |password | string | no | no|
 |email | string | yes | no| 
 |review history | foreign key | no | yes|
+|movie comments | float | no | yes | 
 
 Stretch Goals:
     
