@@ -1,4 +1,4 @@
-## Review Model
+## __Review Model__
 
 | Name | Type | Unique | Optional |
 |-|-|-|-|
@@ -12,8 +12,9 @@
 | Remove info rating | float | no | yes |
 | rubric rating | float | no | yes |
 |description | string | no | yes |
+|admin rating | boolean | no | no | 
 
-## Movie Model
+## __Movie Model__
 
 | Name | Type | Unique | Optional |
 |-|-|-|-|
@@ -30,7 +31,7 @@
 |rubric rating | float | no | no |
 |movie comments | string | no | yes | 
 
-## User Model 
+## __User Model__ 
 | Name | Type | Unique | Optional |
 |-|-|-|-|
 | User name | string | yes | no| 
@@ -38,10 +39,19 @@
 |password | string | no | no|
 |email | string | yes | no| 
 |review history | foreign key | no | yes|
-|movie comments | float | no | yes | 
+
+
+## __Comments  Model__ 
+| Name | Type | Unique | Optional |
+|-|-|-|-|
+|User Name | string | yes | no |
+|Date posted | string | yes | no | 
+|comment | string | yes | no |
+
 
 Stretch Goals:
     
     -include amount of people that have rated the movie adaptation to contribute to overall 
     - create api for other websites  to pull our ratings for their website 
     - advertiser model / space 
+    - upvote comments 
