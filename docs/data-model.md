@@ -48,10 +48,16 @@
 |Date posted | string | yes | no | 
 |comment | string | yes | no |
 
+Features: 
+    - List of movies that have been rated by users and admins 
+    - Rate movies based on source material accuracy 
+    - allow registered users to  comment on others reviews 
+    - uses rubric to determine rating on a scale of 1 - 10 
+    - user account that displays movies that user has rated 
 
 Stretch Goals:
     
-    -include amount of people that have rated the movie adaptation to contribute to overall 
+    - include amount of people that have rated the movie adaptation to contribute to overall 
     - create api for other websites  to pull our ratings for their website 
     - advertiser model / space 
     - upvote comments 
