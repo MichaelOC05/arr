@@ -28,7 +28,7 @@ class ReviewModel(models.Model):
         USER_MODEL,
         related_name = "review_model",
         on_delete=models.PROTECT,  
-        null=False,
+        null=True,#CHANGE BACK TO FALSE WHEN USER!!!!!
     )
 
 
