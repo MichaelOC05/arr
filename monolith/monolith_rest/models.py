@@ -1,16 +1,16 @@
 from turtle import ondrag
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.conf import settings
 
 
 
-
-class UserModel(models.Model):
-    user = models.CharField(max_length=20)  
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
-    email = models.EmailField()
-    
+# class UserModel(models.Model):
+#     user = models.CharField(max_length=20)  
+#     first_name = models.CharField(max_length=20)
+#     last_name = models.CharField(max_length=20)
+#     email = models.EmailField()
+USER_MODEL = settings.AUTH_USER_MODEL
     
 
 class ReviewModel(models.Model):
@@ -25,7 +25,7 @@ class ReviewModel(models.Model):
     admin_rating = models.FloatField()
     rating_description = models.TextField(max_length= 250)
     reviewer_id = models.ForeignKey(
-        UserModel,
+        USER_MODEL,
         related_name = "review_model",
         on_delete=models.PROTECT,  
         null=False,
@@ -36,7 +36,7 @@ class CommentsModel(models.Model):
     date_posted = models.DateTimeField()
     comment = models.TextField(max_length=250)
     commenter_id = models.ForeignKey(
-        UserModel,
+        USER_MODEL,
         related_name = "comments_model",
         on_delete=models.PROTECT,  
         null=False,
