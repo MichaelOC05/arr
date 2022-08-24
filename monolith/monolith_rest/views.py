@@ -1,3 +1,4 @@
+from urllib import response
 from django.shortcuts import render
 from .models import ReviewModel, CommentsModel, MovieInformationModel
 from .encoders import ModelEncoder 
@@ -20,6 +21,7 @@ class ReviewModelEncoder(ModelEncoder):
         "admin_rating",
         "rating_description",
         "reviewer_id",
+        "id",
     ]
 
 class CommentsModelEncoder(ModelEncoder):
@@ -74,4 +76,45 @@ def api_reviews(request):
             return JsonResponse(
                 {"message": "Invalid Review"}
             )
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_review(request,pk):
+    if request.method == "GET":
+        try:
+            review = ReviewModel.objects.get(id=pk)
+            return JsonResponse(
+                review,
+                encoder=ReviewModelEncoder,
+                safe=False,
+            )
+        except ReviewModel.DoesNotExist:
+            response = JsonResponse({"message": "Review does not exist"})
+            response.status_code = 404
+            return response
+    elif request.method == "DELETE":
+        try:
+            review = ReviewModel.objects.get(id=pk)
+            review.delete()
+            return JsonResponse(
+                review,
+                encoder=ReviewModelEncoder,
+                safe=False,
+            )
+        except ReviewModel.DoesNotExist:
+            return JsonResponse({"message": "Review does not exist"})
+    else:
+        try:
+            content = json.loads(request.body)
+            ReviewModel.objects.filter(id=pk).update(**content)
+            review = ReviewModel.objects.get(id=pk)
+            return JsonResponse(
+                review,
+                encoder=ReviewModelEncoder,
+                safe=False
+            )
+        except ReviewModel.DoesNotExist:
+            response = JsonResponse({"message": "Review does not exist"})
+            response.status_code = 404
+            return response
+
+    
     
