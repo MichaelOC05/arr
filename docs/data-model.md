@@ -61,3 +61,7 @@ Stretch Goals:
     - create api for other websites  to pull our ratings for their website 
     - advertiser model / space 
     - upvote comments 
+
+## DDD Model
+
+*[DDD Diagram](https://files.slack.com/files-pri/T03AAE15UA0-F03V4MWNYSU/screen_shot_2022-08-19_at_4.14.24_pm.png)
