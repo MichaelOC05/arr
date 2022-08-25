@@ -1,4 +1,3 @@
-from turtle import ondrag
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -30,6 +29,8 @@ class ReviewModel(models.Model):
         on_delete=models.PROTECT,  
         null=True,#CHANGE BACK TO FALSE WHEN USER!!!!!
     )
+    def __str__(self):
+        return self.movie_name
 
 
 class CommentsModel(models.Model):
@@ -39,7 +40,7 @@ class CommentsModel(models.Model):
         USER_MODEL,
         related_name = "comments_model",
         on_delete=models.PROTECT,  
-        null=False,
+        null=True, #CHANGE BACK TO FALSE!!!!
     )
 
 class MovieInformationModel(models.Model):
