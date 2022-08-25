@@ -5,6 +5,7 @@ from .encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
+import djwto.authentication as auth
 # Create your views here.
 
 class ReviewModelEncoder(ModelEncoder):
@@ -117,4 +118,12 @@ def api_review(request,pk):
             return response
 
     
-    
+# function to call to sign in might want to add a way to direct the user to the home/
+@require_http_methods(["GET"])
+def api_user_token(request):
+    if "jwt_access_token" in request.COOKIES:
+        token = request.COOKIES["jwt_access_token"]
+        if token:
+            return JsonResponse({"token": token})
+    response = JsonResponse({"token": None})
+    return response

@@ -1,7 +1,4 @@
 import React from "react";
-import  {link} from "react-router-dom"
-
-
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -10,13 +7,10 @@ class MainPage extends React.Component {
             sampleReviews: []
         };
     }
-
-    componentDidMount(){
-        
+    render() {
+        return (
+            <p>Hellosdfsdf</p>
+        );
     }
-
-    return (
-
-    )
 }
 export default MainPage;
