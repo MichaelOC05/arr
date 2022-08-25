@@ -34,7 +34,7 @@ class CommentsModelEncoder(ModelEncoder):
     
 
 class MovieInformationEncoder(ModelEncoder):
-    model = ModelEncoder
+    model = MovieInformationModel
     properties = [
         "movie_name",
         "movie_poster",
@@ -60,7 +60,7 @@ def api_reviews(request):
         return JsonResponse(
             {"Review": reviews},
             encoder = ReviewModelEncoder,
-            safe = False,
+            # safe = False,
         )
     else:
         content = json.loads(request.body)
@@ -117,6 +117,7 @@ def api_review(request,pk):
             response = JsonResponse({"message": "Review does not exist"})
             response.status_code = 404
             return response
+
 
 @require_http_methods(["GET", "POST"])
 def api_comments(request):
@@ -181,13 +182,14 @@ def api_comment(request, pk):
             response.status_code = 404
             return response 
 
+
 @require_http_methods(["GET", "POST"])
 def api_movieinfo(request):#This one is called MOVIE no S
     if request.method == "GET":
         movie_info = MovieInformationModel.objects.all()
         return JsonResponse(
             {"Movie_Info": movie_info},
-            encoder=MovieInformationEncoder,
+            encoder = MovieInformationEncoder,
             safe = False,
         )
     else: 
