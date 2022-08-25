@@ -10,6 +10,11 @@ class MainPage extends React.Component {
             sampleReviews: []
         };
     }
+
+    componentDidMount(){
+        
+    }
+
     return (
 
     )
