@@ -1,3 +1,10 @@
+## Thursday August 25th, 2022:
+    Right off the start we had some errors going on with the react, and it required the seirs to come and help us for almost two hours. The issue was the react was not refreshing, and the problem turned out to be more than just a minor issue as it turned out we installed react the wrong way and was missing the react-dom-browser import as well as a few lines of code. The issue was solved, but after lunch and the LinkedIN learn activity, we ran into a strange situation with the merge where random lines of code seemed to appear out of nowhere that none of us saw. The random lines of code looked like...
+    <<<<<<<HEAD
+    =========
+    >>>>>>>>main
+    Daniel came to help us, explaining that it was a merge conflict issue, but it wasn't the same as the merge conflicts I've seen before. We began merging the code together under Daniel's instruction to ensure that there were no other issues.
+
 ## Wednesday August 24th, 2022:
     After Lunch, Me and Michael began trying to troubleshoot our Auth_User_Model while Gio and Kurt began working on the views for the movie reviews (Edgar was not present). As we began doing research, we made a user through the Django Admin to see how the properties of the Auth_User_Model worked and how we can use it to allow users and admin to sign in through the website. Me and Michael ran into some setbacks, and eventually when we combined as a group to check in we had a discussion on how we were going to proceed with the User model. Kurt and Gio stated that the views for the movie review were completed and running, so we spent the rest of the time discussing the user model issue. We decided to do more research oon the problem, as we didn't know the best way to proceed with this course of action. After 5 o'clock attendence, I found out with Kurt there were issues with the movie information views that were not JSON serializable. We tried to figure out how to fix this issue but came to no solution.
 
