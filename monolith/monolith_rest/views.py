@@ -119,7 +119,6 @@ def api_review(request,pk):
             response.status_code = 404
             return response
 
-<<<<<<< HEAD
     
 # function to call to sign in might want to add a way to direct the user to the home/
 @require_http_methods(["GET"])
@@ -130,7 +129,7 @@ def api_user_token(request):
             return JsonResponse({"token": token})
     response = JsonResponse({"token": None})
     return response
-=======
+
 
 @require_http_methods(["GET", "POST"])
 def api_comments(request):
@@ -258,4 +257,4 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             response.status_code=404
             return response
             
->>>>>>> main
+

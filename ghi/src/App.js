@@ -5,15 +5,15 @@ import Login from "./Login"
 import MainPage from "./MainPage"
 function App(props) {
   return (
-    <MainPage />
-    // <BrowserRouter>
-    //   <div>
-    //     <Routes>
-    //       <Route path="/" element={<MainPage /> } />
-    //       <Route path="/login" element={<Login />}/>
-    //     </Routes>
-    //   </div>
-    // </BrowserRouter>
+
+    <BrowserRouter>
+      <div>
+         <Routes>
+           <Route path="/" element={<MainPage /> } />
+           <Route path="/login" element={<Login />}/>
+         </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
