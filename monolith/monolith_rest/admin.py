@@ -19,3 +19,4 @@ class MovieInformationModelAdmin(admin.ModelAdmin):
 admin.site.register(ReviewModel, ReviewModelAdmin)
 admin.site.register(CommentsModel, CommentsModelAdmin)
 admin.site.register(MovieInformationModel, MovieInformationModelAdmin)
+
