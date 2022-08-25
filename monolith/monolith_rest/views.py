@@ -5,6 +5,7 @@ from .encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
+import djwto.authentication as auth
 # Create your views here.
 
 class ReviewModelEncoder(ModelEncoder):
@@ -34,7 +35,7 @@ class CommentsModelEncoder(ModelEncoder):
     
 
 class MovieInformationEncoder(ModelEncoder):
-    model = ModelEncoder
+    model = MovieInformationModel
     properties = [
         "movie_name",
         "movie_poster",
@@ -60,7 +61,7 @@ def api_reviews(request):
         return JsonResponse(
             {"Review": reviews},
             encoder = ReviewModelEncoder,
-            safe = False,
+            # safe = False,
         )
     else:
         content = json.loads(request.body)
@@ -117,6 +118,18 @@ def api_review(request,pk):
             response = JsonResponse({"message": "Review does not exist"})
             response.status_code = 404
             return response
+
+    
+# function to call to sign in might want to add a way to direct the user to the home/
+@require_http_methods(["GET"])
+def api_user_token(request):
+    if "jwt_access_token" in request.COOKIES:
+        token = request.COOKIES["jwt_access_token"]
+        if token:
+            return JsonResponse({"token": token})
+    response = JsonResponse({"token": None})
+    return response
+
 
 @require_http_methods(["GET", "POST"])
 def api_comments(request):
@@ -181,13 +194,14 @@ def api_comment(request, pk):
             response.status_code = 404
             return response 
 
+
 @require_http_methods(["GET", "POST"])
 def api_movieinfo(request):#This one is called MOVIE no S
     if request.method == "GET":
         movie_info = MovieInformationModel.objects.all()
         return JsonResponse(
             {"Movie_Info": movie_info},
-            encoder=MovieInformationEncoder,
+            encoder = MovieInformationEncoder,
             safe = False,
         )
     else: 
@@ -243,3 +257,4 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             response.status_code=404
             return response
             
+

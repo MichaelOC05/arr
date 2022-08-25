@@ -56,6 +56,6 @@ class MovieInformationModel(models.Model):
     list_of_reviews = models.ForeignKey(
         ReviewModel,
         related_name="list_of_reviews",
-        on_delete=models.PROTECT,
+        on_delete=models.PROTECT, null=True,
     
     )
