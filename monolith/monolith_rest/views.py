@@ -21,7 +21,7 @@ class ReviewModelEncoder(ModelEncoder):
         "rubric_rating",
         "admin_rating",
         "rating_description",
-        "reviewer_id",
+        # "reviewer_id",
         "id",
     ]
 
@@ -46,7 +46,7 @@ class MovieInformationEncoder(ModelEncoder):
         "movie_synopsis",
         "imdb_id",
         "source_type",
-        "list_of_reviews",
+        # "list_of_reviews",
     ]
     encoders= {
         "list_of_reviews": ReviewModelEncoder(),
