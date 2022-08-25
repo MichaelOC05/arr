@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('monolith/', include('monolith_rest.urls')),
+    path("", include("djwto.urls")),
 ]

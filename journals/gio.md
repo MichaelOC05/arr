@@ -1,4 +1,11 @@
-## August 24 2022 
+## August 25 2022
+
+What we worked on and problems we ran into: 
+
+We struggled to get react up and running again. We had Neil and Phil help us because the docker wouldnt update the code and it kept saying that we have problems with the react-router-dom. Spent 2 hours 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ August 24 2022 
 
 What we worked on and problems we ran into:
 
@@ -9,7 +16,7 @@ Features running:
 - Create movie info views and encoders 
 - create comments views and encoders 
 - create movie list in insomnia 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## August 23 2022
 
@@ -22,7 +29,7 @@ Set reviewer id null = true so that the review can be changed in insomnia.
 
 Features Running:
 - create and list review
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## August 22 2022
 
 What we did today and problems we had run into: 
