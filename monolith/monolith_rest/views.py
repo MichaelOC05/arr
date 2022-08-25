@@ -34,7 +34,7 @@ class CommentsModelEncoder(ModelEncoder):
     
 
 class MovieInformationEncoder(ModelEncoder):
-    model = ModelEncoder
+    model = MovieInformationModel
     properties = [
         "movie_name",
         "movie_poster",
@@ -60,11 +60,10 @@ def api_reviews(request):
         return JsonResponse(
             {"Review": reviews},
             encoder = ReviewModelEncoder,
-            safe = False,
+            # safe = False,
         )
     else:
         content = json.loads(request.body)
-        print(content)
         try: 
             review = ReviewModel.objects.create(**content)
             return JsonResponse(
@@ -76,6 +75,9 @@ def api_reviews(request):
             return JsonResponse(
                 {"message": "Invalid Review"}
             )
+
+
+
 @require_http_methods(["GET", "DELETE", "PUT"])
 def api_review(request,pk):
     if request.method == "GET":
@@ -116,5 +118,130 @@ def api_review(request,pk):
             response.status_code = 404
             return response
 
-    
-    
+
+@require_http_methods(["GET", "POST"])
+def api_comments(request):
+    if request.method == "GET":
+        comments = CommentsModel.objects.all()
+        return JsonResponse(
+            {"Comments": comments},
+            encoder = CommentsModelEncoder,
+            safe = False,
+        )  
+    else:
+        content = json.loads(request.body)
+        try:
+            comment = CommentsModel.objects.create(**content)
+            return JsonResponse(
+                comment,
+                encoder = CommentsModelEncoder,
+                safe=False,
+            )
+        except CommentsModel.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid Comment"}
+            )
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_comment(request, pk):
+    if request.method == "GET":
+        try:
+            comment = CommentsModel.objects.get(id=pk)
+            return JsonResponse(
+                comment,
+                encoder = CommentsModelEncoder,
+                safe = False,
+            )
+        except CommentsModel.DoesNotExist:
+            response = JsonResponse({"message": "Comment does not exist"})
+            response.status_code = 404
+            return response
+    elif request.method == "DELETE":
+        try:
+            comment = CommentsModel.objects.get(id=pk)
+            comment.delete()
+            return JsonResponse(
+                comment,
+                encoder = CommentsModelEncoder,
+                safe=False
+            )
+        except CommentsModel.DoesNotExist:
+            return JsonResponse({"message": "Comments does not exist"})
+    else:
+        try:
+            content = json.loads(request.body)
+            CommentsModel.objects.filter(id=pk).update(**content)
+            comment = CommentsModel.objects.get(id=pk)
+            return JsonResponse(
+                comment,
+                encoder=CommentsModelEncoder,
+                safe=False,
+            )
+        except CommentsModel.DoesNotExist:
+            response = JsonResponse({"message": "Comment does not exist"})
+            response.status_code = 404
+            return response 
+
+
+@require_http_methods(["GET", "POST"])
+def api_movieinfo(request):#This one is called MOVIE no S
+    if request.method == "GET":
+        movie_info = MovieInformationModel.objects.all()
+        return JsonResponse(
+            {"Movie_Info": movie_info},
+            encoder = MovieInformationEncoder,
+            safe = False,
+        )
+    else: 
+        content = json.loads(request.body)
+        try:
+            movie_info = MovieInformationModel.objects.create(**content)
+            return JsonResponse(
+                movie_info,
+                encoder=MovieInformationEncoder,
+                safe=False,
+            )
+        except MovieInformationModel.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid Movie"}
+            )
+@require_http_methods(["GET","DELETE", "PUT"])
+def api_moviesinfo(request, pk):#This is is called MOVIES with an S
+    if request.method == "GET":
+        try:
+            movie_info = MovieInformationModel.objects.get(id=pk)
+            return JsonResponse(
+                movie_info,
+                encoder = MovieInformationEncoder,
+                safe=False,
+            )
+        except MovieInformationModel.DoesNotExist:
+            response = JsonResponse({"message": "Movie does not exist"})
+            response.status_code = 404
+            return response
+    elif request.method == "DELETE":
+        try:
+            movie_info = MovieInformationModel.objects.get(id=pk)
+            movie_info.delete()
+            return JsonResponse(
+                movie_info,
+                encoder = MovieInformationEncoder,
+                safe = False,
+            )
+        except MovieInformationModel.DoesNotExist:
+            return JsonResponse({"message": "Movie does not exist"})
+    else: 
+        try:
+            content = json.loads(request.body)
+            MovieInformationModel.objects.filter(id=pk).update(**content)
+            movie_info = MovieInformationModel.objects.get(id=pk)
+            return JsonResponse(
+                movie_info,
+                encoder=MovieInformationEncoder,
+                safe=False,
+            )
+        except MovieInformationModel.DoesNotExist:
+            response = JsonResponse({"message": "Movies Does Not Exist"})
+            response.status_code=404
+            return response
+            
