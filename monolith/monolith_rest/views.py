@@ -20,7 +20,7 @@ class ReviewModelEncoder(ModelEncoder):
         "rubric_rating",
         "admin_rating",
         "rating_description",
-        "reviewer_id",
+        # "reviewer_id",
         "id",
     ]
 
