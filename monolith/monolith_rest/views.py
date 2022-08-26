@@ -194,7 +194,6 @@ def api_comment(request, pk):
             response.status_code = 404
             return response 
 
-
 @require_http_methods(["GET", "POST"])
 def api_movieinfo(request):#This one is called MOVIE no S
     if request.method == "GET":
