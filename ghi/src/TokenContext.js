@@ -8,6 +8,7 @@ export function getToken() {
 }
 
 // this function returns a JWT that is generated in the views
+// think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
   const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/me/token/`;
   try {
@@ -99,7 +100,8 @@ export function useToken() {
     }
   }
 
-  //
+  // would we need an url that is linked with this or is this handled by django and djwt?
+  // https://medium.com/geekculture/djwto-django-authentication-with-jwt-3ff6a6141fa6
   async function login(username, password) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/login/`;
     const form = new FormData();
@@ -110,7 +112,7 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
-    // after the 
+    // after the user has been authenticated we then 
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
