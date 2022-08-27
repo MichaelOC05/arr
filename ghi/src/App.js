@@ -1,19 +1,18 @@
 import logo from './logo.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from "./Login"
 import MainPage from "./MainPage"
+import { AuthProvider } from "./TokenContext"
+
 function App(props) {
   return (
-
-    <BrowserRouter>
-      <div>
-         <Routes>
-           <Route path="/" element={<MainPage /> } />
-           <Route path="/login" element={<Login />}/>
-         </Routes>
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage /> } />
+          </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

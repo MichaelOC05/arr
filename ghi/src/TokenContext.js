@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+// sets the value of internalToken to null
 let internalToken = null;
 
 export function getToken() {
   return internalToken;
 }
 
+// this function returns a JWT that is generated in the views
 export async function getTokenInternal() {
   const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/me/token/`;
   try {
@@ -42,23 +44,35 @@ function handleErrorMessage(error) {
   return error;
 }
 
+// creates a context that will be either directly imported in the case of class based functions or indirectly imported through useAuthContet in the case of function components
 export const AuthContext = createContext({
   token: null,
   setToken: () => null,
 });
 
+// AuthProvider is a context provider which in this case contains the state of token and the function to change/set token
+// must surround components that will need the token and setToken with AuthProvider tags 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
+  // should I set the cookie value here?
 
   return (
+    // this is what AuthProvider is the children will be the components that are placed between the tags
+    // those components will have access to the variables that equal the value
     <AuthContext.Provider value={{ token, setToken }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
+// useAuthContext is used in function based components because they use the hook useContext instead of a Consumer
+// a consumer is not used in this code because the context does not have functions
+// useContext returns the current value of the context
 export const useAuthContext = () => useContext(AuthContext);
 
+// this function is the function that is imported in required components at the top 
+// within the function we pull out the values and functions from, example: const [token, login] = useToken()
+// this would pass the variable token and the login function
 export function useToken() {
   const { token, setToken } = useAuthContext();
   const navigate = useNavigate();
@@ -73,6 +87,8 @@ export function useToken() {
     }
   }, [setToken, token]);
 
+  // this is the logout function (why is method delete?)
+  // I think this brings us to the home page
   async function logout() {
     if (token) {
       const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/token/refresh/logout/`;
@@ -83,6 +99,7 @@ export function useToken() {
     }
   }
 
+  //
   async function login(username, password) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/login/`;
     const form = new FormData();
@@ -93,6 +110,7 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
+    // after the 
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
