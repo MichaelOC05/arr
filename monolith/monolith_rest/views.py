@@ -1,7 +1,7 @@
 from urllib import response
 from django.shortcuts import render
 from .models import ReviewModel, CommentsModel, MovieInformationModel
-from .encoders import ModelEncoder 
+from .common.encoders import ModelEncoder 
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
