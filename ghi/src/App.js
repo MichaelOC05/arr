@@ -10,7 +10,7 @@ function App(props) {
       <div>
          <Routes>
            <Route path="/" element={<MainPage /> } />
-           <Route path="/login" element={<Login />}/>
+           {/* <Route path="/login" element={<Login />}/> */}
          </Routes>
       </div>
     </BrowserRouter>
