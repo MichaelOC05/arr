@@ -12,3 +12,8 @@ Ran into an issue turned out a word was misspelled, a seir helped us find the pr
 
 ## August 25, 2022
 -Absent(ill)
+
+## August 29, 2022
+Worked on fixing errors in groups. 
+Fixed website html logo issues
+Uploaded logo onto front page with customizations 
