@@ -9,7 +9,7 @@ class MainPage extends React.Component {
     }
     render() {
         return (
-            <
+            
             <p>Hellosdfsdf</p>
         );
     }
