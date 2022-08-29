@@ -1,7 +1,7 @@
 from urllib import response
 from django.shortcuts import render
 from .models import ReviewModel, CommentsModel, MovieInformationModel
-from .encoders import ModelEncoder 
+from .common.encoders import ModelEncoder 
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
@@ -193,7 +193,6 @@ def api_comment(request, pk):
             response = JsonResponse({"message": "Comment does not exist"})
             response.status_code = 404
             return response 
-
 
 @require_http_methods(["GET", "POST"])
 def api_movieinfo(request):#This one is called MOVIE no S

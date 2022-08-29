@@ -3,7 +3,11 @@
 What we worked on and problems we ran into: 
 
 We struggled to get react up and running again. We had Neil and Phil help us because the docker wouldnt update the code and it kept saying that we have problems with the react-router-dom. Spent 2 hours 
-
+trying to get react up and running by installing the react router dom and rebuilding containers.
+Kurt and I are currently reading up on ACL for the API we plan on using, Micheal is still working on the usermodel and Jack is helping with the ACL and the front end Main Page. We still have one problem with creating a movie in insomnia but I think that once we get a usermodel up and running we should be fine. 
+Features Running:
+- same as yesterday 
+- React
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  August 24 2022 
 
