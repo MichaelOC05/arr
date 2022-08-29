@@ -14,7 +14,7 @@ function App(props) {
         <Nav />
           <Routes>
             <Route path="/" element={<MainPage /> } />
-            {/* <Route path="/login" element={<LoginFrom />} /> */}
+            <Route path="/login" element={<LoginForm />} />
           </Routes>
       </BrowserRouter>
     </AuthProvider>
