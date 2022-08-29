@@ -5,14 +5,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainPage from "./MainPage"
 import LoginForm from "./LoginFrom2"
 import { AuthProvider } from "./TokenContext"
+import Nav from './Nav'
 
 function App(props) {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <Nav />
           <Routes>
             <Route path="/" element={<MainPage /> } />
-            <Route path="/login" element={<LoginFrom />} />
+            {/* <Route path="/login" element={<LoginFrom />} /> */}
           </Routes>
       </BrowserRouter>
     </AuthProvider>
