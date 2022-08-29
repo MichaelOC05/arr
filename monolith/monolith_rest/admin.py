@@ -1,10 +1,7 @@
 from django.contrib import admin
 from monolith_rest.models import ReviewModel, CommentsModel, MovieInformationModel
 # Register your models here.
-<<<<<<< HEAD
 
-=======
->>>>>>> main
 # from .models import USER_MODEL
 
 # @admin.register(USER_MODEL)
