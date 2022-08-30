@@ -1,12 +1,20 @@
 from urllib import response
 from django.shortcuts import render
-from .models import ReviewModel, CommentsModel, MovieInformationModel
+from .models import ReviewModel, CommentsModel, MovieInformationModel, UserModel
 from .common.encoders import ModelEncoder 
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
 import djwto.authentication as auth
 # Create your views here.
+
+class UserModelEncoder(ModelEncoder):
+    model = UserModel
+    properties = [
+        "id",
+        "username"
+    ]
+
 
 class ReviewModelEncoder(ModelEncoder):
     model = ReviewModel
@@ -21,9 +29,12 @@ class ReviewModelEncoder(ModelEncoder):
         "rubric_rating",
         "admin_rating",
         "rating_description",
-        # "reviewer_id",
+        "reviewer_id",
         "id",
     ]
+    encoders = {
+        "reviewer_id": UserModelEncoder()
+    }
 
 class CommentsModelEncoder(ModelEncoder):
     model = CommentsModel
@@ -65,7 +76,11 @@ def api_reviews(request):
         )
     else:
         content = json.loads(request.body)
-        try: 
+        try:
+            reviewer = content["reviewer_id"]
+            user = UserModel.objects.get(id=reviewer)
+            del content["reviewer_id"]
+            content["reviewer_id"] = user
             review = ReviewModel.objects.create(**content)
             return JsonResponse(
                 review,
@@ -123,6 +138,7 @@ def api_review(request,pk):
 # function to call to sign in might want to add a way to direct the user to the home/
 @require_http_methods(["GET"])
 def api_user_token(request):
+    print(request.COOKIES)
     if "jwt_access_token" in request.COOKIES:
         token = request.COOKIES["jwt_access_token"]
         if token:

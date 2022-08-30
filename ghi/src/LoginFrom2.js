@@ -1,19 +1,26 @@
 import { useState } from "react"
-import { AuthContext, useToken } from "./TokenContext"
+import { useAuthContext, useToken } from "./TokenContext"
 import Cookies from "universal-cookie"
 
 function LoginForm (props) {
-    const [inputField , setInputField] = useState({
-        username: '',
-        password: '',
-    })
+    const [token, login] = useToken()
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
-    const inputsHandler = (e) =>{
-        setInputField( {[e.target.name]: e.target.value} )
+
+
+    function handleUsername(e)  {
+        setUsername(e.target.value)
+    }
+ 
+    function handlePassword(value) {
+        setPassword(value.target.value)
     }
 
-    const submitButton = () =>{
-        alert(inputField.first_name)
+    function submitButton(event) {
+        event.preventDefault()
+        login(username, password)    
+        console.log(token)
     }
 
 return (
@@ -21,13 +28,13 @@ return (
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <h1>Login</h1>
-          <form onSubmit={this.handleLogin} id="create-conference-form">
+          <form id="create-conference-form">
             <div className="form-floating mb-3">
-              <input onChange={inputsHandler} placeholder="Username" required type="text" name="username" id="nuserame" className="form-control" />
+              <input onChange={handleUsername} placeholder="Username" required type="text" name="username" id="username" className="form-control"  />
               <label htmlFor="name">Username</label>
             </div>
             <div className="form-floating mb-3">
-              <input onChange={inputsHandler} placeholder="Password" type="text" name="password" id="password" className="form-control" />
+              <input onChange={handlePassword} placeholder="Password" type="text" name="password" id="password" className="form-control"  />
               <label htmlFor="employee_number">Password</label>
             </div>
             <div className="mb-3">

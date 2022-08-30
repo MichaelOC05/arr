@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie"
 // sets the value of internalToken to null
 let internalToken = null;
+
 
 export function getToken() {
   return internalToken;
@@ -10,7 +12,7 @@ export function getToken() {
 // this function returns a JWT that is generated in the views
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/me/token/`;
+  const url = `http://localhost:8000/monolith/tokens/mine/`;
   try {
     const response = await fetch(url, {
       credentials: "include",
@@ -79,6 +81,7 @@ export function useToken() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     async function fetchToken() {
       const token = await getTokenInternal();
       setToken(token);
@@ -103,7 +106,7 @@ export function useToken() {
   // would we need an url that is linked with this or is this handled by django and djwt?
   // https://medium.com/geekculture/djwto-django-authentication-with-jwt-3ff6a6141fa6
   async function login(username, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/login/`;
+    const url = `http://localhost:8000/login/`;
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
@@ -112,8 +115,11 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
+    console.log(response)
+
+
     // after the user has been authenticated we then 
-    if (response.ok) {
+    if (response) {
       const token = await getTokenInternal();
       setToken(token);
 
