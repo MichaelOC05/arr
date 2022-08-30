@@ -5,11 +5,13 @@ import MainPage from "./MainPage"
 import LoginForm from "./LoginFrom2"
 import ReviewForm from './ReviewForm'
 import { AuthProvider } from "./TokenContext"
+import Nav from './Nav'
 
 function App(props) {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <Nav />
           <Routes>
             <Route path="/" element={<MainPage /> } />
             <Route path="/login" element={<LoginForm />} />

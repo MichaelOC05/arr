@@ -1,3 +1,11 @@
+## August 30, 2022
+
+
+## August 29, 2022
+We had an issue with our USER_MODEL was not json serializable, we figured out that it problem was it did not have an encoder. We realized we needed to create a new model encoder for it. However, the isInstance within the model encoder was not functioning (the self.model did not match up with the o). So what I did was created a new custom made user model based off of abstract user. I ran into a problem where the prior USER_MODEL was blocking this new user model. I had to delete migrations and reset everything with the help of Kieran. Then I worked on finally getting the login working, I had made the mistake of trying to create my own cookies with universal-cookies, however it was the djwto that was setting the cookies. The problem at the end was my custom made cookies had the same name as the cookies djwto were attempting to make and therefore were blocking the creation of djwto cookies. The fix was to delete the cookies in the application tab in the developer tools. Once this was done and the login function was created the tokens were created properly and placed in the cookies.
+Goals for tomorrow:
+Authenticate users with a backend view.
+
 ## August 26, 2022
 I went through the context code making comments so my group could reference them when they look through it, also did this to better understand what is going on. Spent time trying to understand useContext and context. Built a mini project in order to understand it. Realized that state that is held in context does not persist on page reload, in order to do that we need to either use local storage or cookies. I then started trying to figure out how to use local storage when I noticed that cookies was the one of the two that was accessed api_user_token in the views. Therefore, I started looking at cookies in react, I included universal-cookie in package.json. I then looked up how to set and get cookies with universal-cookie. I incorporated cookies in my mini project in order to understand it further. I used cookies.set to set the value of a cookie from the useState. Lastly, I realized that we to generate the JWT in the views. 
 Questions for tomorrow:
