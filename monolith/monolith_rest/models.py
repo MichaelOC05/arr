@@ -1,15 +1,16 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 
 
 
-# class UserModel(models.Model):
-#     user = models.CharField(max_length=20)  
-#     first_name = models.CharField(max_length=20)
-#     last_name = models.CharField(max_length=20)
-#     email = models.EmailField()
-USER_MODEL = settings.AUTH_USER_MODEL
+
+class UserModel(AbstractUser):
+    user = models.CharField(max_length=20)  
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    email = models.EmailField()
+
     
 
 class ReviewModel(models.Model):
@@ -24,8 +25,8 @@ class ReviewModel(models.Model):
     admin_rating = models.FloatField()
     rating_description = models.TextField(max_length= 250)
     reviewer_id = models.ForeignKey(
-        USER_MODEL,
-        related_name = "review_model",
+        UserModel,
+        related_name = "reviews_model",
         on_delete=models.PROTECT,  
         null=True,#CHANGE BACK TO FALSE WHEN USER CREATED !!!!!
     )
@@ -37,8 +38,8 @@ class CommentsModel(models.Model):
     date_posted = models.DateTimeField()
     comment = models.TextField(max_length=250)
     commenter_id = models.ForeignKey(
-        USER_MODEL,
-        related_name = "comments_model",
+        UserModel,
+        related_name = "comment_model",
         on_delete=models.PROTECT,  
         null=True, #CHANGE BACK TO FALSE!!!!
     )
