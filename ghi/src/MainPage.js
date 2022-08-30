@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 function ReviewRows(props) {
     return (
@@ -16,9 +16,9 @@ function ReviewRows(props) {
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                                <h5 className="card-title">{review.id}</h5>
+                                <h5 className="card-title">{review.movie_name}</h5>
                                 <p className="card-text">{review.rating_description}</p>
-                                <p className="card-text"><small className="text-muted">{review.movie_name}</small></p>
+                                <p className="card-text"><small className="text-muted">Review By: {review.reviewer_id.username}</small></p>
                             </div>
                         </div>
                         </div>
@@ -83,7 +83,7 @@ class MainPage extends React.Component {
                 <p className="lead mb-4">
                 Finally, a place where Movie and TV adaptations are rated on accuracy by the viewers, for the viewers!
                 </p>
-                <button type="button" class="btn btn-primary">Learn How to Write a Review</button>
+                <Link to="/how_to_review" className="btn btn-primary btn-lg px-4 gap-3">How to Write a Review</Link>
                 <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 </div>
             </div>

@@ -100,7 +100,7 @@ class ReviewForm extends React.Component {
         return (
             <div className="bg-danger bg-gradient">
             <div className="row">
-            <div className="offset-3 col-6">
+            <div className="offset-3 col-6 mt-5">
               <div className="bg-light bg-gradient">
               <div className="shadow-lg p-3 mb-5 bg-body rounded">
                 <h1>Create a Review</h1>

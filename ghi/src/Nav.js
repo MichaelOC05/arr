@@ -18,7 +18,10 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="">Reviews</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" aria-current="page" to="">Login</NavLink>
+                        <NavLink className="nav-link" aria-current="page" to="/create_review">Create Review</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="">Log out</NavLink>
@@ -26,7 +29,7 @@ function Nav() {
                 </ul>
                 <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search Reviews" aria-label="Search" />
-                <button className="btn btn-outline-success me-2" type="submit">Search</button>
+                <button className="btn btn-outline-primary me-2" type="submit">Search</button>
                 
             </form>
             </div>
