@@ -9,6 +9,7 @@ function ReviewRows(props) {
                 const review = data;
                 return (
                     <div className="card mb-3" divStyle={"max-width: 540px;"}>
+                        <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
                                 <img src="..." className="img-fluid rounded-start" alt="..."></img>
@@ -19,6 +20,7 @@ function ReviewRows(props) {
                                 <p className="card-text">{review.rating_description}</p>
                                 <p className="card-text"><small className="text-muted">{review.movie_name}</small></p>
                             </div>
+                        </div>
                         </div>
                         </div>
                     </div> 
@@ -73,14 +75,15 @@ class MainPage extends React.Component {
     render() {
         return (
             <>
-            <div className="px-4 py-5 my-5 mt-0 text-center bg-danger">
+            <div className="px-4 py-5 my-5 mt-0 text-center bg-danger bg-gradient">
             <h1 className="display-5 fw-bold">Adaptation Accuracy</h1>
                 <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" width="300" height="300" /> 
             <h1 className="display-5 fw-bold">Report!</h1>
             <div className="col-lg-6 mx-auto">
                 <p className="lead mb-4">
-                Finally, a place where Adaptations are rated on accuracy by the viewers, for the viewers!
+                Finally, a place where Movie and TV adaptations are rated on accuracy by the viewers, for the viewers!
                 </p>
+                <button type="button" class="btn btn-primary">Learn How to Write a Review</button>
                 <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 </div>
             </div>
