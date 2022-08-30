@@ -1,3 +1,15 @@
+## August 30 2022
+
+What needs to be done today:
+- Acls
+- About page
+- Main Page
+Biggest Blocker:
+- Acls
+- migrations 
+
+
+
 ## August 29 2022
 Today Kurt, Jack and I worked on the MainPage and we got our logo to display along with some template reivews. Kurt was also able to get the navbar working. I tried tackling the acls and spent most of the time looking at documentation and trying to understand how to grab the api. Micheal was able to get the user model working correctly. Tomorrow we are going to get the acls working and trying to implement the api keys.
 
