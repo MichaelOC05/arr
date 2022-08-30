@@ -1,3 +1,12 @@
+## August 29 2022
+Today Kurt, Jack and I worked on the MainPage and we got our logo to display along with some template reivews. Kurt was also able to get the navbar working. I tried tackling the acls and spent most of the time looking at documentation and trying to understand how to grab the api. Micheal was able to get the user model working correctly. Tomorrow we are going to get the acls working and trying to implement the api keys.
+
+Features Running:
+-Main Page
+-Navbar
+-user model
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## August 25 2022
 
 What we worked on and problems we ran into: 
@@ -8,8 +17,9 @@ Kurt and I are currently reading up on ACL for the API we plan on using, Micheal
 Features Running:
 - same as yesterday 
 - React
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- August 24 2022 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## August 24 2022 
 
 What we worked on and problems we ran into:
 
@@ -20,7 +30,8 @@ Features running:
 - Create movie info views and encoders 
 - create comments views and encoders 
 - create movie list in insomnia 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## August 23 2022
 
@@ -33,7 +44,8 @@ Set reviewer id null = true so that the review can be changed in insomnia.
 
 Features Running:
 - create and list review
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## August 22 2022
 
 What we did today and problems we had run into: 
