@@ -2,9 +2,8 @@ import React from "react";
 
 
 function ReviewRows(props) {
-    console.log(props, "$")
     return (
-        <div className="row">
+        <div className="col">
             {props.list.map(data => {
                 // const movie = data.movieInformationModel;
                 const review = data;
@@ -12,7 +11,7 @@ function ReviewRows(props) {
                     <div className="card mb-3" divStyle={"max-width: 540px;"}>
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="..."></img>
+                                <img src="..." className="img-fluid rounded-start" alt="..."></img>
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
@@ -22,7 +21,7 @@ function ReviewRows(props) {
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div> 
                 );
             })}
         </div>
@@ -74,15 +73,28 @@ class MainPage extends React.Component {
     render() {
         return (
             <>
-            <p>Hello</p>
+            <div className="px-4 py-5 my-5 mt-0 text-center bg-danger">
+            <h1 className="display-5 fw-bold">Adaptation Accuracy</h1>
+                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" width="300" height="300" /> 
+            <h1 className="display-5 fw-bold">Report!</h1>
+            <div className="col-lg-6 mx-auto">
+                <p className="lead mb-4">
+                Finally, a place where Adaptations are rated on accuracy by the viewers, for the viewers!
+                </p>
+                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                </div>
+            </div>
+            </div>
             <div className="container">
                 <h2>Reviews from people like you...</h2>
-                {this.state.sampleReviews.map((reviewList, index) => {
+                <div className="row row-cols-1 row-cols-md-2 g-4">
+                {this.state.sampleReviews.map((reviewList) => {
                     console.log(this.state.sampleReviews)
                     return (
                         <ReviewRows key={reviewList.id} list={reviewList} />
                     );
                 })}
+                </div>
             </div>
             </>
         );
