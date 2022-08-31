@@ -5,7 +5,7 @@ from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
-import djwto.authentication as auth
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 class UserModelEncoder(ModelEncoder):
@@ -138,7 +138,6 @@ def api_review(request,pk):
 # function to call to sign in might want to add a way to direct the user to the home/
 @require_http_methods(["GET"])
 def api_user_token(request):
-    print(request.COOKIES)
     if "jwt_access_token" in request.COOKIES:
         token = request.COOKIES["jwt_access_token"]
         if token:
@@ -273,3 +272,20 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             return response
             
 
+
+
+def authenticate_user(request):
+    content = json.loads(request.body)
+    print(content)
+    username = content[0]
+    password = content[1]
+    user = authenticate(username=username, password=password)
+    try:
+        if user.is_active:
+            login(request, user)
+            response = JsonResponse({"Message": "User logged in"})
+            return response
+        elif user.is_disabled:
+            return 
+    except UserModel.DoesNotExist:
+        response = JsonResponse({"Message": "Does not exist"})
