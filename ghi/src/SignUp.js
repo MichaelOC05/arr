@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { useToken } from "./TokenContext"
-
+import { useAuthContext, useToken } from "./TokenContext"
+import Cookies from "universal-cookie"
 // import Cookies from "universal-cookie"
 
 
-function LoginForm (props) {
-    const [token, login] = useToken()
+function SignUpForm (props) {
+    const [token, signup] = useToken()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -18,24 +18,10 @@ function LoginForm (props) {
         setPassword(value.target.value)
     }
 
-    async function submitButton(event) {
+    function submitButton(event) {
         event.preventDefault()
-        await login(username, password)
+        signup(username, password)
         console.log(token)
-        let loginUrl = "http://localhost:8000/monolith/login/authenticate/"
-        let data = [username, password]
-        let fetchConfig = {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-        console.log(loginUrl)
-        let response = await fetch(loginUrl, fetchConfig)
-        const c = await response.json()
-        console.log("returned", c)
-
     }
 
 return (
@@ -52,6 +38,9 @@ return (
               <input onChange={handlePassword} placeholder="Password" type="text" name="password" id="password" className="form-control"  />
               <label htmlFor="employee_number">Password</label>
             </div>
+            <div className="form-floating mb-3">
+
+            </div>
             <div className="mb-3">
             </div>
             <button className="btn btn-primary" onClick={submitButton}>Login</button>
@@ -62,4 +51,4 @@ return (
  )
 }
 
-export default  LoginForm
+export default  SignUpForm
