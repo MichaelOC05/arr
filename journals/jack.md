@@ -1,3 +1,10 @@
+## Tuesday August 30, 2022:
+    Once again, we spent our morning working on git merges to make sure everything was ok because we made changes to our models and migrations and weren't sure what woul happen. luckily, with the merge, the migrations were overwritten and it went smoother than we thought. I only wish we had more time in the morning to work on the project.
+    After lunch, I began working on the description page on how to use our website rubric in rating a movie. It was fairly easy, as I only had to write the instructions for the rubric rating system and then I spent some time on the bootstrap css to make other pages look like all the others. I also got the nav links to work so the button on the main page takes you to the description page and another button to take you to the create views page. After I completed my task I went to the main group and tried to assist where I can on accessing the api's for the movie and source materials. We were unsuccessful in finishing this task and plan on working on it later.
+
+    completed: description page, nav links
+    working on: api's, authentication
+
 ## Monday August 29, 2022:
     Today was a slow start, with the morning dealing with Git merges and planning on how to proceed with the rest of the day. It was strange as the merge requests for mine were different than michaels, where I can click a button to fix the merge requests while he could not. This caused some difficulties with the git merge and I believe it is something we'll have to continue to deal with. 
     After lunch, Michael went off to figure out the login situation while I continued to work on the main page to adjust the HTML to get the main page in a desirable place where it is ok and the review cards are in the right rows. We also took the time as a group to get the logo on the main page and after that was completed I began working on the review form. Michael returned and stated that he solved the login in issue and also got the user model working which was a huge setback. 
