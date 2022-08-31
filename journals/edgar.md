@@ -17,3 +17,6 @@ Ran into an issue turned out a word was misspelled, a seir helped us find the pr
 Worked on fixing errors in groups. 
 Fixed website html logo issues
 Uploaded logo onto front page with customizations 
+
+## August 31, 2022
+Worked with seirs on researching a plan on how to integrate poster images from the API to react
