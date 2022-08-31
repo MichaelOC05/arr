@@ -1,6 +1,13 @@
+## Wednesday August 31, 2022:
+    The morning we had no issues with git, which was a nice change of pace. Me and Michael worked on a button that would switch between one or the other depending on if you were logged in. We were able to solve this after lunch, and the buttons work with sending you to the proper link. Then we worked on creating the create a user form on the same page as the log in. We had difficulty in doing this, as it was not creating aa user, and with the help of Ryan and Neil, we were able to figure out a solution and the create a user form now works and makes a new user. We pushed it to the main branch and heard from Kurt and Gio that the api for movvies is working but we are having issues with the comic api. This issue we agreed would be good to solve tomorrow, and also agreed to work on the log out function for the user tomorrow as well.
+
+    completed: description page, login/create user page, movie api
+    working on: log out, comic api
+
 ## Tuesday August 30, 2022:
     Once again, we spent our morning working on git merges to make sure everything was ok because we made changes to our models and migrations and weren't sure what woul happen. luckily, with the merge, the migrations were overwritten and it went smoother than we thought. I only wish we had more time in the morning to work on the project.
     After lunch, I began working on the description page on how to use our website rubric in rating a movie. It was fairly easy, as I only had to write the instructions for the rubric rating system and then I spent some time on the bootstrap css to make other pages look like all the others. I also got the nav links to work so the button on the main page takes you to the description page and another button to take you to the create views page. After I completed my task I went to the main group and tried to assist where I can on accessing the api's for the movie and source materials. We were unsuccessful in finishing this task and plan on working on it later.
+    After the 5 o'clock attendence, I tried to help out michael with the login cookies, and though I didn't do much to contribute, I was able to assist Michael in getting the log in done.
 
     completed: description page, nav links
     working on: api's, authentication
