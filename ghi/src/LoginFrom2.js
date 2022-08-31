@@ -41,9 +41,11 @@ function LoginForm (props) {
     }
 
 return (
+  <div className="bg-danger bg-gradient">
     <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4">
+      <div className="offset-3 col-6 mt-5">
+      <div className="bg-light bg-gradient">
+      <div className="shadow-lg p-3 mb-5 bg-body rounded">
           <h1>Login</h1>
           <form id="create-conference-form">
             <div className="form-floating mb-3">
@@ -60,7 +62,9 @@ return (
           </form>
         </div>
       </div>
-    </div>    
+      </div>
+    </div> 
+  </div>   
  )
 }
 
