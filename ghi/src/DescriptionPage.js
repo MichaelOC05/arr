@@ -1,9 +1,36 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+function UserGreeting(props) {
+    return <p>Click Below</p>;
+}
+
+function NonUserGreeting(props) {
+    return <p>You need to Login or Create an Account</p>;
+}
+
+function Greeting(props) {
+    const cookies = new Cookies();
+    const isLoggedIn = cookies.get("jwt_access_payload");
+    if (isLoggedIn !== undefined) {
+        return <UserGreeting />
+    }
+    return <NonUserGreeting />
+}
 
 class HowToReview extends React.Component {
 
     render() {
+        const cookies = new Cookies();
+        const isLoggedIn = cookies.get("jwt_access_payload");
+        let button;
+        if (isLoggedIn !== undefined) {
+            button = <Link to="/create_review" className="btn btn-primary btn-lg px-4 gap-3">Write a Review</Link>
+        } else {
+            button = <Link to="/login" className="btn btn-primary btn-lg px-4 gap-3">Login</Link>
+        }
+
         return (
             <>
                 <div className="px-4 py-5 my-5 mt-0 text-center bg-danger bg-gradient">
@@ -61,9 +88,11 @@ class HowToReview extends React.Component {
                         be added to the overall rubric score from all the other viewers while you keep you're personal score seperate. So go on, write a review, or create an account
                         to begin being a part of the Adaptation Accuracy Report Viewer Reviewers!
                     </p>
-                    <Link to="/create_review" className="btn btn-primary btn-lg px-4 gap-3">Write a Review</Link>
+                    <div>
+                        <Greeting isLoggedIn={isLoggedIn} />
+                        {button}
+                    </div>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <Link to="/login" className="btn btn-primary btn-lg px-4 gap-3">Login</Link>
                     </div>
                 </div>
                 </div>
