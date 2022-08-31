@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useToken } from "./TokenContext"
+import { useNavigate } from "react-router-dom";
 
 // import Cookies from "universal-cookie"
 
@@ -8,6 +9,7 @@ function LoginForm (props) {
     const [token, login] = useToken()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
 
     function handleUsername(e)  {
@@ -35,7 +37,7 @@ function LoginForm (props) {
         let response = await fetch(loginUrl, fetchConfig)
         const c = await response.json()
         console.log("returned", c)
-
+        navigate("/")
     }
 
 return (
