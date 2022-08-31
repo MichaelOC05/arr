@@ -11,3 +11,12 @@ We have hit a blocker when it comes to authentication of users. I think we are a
 ## August 25, 2022
 We ran into a lot of problems today. The first was a problem with React. We had to get SIER help. This took around 2 hours to fix. After lunch we ran into a merge conflict that somehow made it into our code in the main branch.
 Gio and I are currently working on reasearching how to set up our third party api's in Django.
+
+## August 29, 2022
+I worked on the ACLS with Gio. I also worked on a Nav bar for the page. Michael was able to get the JWT tokens to work.
+
+## August 30, 2022
+
+
+## August 31, 2022
+Today Gio and I worked on the ACLS again today. With Phils help we were able to get the movie API working. We are still working on the comic API. We are having problems with the API endpoint.

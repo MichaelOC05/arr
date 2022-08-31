@@ -46,17 +46,17 @@ class CommentsModel(models.Model):
 
 class MovieInformationModel(models.Model):
     movie_name = models.CharField(max_length= 100)
-    movie_poster = models.URLField(null=True)
-    source_cover = models.URLField(null=True)
+    movie_poster = models.URLField(null=True, blank=True)
+    source_cover = models.URLField(null=True, blank=True)
     movie_director = models.CharField(max_length=100)
-    source_author = models.CharField(max_length=100)
-    imdb_score = models.FloatField()
+    source_author = models.CharField(max_length=100, null=True, blank=True)
+    imdb_score = models.FloatField(null=True,blank=True)
     movie_synopsis = models.TextField(max_length=250)
     imdb_id = models.CharField(max_length=100)
     source_type = models.CharField(max_length=100)
     list_of_reviews = models.ForeignKey(
         ReviewModel,
         related_name="list_of_reviews",
-        on_delete=models.PROTECT, null=True,
+        on_delete=models.PROTECT, null=True,blank=True,
     
     )

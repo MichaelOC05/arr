@@ -6,6 +6,7 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
 import djwto.authentication as auth
+from.acls import get_movies, get_comics
 # Create your views here.
 
 class UserModelEncoder(ModelEncoder):
@@ -57,6 +58,7 @@ class MovieInformationEncoder(ModelEncoder):
         "movie_synopsis",
         "imdb_id",
         "source_type",
+        "id",
         # "list_of_reviews",
     ]
     encoders= {
@@ -222,12 +224,17 @@ def api_movieinfo(request):#This one is called MOVIE no S
     else: 
         content = json.loads(request.body)
         try:
+            movie = get_movies(content["movie_name"])
+            content.update(movie)
+            comic = get_comics(content["movie_name"])
+            content.update(comic)
             movie_info = MovieInformationModel.objects.create(**content)
             return JsonResponse(
                 movie_info,
                 encoder=MovieInformationEncoder,
                 safe=False,
             )
+            
         except MovieInformationModel.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid Movie"}
