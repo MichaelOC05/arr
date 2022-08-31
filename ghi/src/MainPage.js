@@ -69,6 +69,7 @@ class MainPage extends React.Component {
             console.error(e);
         }
     }
+    
 
     render() {
         return (
