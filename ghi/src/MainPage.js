@@ -12,7 +12,7 @@ function ReviewRows(props) {
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="..." className="img-fluid rounded-start" alt="..."></img>
+                                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" className="img-fluid rounded-start" alt="..."></img>
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
