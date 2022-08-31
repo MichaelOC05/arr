@@ -108,8 +108,13 @@ export function useToken() {
   async function login(username, password) {
     const url = `http://localhost:8000/login/`;
     const form = new FormData();
+    console.log(username)
+    console.log(password)
     form.append("username", username);
     form.append("password", password);
+    for (var pair of form.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]); 
+    }
     const response = await fetch(url, {
       method: "post",
       credentials: "include",
