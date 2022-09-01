@@ -132,20 +132,22 @@ export function useToken() {
   }
 
   async function signup(username, password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+    console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+    const url = "http://localhost:8000/monolith/login/create_user/";
     const response = await fetch(url, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify({
-        username,
-        password,
-        email,
-        first_name: firstName,
-        last_name: lastName,
+        "username": username,
+        "password": password,
+        "email": email,
+        "first_name": firstName,
+        "last_name": lastName,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
+    console.log(response, "$$$")
     if (response.ok) {
       await login(username, password);
     }

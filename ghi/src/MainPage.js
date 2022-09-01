@@ -8,11 +8,11 @@ function ReviewRows(props) {
                 // const movie = data.movieInformationModel;
                 const review = data;
                 return (
-                    <div className="card mb-3" divStyle={"max-width: 540px;"}>
+                    <div className="card mb-3" divstyle={"max-width: 540px;"}>
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="..." className="img-fluid rounded-start" alt="..."></img>
+                                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" className="img-fluid rounded-start" alt="..."></img>
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
@@ -92,7 +92,6 @@ class MainPage extends React.Component {
                 <h2>Reviews from people like you...</h2>
                 <div className="row row-cols-1 row-cols-md-2 g-4">
                 {this.state.sampleReviews.map((reviewList) => {
-                    console.log(this.state.sampleReviews)
                     return (
                         <ReviewRows key={reviewList.id} list={reviewList} />
                     );
