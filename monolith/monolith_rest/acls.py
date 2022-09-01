@@ -61,9 +61,8 @@ def get_comics(movie_name):
     # print(response, "!!!!!!!!!!!!!!!")
 
     content = json.loads(response.content)
-    print(content)
     try: 
-        return {"source_author": content["results"][0]["creators"],#grabs source author 
+        return { 
         "source_cover": content["results"][0]["image"]["icon_url"]#grabs image comic book cover
         }
     except(KeyError, IndexError):
