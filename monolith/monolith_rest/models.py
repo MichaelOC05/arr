@@ -18,8 +18,40 @@ class UserModel(AbstractUser):
 
     
 
+
+
+class CommentsModel(models.Model):
+    date_posted = models.DateTimeField()
+    comment = models.TextField(max_length=250)
+    commenter_id = models.ForeignKey(
+        UserModel,
+        related_name = "comment_model",
+        on_delete=models.PROTECT,  
+        null=True, #CHANGE BACK TO FALSE!!!!
+    )
+
+
+class MovieInformationModel(models.Model):
+    movie_name = models.CharField(max_length= 100)
+    movie_poster = models.URLField(null=True)
+    source_cover = models.URLField(null=True)#comic
+    movie_poster = models.URLField(null=True, blank=True)
+    source_cover = models.URLField(null=True, blank=True)
+    movie_director = models.CharField(max_length=100)
+    source_author = models.CharField(max_length=100, null=True, blank=True)
+    imdb_score = models.FloatField(null=True,blank=True)
+    movie_synopsis = models.TextField(max_length=250)
+    imdb_id = models.CharField(max_length=100)
+    source_type = models.CharField(max_length=100)
+
+
 class ReviewModel(models.Model):
-    movie_name = models.CharField(max_length = 100)
+    movie_id = models.ForeignKey(
+        MovieInformationModel,
+        related_name="review_model",
+        on_delete=models.PROTECT,
+        null=False
+    )
     base_rating = models.SmallIntegerField(validators=[MaxValueValidator(10),MinValueValidator(1)])
     plot_rating = models.SmallIntegerField(validators=[MaxValueValidator(10),MinValueValidator(1)])# rating based on plot
     char_rating = models.SmallIntegerField(validators=[MaxValueValidator(10),MinValueValidator(1)])# rating based on character accuracy 
@@ -37,33 +69,4 @@ class ReviewModel(models.Model):
     )
     def __str__(self):
         return self.movie_name
-
-
-class CommentsModel(models.Model):
-    date_posted = models.DateTimeField()
-    comment = models.TextField(max_length=250)
-    commenter_id = models.ForeignKey(
-        UserModel,
-        related_name = "comment_model",
-        on_delete=models.PROTECT,  
-        null=True, #CHANGE BACK TO FALSE!!!!
-    )
-
-class MovieInformationModel(models.Model):
-    movie_name = models.CharField(max_length= 100)
-    movie_poster = models.URLField(null=True)
-    source_cover = models.URLField(null=True)#comic
-    movie_poster = models.URLField(null=True, blank=True)
-    source_cover = models.URLField(null=True, blank=True)
-    movie_director = models.CharField(max_length=100)
-    source_author = models.CharField(max_length=100, null=True, blank=True)
-    imdb_score = models.FloatField(null=True,blank=True)
-    movie_synopsis = models.TextField(max_length=250)
-    imdb_id = models.CharField(max_length=100)
-    source_type = models.CharField(max_length=100)
-    list_of_reviews = models.ForeignKey(
-        ReviewModel,
-        related_name="list_of_reviews",
-        on_delete=models.PROTECT, null=True,blank=True,
-    
-    )
+ 
