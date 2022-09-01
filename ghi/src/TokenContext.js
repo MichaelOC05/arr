@@ -95,7 +95,7 @@ export function useToken() {
   // I think this brings us to the home page
   async function logout() {
     if (token) {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/token/refresh/logout/`;
+      const url = `${process.env.MONOLITH_HOST}/api/token/refresh/logout/`;
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
@@ -106,7 +106,7 @@ export function useToken() {
   // would we need an url that is linked with this or is this handled by django and djwt?
   // https://medium.com/geekculture/djwto-django-authentication-with-jwt-3ff6a6141fa6
   async function login(username, password) {
-    const url = `http://localhost:8000/login/`;
+    const url = `${process.env.MONOLITH_HOST}/login/`;
     const form = new FormData();
     console.log(username)
     console.log(password)
@@ -133,7 +133,7 @@ export function useToken() {
 
   async function signup(username, password, email, firstName, lastName) {
     console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
-    const url = "http://localhost:8000/monolith/login/create_user/";
+    const url = `${process.env.MONOLITH_HOST}/login/create_user/`;
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -155,7 +155,7 @@ export function useToken() {
   }
 
   async function update(username, password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+    const url = `${process.env.MONOLITH_HOST}/api/accounts/`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
