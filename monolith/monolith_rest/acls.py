@@ -2,6 +2,8 @@
 import json, requests, os
 from turtle import write
 
+from monolith.monolith_rest.views import MovieInformationEncoder
+
 # from .models import MovieInformationModel
 
 
@@ -42,7 +44,7 @@ def get_movies(movie_name,movie_director, imdb_score, movie_synopsis, imdb_id):
     content = requests.get(url)
     data = json.loads(content)
     response = requests.get(url, "movie_name")
-    movie = MovieInformationModel.objects.create(
+    movie = MovieInformationEncoder.objects.create(
         movie_director,
         imdb_score,
         movie_synopsis,
@@ -61,8 +63,9 @@ def get_comics(movie_name):
     # print(response, "!!!!!!!!!!!!!!!")
 
     content = json.loads(response.content)
+    print(content)
     try: 
-        return { 
+        return {"source_author": content["results"][0]["creators"],#grabs source author 
         "source_cover": content["results"][0]["image"]["icon_url"]#grabs image comic book cover
         }
     except(KeyError, IndexError):
