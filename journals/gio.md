@@ -1,3 +1,5 @@
+## August 1 2022
+
 ## August 31 2022
 
 What needs to be done:
@@ -13,7 +15,7 @@ Working features:
 - home page
 - about page buttons
 Kurt and I had the api for the movie api working but are still struggling with how to get the comic api working. Jack and micheal are working on the logout page. 
-
+---------------------------------------------------------------------------------------------------------------------------------------------
 ## August 30 2022
 
 What needs to be done today:

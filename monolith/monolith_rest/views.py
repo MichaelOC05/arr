@@ -8,6 +8,8 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json 
 import djwto.authentication as auth
+from.acls import get_movies, get_comics
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 class UserModelEncoder(ModelEncoder):
@@ -59,6 +61,7 @@ class MovieInformationEncoder(ModelEncoder):
         "movie_synopsis",
         "imdb_id",
         "source_type",
+        "id",
         # "list_of_reviews",
     ]
     encoders= {
@@ -140,7 +143,6 @@ def api_review(request,pk):
 # function to call to sign in might want to add a way to direct the user to the home/
 @require_http_methods(["GET"])
 def api_user_token(request):
-    print(request.COOKIES)
     if "jwt_access_token" in request.COOKIES:
         token = request.COOKIES["jwt_access_token"]
         if token:
@@ -226,12 +228,17 @@ def api_movieinfo(request):#This one is called MOVIE no S
         # movie = get_movies(content["movie_name"])# if broken remove
         # content.update(movie)# if broken remove
         try:
+            movie = get_movies(content["movie_name"])
+            content.update(movie)
+            comic = get_comics(content["movie_name"])
+            content.update(comic)
             movie_info = MovieInformationModel.objects.create(**content)
             return JsonResponse(
                 movie_info,
                 encoder=MovieInformationEncoder,
                 safe=False,
             )
+            
         except MovieInformationModel.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid Movie"}
@@ -277,3 +284,41 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             return response
             
 
+
+
+def authenticate_user(request):
+    content = json.loads(request.body)
+    print(content)
+    username = content[0]
+    password = content[1]
+    user = authenticate(username=username, password=password)
+    try:
+        if user.is_active:
+            login(request, user)
+            response = JsonResponse({"Message": "User logged in"})
+            return response
+        elif user.is_disabled:
+            return 
+    except UserModel.DoesNotExist:
+        response = JsonResponse({"Message": "Does not exist"})
+
+
+@require_http_methods("POST")
+def api_create_account(request):
+    if request.method == "POST":
+        content = json.loads(request.body)
+        try:
+            user = UserModel.objects.create(**content)
+        except UserModel.DoesNotExist:
+            return JsonResponse(
+                {"message": "Failed to create user"},
+                status=400
+            )
+        return JsonResponse(
+            user,
+            encoder=UserModelEncoder,
+            safe=False
+        )
+
+# @require_http_methods(["GET", "PUT", "DELETE"])
+# def api_user_account():
