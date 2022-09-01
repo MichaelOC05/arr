@@ -19,4 +19,4 @@ Fixed website html logo issues
 Uploaded logo onto front page with customizations 
 
 ## August 31, 2022
-Worked with seirs on researching a plan on how to integrate poster images from the API to react
+Worked with seirs on researching a plan on how to integrate poster images from the API to react. 
