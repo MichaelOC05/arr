@@ -112,9 +112,6 @@ export function useToken() {
     console.log(password)
     form.append("username", username);
     form.append("password", password);
-    for (var pair of form.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]); 
-    }
     const response = await fetch(url, {
       method: "post",
       credentials: "include",
