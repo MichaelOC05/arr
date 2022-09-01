@@ -51,6 +51,8 @@ class CommentsModel(models.Model):
 
 class MovieInformationModel(models.Model):
     movie_name = models.CharField(max_length= 100)
+    movie_poster = models.URLField(null=True)
+    source_cover = models.URLField(null=True)#comic
     movie_poster = models.URLField(null=True, blank=True)
     source_cover = models.URLField(null=True, blank=True)
     movie_director = models.CharField(max_length=100)
