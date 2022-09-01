@@ -1,3 +1,19 @@
+## August 31 2022
+
+What needs to be done:
+- Handle submit for about page 
+- Get api keys to work
+- deploy to heroku
+- list of movies 
+- user page 
+- main movie review page (details of movie and review)
+- create user page 
+Working features:
+- user login 
+- home page
+- about page buttons
+Kurt and I had the api for the movie api working but are still struggling with how to get the comic api working. Jack and micheal are working on the logout page. 
+
 ## August 30 2022
 
 What needs to be done today:
@@ -7,7 +23,8 @@ What needs to be done today:
 Biggest Blocker:
 - Acls
 - migrations 
-
+What we did today:
+Kurt, and I struggled with the acl and the api keys and trying to get the information out of the keys. Jack got the about page running so we got most of the front end done. Micheal is still working on the login page. Some users are allowed but not all of them. Tomorrow we try to get a seirs help to get the api key done. 
 
 
 ## August 29 2022

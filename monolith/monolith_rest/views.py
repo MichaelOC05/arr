@@ -1,5 +1,7 @@
 from urllib import response
 from django.shortcuts import render
+
+from monolith.monolith_rest.acls import get_movies
 from .models import ReviewModel, CommentsModel, MovieInformationModel, UserModel
 from .common.encoders import ModelEncoder 
 from django.views.decorators.http import require_http_methods
@@ -221,6 +223,8 @@ def api_movieinfo(request):#This one is called MOVIE no S
         )
     else: 
         content = json.loads(request.body)
+        # movie = get_movies(content["movie_name"])# if broken remove
+        # content.update(movie)# if broken remove
         try:
             movie_info = MovieInformationModel.objects.create(**content)
             return JsonResponse(
