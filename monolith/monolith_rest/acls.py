@@ -34,6 +34,7 @@ def get_movies(movie_name):
 def get_comics(movie_name):
     url = "https://comicvine.gamespot.com/api/volumes/?api_key=" + COMIC_VINE_API_KEY + "&format=json&sort=name:asc&filter=name:" + movie_name
     headers = {"User-Agent": "My User Agent 1.0"}
+<<<<<<< HEAD
 
 
 def get_movies(movie_name,movie_director, imdb_score, movie_synopsis, imdb_id):
@@ -55,6 +56,10 @@ def get_movies(movie_name,movie_director, imdb_score, movie_synopsis, imdb_id):
 def get_comics(movie_name):
     response = requests.get(url, headers=headers)
     print(response, "!!!!!!!!!!!!!!!")
+=======
+    response = requests.get(url, headers=headers)
+    # print(response, "!!!!!!!!!!!!!!!")
+>>>>>>> main
     content = json.loads(response.content)
     print(content)
     try: 
