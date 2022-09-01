@@ -1,5 +1,3 @@
-
-from email.mime import image
 import os
 import json
 import requests
@@ -37,8 +35,9 @@ def get_comics(movie_name):
     response = requests.get(url, headers=headers)
     # print(response, "!!!!!!!!!!!!!!!")
     content = json.loads(response.content)
+    print(content)
     try: 
-        return {"source_cover": content["results"][0]["image"]#grabs image comic book cover
+        return {"source_cover": content["results"][0]["image"]["original_url"]#grabs image comic book cover
         }
     except(KeyError, IndexError):
         return {"source_author": None,
