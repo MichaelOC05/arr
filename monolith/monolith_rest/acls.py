@@ -2,7 +2,7 @@
 import json, requests, os
 from turtle import write
 
-from monolith.monolith_rest.models import MovieInformationModel
+# from .models import MovieInformationModel
 
 
 MOVIE_KEY = os.environ["MOVIE_KEY"]
@@ -10,13 +10,13 @@ COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
 
 import json
 import requests
-from .keys import TMDB_API_KEY, COMIC_VINE_API_KEY
+# from .keys import TMDB_API_KEY, COMIC_VINE_API_KEY
 
 
 
 
 def get_movies(movie_name):
-    url= 'https://api.themoviedb.org/3/search/movie?api_key=' + TMDB_API_KEY + '&language=en-US&query=' + movie_name + '&page=1&include_adult=false'
+    url= 'https://api.themoviedb.org/3/search/movie?api_key=' + MOVIE_KEY + '&language=en-US&query=' + movie_name + '&page=1&include_adult=false'
     response = requests.get(url)
     content = json.loads(response.content)
     try:
@@ -34,27 +34,8 @@ def get_movies(movie_name):
 def get_comics(movie_name):
     url = "https://comicvine.gamespot.com/api/volumes/?api_key=" + COMIC_VINE_API_KEY + "&format=json&sort=name:asc&filter=name:" + movie_name
     headers = {"User-Agent": "My User Agent 1.0"}
-
-
-def get_movies(movie_name,movie_director, imdb_score, movie_synopsis, imdb_id):
-    url= 'https://api.themoviedb.org/3/movie/{movie_name}?api_key={MOVIE_KEY}&language=en-US'
-    content = requests.get(url)
-    data = json.loads(content)
-    response = requests.get(url, "movie_name")
-    movie = MovieInformationModel.objects.create(
-        movie_director,
-        imdb_score,
-        movie_synopsis,
-        imdb_id,
-        movie_poster = list(data["poster_path"][0].keys()),
-    )
-    return movie
-
-    
-
-def get_comics(movie_name):
     response = requests.get(url, headers=headers)
-    print(response, "!!!!!!!!!!!!!!!")
+    # print(response, "!!!!!!!!!!!!!!!")
     content = json.loads(response.content)
     print(content)
     try: 

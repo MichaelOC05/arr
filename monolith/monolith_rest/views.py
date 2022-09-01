@@ -1,7 +1,7 @@
 from urllib import response
 from django.shortcuts import render
 
-from monolith.monolith_rest.acls import get_movies
+from .acls import get_movies
 from .models import ReviewModel, CommentsModel, MovieInformationModel, UserModel
 from .common.encoders import ModelEncoder 
 from django.views.decorators.http import require_http_methods
