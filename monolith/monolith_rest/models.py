@@ -33,7 +33,7 @@ class ReviewModel(models.Model):
         UserModel,
         related_name = "reviews_model",
         on_delete=models.PROTECT,  
-        null=True,#CHANGE BACK TO FALSE WHEN USER CREATED !!!!!
+        null=False,#CHANGE BACK TO FALSE WHEN USER CREATED !!!
     )
     def __str__(self):
         return self.movie_name
@@ -46,17 +46,16 @@ class CommentsModel(models.Model):
         UserModel,
         related_name = "comment_model",
         on_delete=models.PROTECT,  
-        null=True, #CHANGE BACK TO FALSE!!!!
+        null=False, #CHANGE BACK TO FALSE!!!!
     )
 
 class MovieInformationModel(models.Model):
     movie_name = models.CharField(max_length= 100)
     movie_poster = models.URLField(null=True)
-    source_cover = models.URLField(null=True)#comic
+    source_cover = models.URLField(null=True)#comic can grab
     movie_poster = models.URLField(null=True, blank=True)
-    source_cover = models.URLField(null=True, blank=True)
     movie_director = models.CharField(max_length=100)
-    source_author = models.CharField(max_length=100, null=True, blank=True)
+    source_author = models.CharField(max_length=100, null=True, blank=True)#comics cant grab bc api doesnt work
     imdb_score = models.FloatField(null=True,blank=True)
     movie_synopsis = models.TextField(max_length=250)
     imdb_id = models.CharField(max_length=100)

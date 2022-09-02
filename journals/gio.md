@@ -1,5 +1,5 @@
 ## August 1 2022
-
+We worked on the api key for the comic book but we found out that our api for comic books is broken and uncomplete and we cant get the parameters we want to get from. Micheal and jack were able to get the log out working, and edgar is currently working on the main page to get the movie posters ot ship up. We might just try to grab publisher or person_credits which credits the people that worked on the issue. We also thought that we could try and grab a book api and see if we cant get comic books through that.  
 ## August 31 2022
 
 What needs to be done:
