@@ -23,7 +23,7 @@ class UserModelEncoder(ModelEncoder):
 class ReviewModelEncoder(ModelEncoder):
     model = ReviewModel
     properties = [
-        "movie_name",
+        "movie_id",
         "base_rating",
         "plot_rating",
         "char_rating",
