@@ -105,18 +105,18 @@ class ReviewForm extends React.Component {
               <div className="shadow-lg p-3 mb-5 bg-body rounded">
                 <h1>Create a Review</h1>
                 <form onSubmit={this.handleSubmit} id="create-review-form">
-                  {/* <div className="mb-3">
-                    <select value={this.state.movieName} onChange={this.handleMovieNameChange} required name="movie" id="movie" className="form-select">
+                  <div className="mb-3">
+                    {/* <select value={this.state.movieName} onChange={this.handleMovieNameChange} required name="movie" id="movie" className="form-select">
                       <option value="">Choose a Film/TV Show</option>
                       {this.state.reviews.map(review => {
                             return (
                             <option key={review.href} value={review.href}>
-                                {review.movie_name}
+                                {review.movie_id.movie_name}
                             </option>
                             );
                         })}
-                    </select>
-                  </div> */}
+                    </select> */}
+                  </div>
                   <div className="form-floating mb-3">
                     <input value={this.state.baseRating} onChange={this.handleBaseRatingChange} placeholder="Base rating" required type="number" min="1" max="10" name="base_rating" id="base_rating" className="form-control"/>
                     <label htmlFor="base_rating">Base Rating</label>

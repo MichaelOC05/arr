@@ -2,39 +2,6 @@ import { useState } from "react"
 import { useToken } from "./TokenContext"
 import { useNavigate } from "react-router-dom";
 
-// import Cookies from "universal-cookie"
-// function CreateAccountForm (props) {
-//   const [createUsername, setCreateUsername] = useState("")
-//   const [firstName, setFirstName] = useState("")
-//   const [lastName, setLastName] = useState("")
-//   const [email, setEmail] = useState("")
-//   const [createPassword, setCreatePassword] = useState("")
-
-//   function handleCreateUsername(e) {
-//     setCreateUsername(e.target.value)
-//   }
-
-//   function handleFirstName(e) {
-//     setFirstName(e.target.value)
-//   }
-
-//   function handleLastName(e) {
-//     setLastName(e.target.value)
-//   }
-
-//   function handleEmail(e) {
-//     setEmail(e.target.value)
-//   }
-
-//   function handleCreatePassword(e) {
-//     setCreatePassword(e.target.value)
-//   }
-
-//   async function submitCreateButton(event) {
-//     event.preventDefault()
-//     let createUserUrl = "http://localhost:8000/monolith/login/create_account/"
-//   }
-// }
 
 function LoginForm (props) {
     let [token, login, , signup] = useToken()
@@ -79,7 +46,7 @@ function LoginForm (props) {
         event.preventDefault()
         await login(username, password)
         console.log(token)
-        let loginUrl = "http://localhost:8000/monolith/login/authenticate/"
+        let loginUrl = `${process.env.MONOLITH_HOST}/login/authenticate/`
         let data = [username, password]
         let fetchConfig = {
           method: "POST",

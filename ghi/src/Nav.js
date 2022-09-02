@@ -1,6 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { useToken } from "./TokenContext"
+import { useNavigate } from "react-router-dom";
+
 
 function Nav() {
+    let [token, , logout] = useToken()
+    async function logOutButton(event) {
+        event.preventDefault()
+        await logout()
+        let logoutURL = `${process.env.MONOLITH_HOST}/logout`
+    }
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +34,7 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" aria-current="page" to="">Log out</NavLink>
+                        <button className="btn btn-link" onClick={logOutButton} aria-current="page" to="">Log out</button>
                     </li>
                 </ul>
                 <form className="d-flex">

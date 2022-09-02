@@ -9,7 +9,7 @@ from django.http import JsonResponse
 import json 
 import djwto.authentication as auth
 from.acls import get_movies, get_comics
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 class UserModelEncoder(ModelEncoder):
@@ -68,6 +68,16 @@ class MovieInformationEncoder(ModelEncoder):
         "list_of_reviews": ReviewModelEncoder(),
     }
 
+class CommentsModelEncoder(ModelEncoder):
+    model = CommentsModel
+    properties = [
+        "date_posted",
+        "comment",
+        "commenter_id",
+    ]
+    
+
+
 
 
 @require_http_methods(["GET", "POST"])
@@ -86,6 +96,10 @@ def api_reviews(request):
             user = UserModel.objects.get(id=reviewer)
             del content["reviewer_id"]
             content["reviewer_id"] = user
+            movie_id = content["movie_id"]
+            movie = MovieInformationModel.objects.get(id=movie_id)
+            del content["movie_id"]
+            content["movie_id"] = movie
             review = ReviewModel.objects.create(**content)
             return JsonResponse(
                 review,
@@ -302,6 +316,8 @@ def authenticate_user(request):
     except UserModel.DoesNotExist:
         response = JsonResponse({"Message": "Does not exist"})
 
+def logout_view(request):
+    logout(request)
 
 @require_http_methods("POST")
 def api_create_account(request):
