@@ -14,7 +14,7 @@ function ReviewRows(props) {
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src={url + review.movie_id.movie_poster} className="img-fluid rounded-start" alt="..."></img>
+                                <img src={url + review.movie_id.movie_poster} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
@@ -37,7 +37,7 @@ class MainPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sampleReviews: [[], [], []]
+            sampleReviews: [[], []]
         };
     }
 
@@ -54,14 +54,14 @@ class MainPage extends React.Component {
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);
-                const sampleReviews = [[], [], []];
+                const sampleReviews = [[], []];
                 let i = 0;
                 for (const reviewResponse of responses) {
                     if (reviewResponse.ok) {
                         const details = await reviewResponse.json();
                         sampleReviews[i].push(details);
                         i = i + 1;
-                        if (i > 2) {
+                        if (i > 1) {
                             i = 0;
                         }
                     } else {
