@@ -8,7 +8,6 @@ function ReviewRows(props) {
             {props.list.map(data => {
                 // const movie = data.movieInformationModel;
                 const review = data;
-                console.log(data)
                 return (
                     <div className="card mb-3" divstyle={"max-width: 540px;"}>
                         <div className="shadow p-4 mt-4">
