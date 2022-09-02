@@ -19,6 +19,20 @@ class UserModelEncoder(ModelEncoder):
         "username"
     ]
 
+class MovieInformationEncoder(ModelEncoder):
+    model = MovieInformationModel
+    properties = [
+        "movie_name",
+        "movie_poster",
+        "source_cover",
+        "movie_director",
+        "source_author",
+        "imdb_score",
+        "movie_synopsis",
+        "imdb_id",
+        "source_type",
+        "id",
+    ]
 
 class ReviewModelEncoder(ModelEncoder):
     model = ReviewModel
@@ -37,35 +51,8 @@ class ReviewModelEncoder(ModelEncoder):
         "id",
     ]
     encoders = {
-        "reviewer_id": UserModelEncoder()
-    }
-
-class CommentsModelEncoder(ModelEncoder):
-    model = CommentsModel
-    properties = [
-        "date_posted",
-        "comment",
-        "commenter_id",
-    ]
-    
-
-class MovieInformationEncoder(ModelEncoder):
-    model = MovieInformationModel
-    properties = [
-        "movie_name",
-        "movie_poster",
-        "source_cover",
-        "movie_director",
-        "source_author",
-        "imdb_score",
-        "movie_synopsis",
-        "imdb_id",
-        "source_type",
-        "id",
-        # "list_of_reviews",
-    ]
-    encoders= {
-        "list_of_reviews": ReviewModelEncoder(),
+        "reviewer_id": UserModelEncoder(),
+        "movie_id": MovieInformationEncoder()
     }
 
 class CommentsModelEncoder(ModelEncoder):
