@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function ReviewRows(props) {
+    const url = "http://image.tmdb.org/t/p/original"
     return (
         <div className="col">
             {props.list.map(data => {
@@ -12,11 +13,11 @@ function ReviewRows(props) {
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" className="img-fluid rounded-start" alt="..."></img>
+                                <img src={url + review.movie_id.movie_poster} className="img-fluid rounded-start" alt="..."></img>
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                                <h5 className="card-title">{review.movie_name}</h5>
+                                <h5 className="card-title">{review.movie_id.movie_name}</h5>
                                 <p className="card-text">{review.rating_description}</p>
                                 <p className="card-text"><small className="text-muted">Review By: {review.reviewer_id.username}</small></p>
                             </div>
@@ -39,7 +40,8 @@ class MainPage extends React.Component {
     }
 
     async componentDidMount() {
-        const url = 'http://localhost:8000/monolith/reviews/';
+        console.log(process.env.REACT_APP_MONOLITH_HOST)
+        const url = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`;
 
         try {
             const response = await fetch(url);
@@ -47,7 +49,8 @@ class MainPage extends React.Component {
                 const data = await response.json();
                 const requests = [];
                 for (let review of data.Review) {
-                    const detailUrl = `http://localhost:8000/monolith/reviews/${review.id}/`;
+                    const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/${review.id}/`;
+                    console.log(detailUrl)
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);

@@ -8,6 +8,7 @@ function Nav() {
     async function logOutButton(event) {
         event.preventDefault()
         await logout()
+        let logoutURL = `${process.env.MONOLITH_HOST}/logout`
     }
 
     return (
