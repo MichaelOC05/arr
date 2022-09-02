@@ -46,7 +46,7 @@ function LoginForm (props) {
         event.preventDefault()
         await login(username, password)
         console.log(token)
-        let loginUrl = `${process.env.MONOLITH_HOST}/login/authenticate/`
+        let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
         let data = [username, password]
         let fetchConfig = {
           method: "POST",

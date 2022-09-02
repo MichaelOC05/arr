@@ -10,6 +10,7 @@ function ReviewRows(props) {
                 const review = data;
                 return (
                     <div className="card mb-3" divstyle={"max-width: 540px;"}>
+                        <div className="bg-primary bg-gradient">
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
                             <div className="col-md-4">
@@ -17,10 +18,11 @@ function ReviewRows(props) {
                             </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                                <h5 className="card-title">{review.movie_id.movie_name}</h5>
+                                <h5 className="card-title"><u>{review.movie_id.movie_name} </u></h5>
                                 <p className="card-text">{review.rating_description}</p>
-                                <p className="card-text"><small className="text-muted">Review By: {review.reviewer_id.username}</small></p>
+                                <p className="card-text"><small className="text">Review By: {review.reviewer_id.username}</small></p>
                             </div>
+                        </div>
                         </div>
                         </div>
                         </div>
@@ -40,7 +42,6 @@ class MainPage extends React.Component {
     }
 
     async componentDidMount() {
-        console.log(process.env.REACT_APP_MONOLITH_HOST)
         const url = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`;
 
         try {
@@ -50,7 +51,6 @@ class MainPage extends React.Component {
                 const requests = [];
                 for (let review of data.Review) {
                     const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/${review.id}/`;
-                    console.log(detailUrl)
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);
