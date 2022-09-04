@@ -1,3 +1,9 @@
+## Friday September 2, 2022:
+    Today we discussed how to proceed, as there were complications that arose, especially that the login wasn't working anymore. luckily that was solved in the morning as I changed the url back to its original hardcode. Also made slight changes to the bottstrap css and made the rows for the front page have only two per row rather than two, one, two, one.
+
+## Thurday September 1, 2022:
+    Today we split into groups as Michael and I worked on the logout button and changing the urls to be no longer hardcoded in. There were some errors, but we got help to get them solved which was due to react not recognizing it. We also changed our review model to have a foreign key attached to the movie model. In the evening, we had some issues with accessing the information, but daniel pointed out we forgot to update information from our encoders and the code began to work how it should of. Before we called it a night, me and kurt were able to get the posters to populate the main page.
+
 ## Wednesday August 31, 2022:
     The morning we had no issues with git, which was a nice change of pace. Me and Michael worked on a button that would switch between one or the other depending on if you were logged in. We were able to solve this after lunch, and the buttons work with sending you to the proper link. Then we worked on creating the create a user form on the same page as the log in. We had difficulty in doing this, as it was not creating aa user, and with the help of Ryan and Neil, we were able to figure out a solution and the create a user form now works and makes a new user. We pushed it to the main branch and heard from Kurt and Gio that the api for movvies is working but we are having issues with the comic api. This issue we agreed would be good to solve tomorrow, and also agreed to work on the log out function for the user tomorrow as well.
 
