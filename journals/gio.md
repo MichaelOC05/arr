@@ -3,6 +3,8 @@ Things that need to be done:
 - Work on the CICD pipeline
 - Main pages
 - logout 
+- tests
+
 What we got done:
 - Got the movie poster to display on the main page 
 

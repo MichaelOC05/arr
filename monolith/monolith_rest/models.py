@@ -66,6 +66,7 @@ class ReviewModel(models.Model):
         related_name = "reviews_model",
         on_delete=models.PROTECT,  
         null=False,#CHANGE BACK TO FALSE WHEN USER CREATED !!!
+        # default = False
     )
     def __str__(self):
         return self.movie_name
