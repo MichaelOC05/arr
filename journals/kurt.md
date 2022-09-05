@@ -20,3 +20,6 @@ I worked on the ACLS with Gio. I also worked on a Nav bar for the page. Michael 
 
 ## August 31, 2022
 Today Gio and I worked on the ACLS again today. With Phils help we were able to get the movie API working. We are still working on the comic API. We are having problems with the API endpoint.
+
+## September 1, 2022
+We worked on the comic book api again today. Through some research we found out that the API is not well maintianed and that the endpoint we are trying to hit is likely broken. We are considering abandoning that API for a different one. Also Jack and I were able to get the movie posters to display on the main page this evening.

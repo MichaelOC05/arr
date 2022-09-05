@@ -95,7 +95,7 @@ return (
               <label htmlFor="name">Username</label>
             </div>
             <div className="form-floating mb-3">
-              <input onChange={handlePassword} placeholder="Password" type="text" name="password" id="password" className="form-control"  />
+              <input onChange={handlePassword} placeholder="Password" type="password" name="password" id="password" className="form-control"  />
               <label htmlFor="employee_number">Password</label>
             </div>
             <div className="mb-3">
@@ -129,12 +129,12 @@ return (
               <label htmlFor="email">Email</label>
             </div>
             <div className="form-floating mb-3">
-              <input onChange={handleCreatePassword} placeholder="Password" type="text" name="password" id="password" className="form-control"  />
+              <input onChange={handleCreatePassword} placeholder="Password" type="password" name="password" id="password" className="form-control"  />
               <label htmlFor="employee_number">Password</label>
             </div>
             <div className="mb-3">
             </div>
-            <button className="btn btn-primary" onClick={submitCreateButton}>Login</button>
+            <button className="btn btn-primary" onClick={submitCreateButton}>Create Account</button>
           </form>
         </div>
       </div>

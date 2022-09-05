@@ -1,6 +1,6 @@
-
-import json, requests, os
-from turtle import write
+import os
+import json
+import requests
 
 # from .models import MovieInformationModel
 
@@ -8,15 +8,13 @@ from turtle import write
 MOVIE_KEY = os.environ["MOVIE_KEY"]
 COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
 
-import json
-import requests
+
 # from .keys import TMDB_API_KEY, COMIC_VINE_API_KEY
 
 
 
-
 def get_movies(movie_name):
-    url= 'https://api.themoviedb.org/3/search/movie?api_key=' + MOVIE_KEY + '&language=en-US&query=' + movie_name + '&page=1&include_adult=false'
+    url= 'https://api.themoviedb.org/3/search/multi?api_key=' + MOVIE_KEY + '&language=en-US&query=' + movie_name + '&page=1&include_adult=false'
     response = requests.get(url)
     content = json.loads(response.content)
     try:
@@ -32,14 +30,13 @@ def get_movies(movie_name):
 
 
 def get_comics(movie_name):
-    url = "https://comicvine.gamespot.com/api/volumes/?api_key=" + COMIC_VINE_API_KEY + "&format=json&sort=name:asc&filter=name:" + movie_name
+    url = "https://comicvine.gamespot.com/api/search/?api_key=" + COMIC_VINE_API_KEY + "&format=json&sort=name:asc&resources=issue&query=" + movie_name
     headers = {"User-Agent": "My User Agent 1.0"}
     response = requests.get(url, headers=headers)
-    # print(response, "!!!!!!!!!!!!!!!")
+    print(response, "@@@@@@@@@@@@@@@@@@@")
     content = json.loads(response.content)
     try: 
-        return { 
-        "source_cover": content["results"][0]["image"]["icon_url"]#grabs image comic book cover
+        return {"source_cover": content["results"][0]["image"]["original_url"]#grabs image comic book cover
         }
     except(KeyError, IndexError):
         return {"source_author": None,
