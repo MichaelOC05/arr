@@ -45,7 +45,6 @@ function LoginForm (props) {
     async function submitButton(event) {
         event.preventDefault()
         await login(username, password)
-        console.log(token)
         let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
         let data = [username, password]
         let fetchConfig = {
@@ -55,7 +54,7 @@ function LoginForm (props) {
             Authorization: `Bearer ${token}`
           }
         }
-        console.log(loginUrl)
+        console.log("login", loginUrl)
         let response = await fetch(loginUrl, fetchConfig)
         const c = await response.json()
         console.log("returned", c)
@@ -67,7 +66,7 @@ function LoginForm (props) {
       event.preventDefault()
       await signup(createUsername, createPassword, email, firstName, lastName)
       // let createUserUrl = "http://localhost:8000/monolith/login/create_account/"
-      let loginUrl = "http://localhost:8000/monolith/login/authenticate/"
+      let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
       let newData = [createUsername, createPassword, email, firstName, lastName]
 
       let fetchConfig = {
@@ -89,7 +88,7 @@ return (
       <div className="bg-light bg-gradient">
       <div className="shadow-lg p-3 mb-5 bg-body rounded">
           <h1>Login</h1>
-          <form id="create-conference-form">
+          <form id="login-form">
             <div className="form-floating mb-3">
               <input onChange={handleUsername} placeholder="Username" required type="text" name="username" id="username" className="form-control"  />
               <label htmlFor="name">Username</label>
@@ -111,9 +110,9 @@ return (
       <div className="bg-light bg-gradient">
       <div className="shadow-lg p-3 mb-5 bg-body rounded">
           <h1>Create Account</h1>
-          <form id="create-conference-form">
+          <form id="create-user-form">
             <div className="form-floating mb-3">
-              <input onChange={handleCreateUsername} placeholder="Username" required type="text" name="username" id="username" className="form-control"  />
+              <input onChange={handleCreateUsername} placeholder="Username" required type="text" name="username" id="create_username" className="form-control"  />
               <label htmlFor="name">Username</label>
             </div>
             <div className="form-floating mb-3">
@@ -129,7 +128,7 @@ return (
               <label htmlFor="email">Email</label>
             </div>
             <div className="form-floating mb-3">
-              <input onChange={handleCreatePassword} placeholder="Password" type="password" name="password" id="password" className="form-control"  />
+              <input onChange={handleCreatePassword} placeholder="Password" type="password" name="password" id="create_password" className="form-control"  />
               <label htmlFor="employee_number">Password</label>
             </div>
             <div className="mb-3">

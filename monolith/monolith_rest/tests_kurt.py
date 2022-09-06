@@ -15,3 +15,5 @@ class TestMovieView(TestCase):
         client = Client()
         response = client.get(reverse("list_of_movies"))
         self.assertEquals(response.status_code, 200)
+
+
