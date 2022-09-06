@@ -2,14 +2,14 @@ import os
 import json
 import requests
 
-# from .models import MovieInformationModel
+
 
 
 MOVIE_KEY = os.environ["MOVIE_KEY"]
 COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
 
 
-# from .keys import TMDB_API_KEY, COMIC_VINE_API_KEY
+
 
 
 
