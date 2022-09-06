@@ -45,7 +45,6 @@ function LoginForm (props) {
     async function submitButton(event) {
         event.preventDefault()
         await login(username, password)
-        console.log(token)
         let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
         let data = [username, password]
         let fetchConfig = {
@@ -55,7 +54,7 @@ function LoginForm (props) {
             Authorization: `Bearer ${token}`
           }
         }
-        console.log(loginUrl)
+        console.log("login", loginUrl)
         let response = await fetch(loginUrl, fetchConfig)
         const c = await response.json()
         console.log("returned", c)
