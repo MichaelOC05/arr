@@ -13,13 +13,16 @@ export function getToken() {
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
   const url = `http://localhost:8000/monolith/tokens/mine/`;
+  console.log(url, "here")
   try {
     const response = await fetch(url, {
       credentials: "include",
     });
     if (response.ok) {
       const data = await response.json();
+      console.log(data)
       internalToken = data.token;
+
       return internalToken;
     }
   } catch (e) {}
@@ -95,8 +98,12 @@ export function useToken() {
   // I think this brings us to the home page
   async function logout() {
     if (token) {
+<<<<<<< HEAD
       // const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/token/refresh/logout/`;
       const url = `${process.env.REACT_APP_MONOLITH_HOST}/logout/`;
+=======
+      const url = "http://localhost:8000/api/token/refresh/logout/";
+>>>>>>> 55bcbab83f7899f2d72aa6d5cee9400f9d9fa7cb
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
@@ -109,8 +116,6 @@ export function useToken() {
   async function login(username, password) {
     const url = `http://localhost:8000/login/`;
     const form = new FormData();
-    console.log(username)
-    console.log(password)
     form.append("username", username);
     form.append("password", password);
     const response = await fetch(url, {
@@ -118,12 +123,13 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
-    console.log(response)
+
 
 
     // after the user has been authenticated we then 
     if (response) {
       const token = await getTokenInternal();
+      console.log(token)
       setToken(token);
 
       return;
