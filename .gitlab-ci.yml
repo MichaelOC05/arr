@@ -1,0 +1,28 @@
+stages:
+  - test
+  - build
+services:
+  - postgres:14.2-bullseye
+variables:
+  POSTGRES_PASSWORD: test
+  DATABASE_URL: postgresql://postgres:test@postgres:5432/postgres
+unit-test-job:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - cd monolith/monolith_rest
+    - pip install -r requirements.txt
+    - python manage.py test
+lint-job:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - pip install flake8
+    - flake8 monolith
+build-front-end-job:
+  stage: build
+  image: node:lts-bullseye
+  script:
+    - cd ghi
+    - npm install 
+    - npm run build

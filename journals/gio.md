@@ -1,3 +1,13 @@
+## September 5 2022
+Things that need to be done:
+- logout
+- tests
+- movie page 
+Tomorrow:
+- heroku
+- create a review page 
+- CICD pipeline 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 ## August 2 2022
 Things that need to be done:
 - Work on the CICD pipeline
