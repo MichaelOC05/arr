@@ -38,7 +38,7 @@ class HowToReview extends React.Component {
                     <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" width="200" height="200" /> 
                 <div className="col-lg-10 mx-auto">
                     <p className="lead mb-4">
-                        Welcome to the Adaptation Accuracy Report! A website designed by people who love reading and watching their adaptations.
+                        Welcome to the Adaptation Accuracy Report! A website designed by people who love reading books and watching their film adaptations.
                         However, we find these adaptations to be a bit...inaccurate. Our team decided that their should be a rating system for 
                         movies and TV shows based only on the accuracy of how it compares to the source material. We also believe that the best 
                         reviewers are you, the viewers, and before you write your first review...or tenth, you should learn how to use our rubric.
