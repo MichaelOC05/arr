@@ -43,7 +43,7 @@ build-adaptation-accuracy-report:
     - docker push ${CI_REGISTRY_IMAGE}/monolith:latest
 deploy-adaptation-accuracy-report:
   rules:
-    - if $CI_COMMIT_BRANCJ == %CI_DEAFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   stage: deploy
   image: docker:20.10.16
   needs:
