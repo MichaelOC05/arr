@@ -34,7 +34,7 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     <li className="nav-item">
-                        <button className="btn btn-link" onClick={logOutButton} aria-current="page" to="">Log out</button>
+                        <NavLink className="nav-link" aria-current="page" to="">Log out</NavLink>
                     </li>
                 </ul>
                 <form className="d-flex">
