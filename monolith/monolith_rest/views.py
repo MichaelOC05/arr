@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
 from .acls import get_movies
-from .models import ReviewModel, CommentsModel, MovieInformationModel, UserModel
+from .models import (ReviewModel, CommentsModel,
+ MovieInformationModel, UserModel)
 from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
@@ -309,7 +310,9 @@ def api_create_account(request):
         try:
             user = UserModel.objects.create(**content)
         except UserModel.DoesNotExist:
-            return JsonResponse({"message": "Failed to create user"}, status=400)
+            return JsonResponse(
+                {"message": "Failed to create user"}, 
+                status=400)
         return JsonResponse(user, encoder=UserModelEncoder, safe=False)
 
 
