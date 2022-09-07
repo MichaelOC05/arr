@@ -71,4 +71,30 @@ release-adaptation-accuracy-report:
     - curl https://cli-assets.heroku.com/install.sh | sh
   script:
     - heroku container:release web --app $HEROKU_ACCOUNT_API_APP
+build-adaptation-accuracy-report:
+  stage: build
+  image: node:lts-bullseye
+  variables:
+    PUBLIC_URL:
+  script:
+    - cd ghi
+    - npm install
+    - npm rub build
+    - cp build/index.html build/404.html
+  artifacts:
+    paths:
+      -ghi/build/
+    pages:
+      stage: deploy
+      rules:
+      - if $CI_COMMIT_BRANCJ == $CI_DEFAULT_BRANCH
+      dependencies:
+        - build-adaptation-accuracy-report
+      needs:
+        - build-adaptation-accuracy-report
+      script:
+        - mv ghi/build/public
+      artifacts:
+        paths:
+          - public
 

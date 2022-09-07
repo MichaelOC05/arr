@@ -12,7 +12,7 @@ COPY manage.py manage.py
 # Modify these instructions to do that
 COPY monolith monolith
 COPY monolith_rest monolith_rest
-COPY common common
+# COPY common common
 
 RUN pip install -r requirements.txt
 CMD python manage.py migrate && gunicorn accounts_project.wsgi --bind 0.0.0.0:$PORT --log-file -
