@@ -1,9 +1,5 @@
 from django.urls import path
-<<<<<<< HEAD
-from .views import api_reviews, api_review, api_comments, api_comment, api_movieinfo, api_moviesinfo, api_user_token, authenticate_user, api_create_account, logout
-=======
-from .views import (api_reviews, api_review, api_comments, api_comment, api_movieinfo, api_moviesinfo, api_user_token, authenticate_user, api_create_account, logout_view)
->>>>>>> main
+from .views import api_reviews, api_review, api_comments, api_comment, api_movieinfo, api_moviesinfo, api_user_token, authenticate_user, api_create_account, logout_view
 
 urlpatterns = [
     path('reviews/', api_reviews, name="list_of_reviews"),
