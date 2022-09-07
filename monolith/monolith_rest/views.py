@@ -182,8 +182,8 @@ def api_comment(request, pk):
             comment = CommentsModel.objects.get(id=pk)
             comment.delete()
             return JsonResponse(
-                comment, 
-                encoder=CommentsModelEncoder, 
+                comment,
+                encoder=CommentsModelEncoder,
                 safe=False)
         except CommentsModel.DoesNotExist:
             return JsonResponse({"message": "Comments does not exist"})
@@ -308,7 +308,7 @@ def api_create_account(request):
             user = UserModel.objects.create(**content)
         except UserModel.DoesNotExist:
             return JsonResponse(
-                {"message": "Failed to create user"}, 
+                {"message": "Failed to create user"},
                 status=400)
         return JsonResponse(user, encoder=UserModelEncoder, safe=False)
 
