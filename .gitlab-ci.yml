@@ -87,7 +87,7 @@ build-adaptation-accuracy-report:
 pages:
   stage: deploy
   rules:
-  - if $CI_COMMIT_BRANCJ == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCJ == $CI_DEFAULT_BRANCH
   dependencies:
     - build-adaptation-accuracy-report
   needs:
