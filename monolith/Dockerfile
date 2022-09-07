@@ -6,13 +6,13 @@ WORKDIR /app
 # Modify these instructions to do that
 COPY requirements.txt requirements.txt
 COPY manage.py manage.py
-COPY another_file.py another_file.py
+# COPY another_file.py another_file.py
 
 # Copy all of the subdirectories in your service's directory
 # Modify these instructions to do that
 COPY monolith monolith
 COPY monolith_rest monolith_rest
-COPY common common
+# COPY common common
 
 RUN pip install -r requirements.txt
 CMD python manage.py migrate && gunicorn accounts_project.wsgi --bind 0.0.0.0:$PORT --log-file -
