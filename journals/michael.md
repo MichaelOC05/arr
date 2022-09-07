@@ -1,3 +1,17 @@
+## September 6, 2022
+Today I worked with Jack on getting our logout button to function. After much frustration and with Daniel's help we were able to get it work. The problem was we didn't realize that the logout view was contained within the djwto urls. We also worked on displaying and not displaying the login and logout buttons depending on whether we were logged in or out. We determined this by using the jwt_token. 
+
+
+## September 2, 2022
+I took the day off for vacation.
+
+## September 1, 2022 
+Worked on the models updating them to reflect the database normalization for foreign keys. Also worked to figure out how to get process.env to work in react, however I was unable to figure it out.
+
+## August 31, 2022
+Today I continued to work on the authentication.
+
+
 ## August 30, 2022
 Ran into an error where login function was not working with users that were not created in the command line. Through looking at the volume in beekeeper we noticed that the passwords for users created in the command line were hashed, whereas the users that were created in admin did not have hashed passwords. This caused a failure in the djwto login url where I assume it does a un hashing function. The fix for this was to create a function on our UserModel model that inherits from AbstractUser's save function but includes the set_password function call on the instance's password which produces hashed passwords.
 

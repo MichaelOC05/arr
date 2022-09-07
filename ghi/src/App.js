@@ -7,6 +7,7 @@ import ReviewForm from './ReviewForm'
 import HowToReview from './DescriptionPage'
 import { AuthProvider } from "./TokenContext"
 import Nav from './Nav'
+import ReviewCard from './ReviewCard'
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/create_review" element={<ReviewForm />} />
             <Route path="/how_to_review" element={<HowToReview />} />
+            <Route path="/h" element={<ReviewCard />} />
           </Routes>
       </BrowserRouter>
     </AuthProvider>

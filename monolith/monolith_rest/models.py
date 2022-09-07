@@ -69,5 +69,5 @@ class ReviewModel(models.Model):
         # default = False
     )
     def __str__(self):
-        return self.movie_name
+        return self.reviewer_id.username + "'s " + self.movie_id.movie_name
  
