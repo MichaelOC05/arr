@@ -51,7 +51,7 @@ class ReviewModel(models.Model):
     )
     plot_rating = models.SmallIntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )  # rating based on plot
+    )
     char_rating = models.SmallIntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)]
     )  # rating based on character accuracy
@@ -60,12 +60,10 @@ class ReviewModel(models.Model):
     )  # rating based on setting accuracy
     add_on_rating = models.SmallIntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )  # rating based on if they added
-       # anything that wasnt in source material
+    )
     removal_rating = models.SmallIntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)]
-    )  # rating based on if they took
-       # anything out that was in the source material
+    )
     rubric_rating = models.FloatField()
     admin_rating = models.FloatField()
     rating_description = models.TextField(max_length=250)

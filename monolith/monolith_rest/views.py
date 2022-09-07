@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .acls import get_movies
 from .models import (ReviewModel, CommentsModel,
-MovieInformationModel, UserModel)
+    MovieInformationModel, UserModel)
 from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
