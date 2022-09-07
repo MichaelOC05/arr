@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .acls import get_movies
 from .models import (ReviewModel, CommentsModel,
- MovieInformationModel, UserModel)
+MovieInformationModel, UserModel)
 from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
@@ -185,9 +185,10 @@ def api_comment(request, pk):
         try:
             comment = CommentsModel.objects.get(id=pk)
             comment.delete()
-            return JsonResponse(comment, 
-            encoder=CommentsModelEncoder, 
-            safe=False)
+            return JsonResponse(
+                comment, 
+                encoder=CommentsModelEncoder, 
+                safe=False)
         except CommentsModel.DoesNotExist:
             return JsonResponse({"message": "Comments does not exist"})
     else:
