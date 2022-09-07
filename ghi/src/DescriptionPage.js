@@ -35,7 +35,7 @@ class HowToReview extends React.Component {
             <>
                 <div className="px-4 py-5 my-5 mt-0 text-center bg-danger bg-gradient">
                 <h1 className="display-5 fw-bold">How To Write A Review</h1>
-                    <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" width="200" height="200" /> 
+                    <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" alt="" width="200" height="200" /> 
                 <div className="col-lg-10 mx-auto">
                     <p className="lead mb-4">
                         Welcome to the Adaptation Accuracy Report! A website designed by people who love reading books and watching their film adaptations.

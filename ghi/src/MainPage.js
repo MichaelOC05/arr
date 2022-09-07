@@ -80,7 +80,7 @@ class MainPage extends React.Component {
             <>
             <div className="px-4 py-5 my-5 mt-0 text-center bg-danger bg-gradient">
             <h1 className="display-5 fw-bold">Adaptation Accuracy</h1>
-                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" width="300" height="300" /> 
+                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" alt="" width="300" height="300" /> 
             <h1 className="display-5 fw-bold">Report!</h1>
             <div className="col-lg-6 mx-auto">
                 <p className="lead mb-4">

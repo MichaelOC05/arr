@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainPage from "./MainPage"
@@ -7,7 +6,7 @@ import ReviewForm from './ReviewForm'
 import HowToReview from './DescriptionPage'
 import { AuthProvider } from "./TokenContext"
 import Nav from './Nav'
-import ReviewCard from './ReviewCard'
+import MovieList from './MovieList'
 
 function App(props) {
   return (
@@ -19,7 +18,6 @@ function App(props) {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/create_review" element={<ReviewForm />} />
             <Route path="/how_to_review" element={<HowToReview />} />
-            <Route path="/h" element={<ReviewCard />} />
           </Routes>
       </BrowserRouter>
     </AuthProvider>

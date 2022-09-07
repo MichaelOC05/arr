@@ -1,23 +1,19 @@
-from urllib import response
-from django.shortcuts import render
-
-from .acls import get_movies
-from .models import ReviewModel, CommentsModel, MovieInformationModel, UserModel
-from .common.encoders import ModelEncoder 
+from .models import ReviewModel, CommentsModel
+from .models import MovieInformationModel, UserModel
+from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
-import json 
-import djwto.authentication as auth
-from.acls import get_movies, get_comics
+import json
+from .acls import get_movies, get_comics
 from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
+
 
 class UserModelEncoder(ModelEncoder):
     model = UserModel
-    properties = [
-        "id",
-        "username"
-    ]
+    properties = ["id", "username"]
+
 
 class MovieInformationEncoder(ModelEncoder):
     model = MovieInformationModel
@@ -33,6 +29,7 @@ class MovieInformationEncoder(ModelEncoder):
         "source_type",
         "id",
     ]
+
 
 class ReviewModelEncoder(ModelEncoder):
     model = ReviewModel
@@ -52,8 +49,9 @@ class ReviewModelEncoder(ModelEncoder):
     ]
     encoders = {
         "reviewer_id": UserModelEncoder(),
-        "movie_id": MovieInformationEncoder()
+        "movie_id": MovieInformationEncoder(),
     }
+
 
 class CommentsModelEncoder(ModelEncoder):
     model = CommentsModel
@@ -62,9 +60,6 @@ class CommentsModelEncoder(ModelEncoder):
         "comment",
         "commenter_id",
     ]
-    
-
-
 
 
 @require_http_methods(["GET", "POST"])
@@ -73,7 +68,7 @@ def api_reviews(request):
         reviews = ReviewModel.objects.all()
         return JsonResponse(
             {"Review": reviews},
-            encoder = ReviewModelEncoder,
+            encoder=ReviewModelEncoder,
             # safe = False,
         )
     else:
@@ -94,14 +89,11 @@ def api_reviews(request):
                 safe=False,
             )
         except ReviewModel.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid Review"}
-            )
-
+            return JsonResponse({"message": "Invalid Review"})
 
 
 @require_http_methods(["GET", "DELETE", "PUT"])
-def api_review(request,pk):
+def api_review(request, pk):
     if request.method == "GET":
         try:
             review = ReviewModel.objects.get(id=pk)
@@ -130,18 +122,15 @@ def api_review(request,pk):
             content = json.loads(request.body)
             ReviewModel.objects.filter(id=pk).update(**content)
             review = ReviewModel.objects.get(id=pk)
-            return JsonResponse(
-                review,
-                encoder=ReviewModelEncoder,
-                safe=False
-            )
+            return JsonResponse(review, encoder=ReviewModelEncoder, safe=False)
         except ReviewModel.DoesNotExist:
             response = JsonResponse({"message": "Review does not exist"})
             response.status_code = 404
             return response
 
-    
-# function to call to sign in might want to add a way to direct the user to the home/
+
+# function to call to sign in might want
+#  to add a way to direct the user to the home/
 @require_http_methods(["GET"])
 def api_user_token(request):
     if "jwt_access_token" in request.COOKIES:
@@ -158,22 +147,21 @@ def api_comments(request):
         comments = CommentsModel.objects.all()
         return JsonResponse(
             {"Comments": comments},
-            encoder = CommentsModelEncoder,
-            safe = False,
-        )  
+            encoder=CommentsModelEncoder,
+            safe=False,
+        )
     else:
         content = json.loads(request.body)
         try:
             comment = CommentsModel.objects.create(**content)
             return JsonResponse(
                 comment,
-                encoder = CommentsModelEncoder,
+                encoder=CommentsModelEncoder,
                 safe=False,
             )
         except CommentsModel.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid Comment"}
-            )
+            return JsonResponse({"message": "Invalid Comment"})
+
 
 @require_http_methods(["GET", "DELETE", "PUT"])
 def api_comment(request, pk):
@@ -182,8 +170,8 @@ def api_comment(request, pk):
             comment = CommentsModel.objects.get(id=pk)
             return JsonResponse(
                 comment,
-                encoder = CommentsModelEncoder,
-                safe = False,
+                encoder=CommentsModelEncoder,
+                safe=False,
             )
         except CommentsModel.DoesNotExist:
             response = JsonResponse({"message": "Comment does not exist"})
@@ -195,9 +183,8 @@ def api_comment(request, pk):
             comment.delete()
             return JsonResponse(
                 comment,
-                encoder = CommentsModelEncoder,
-                safe=False
-            )
+                encoder=CommentsModelEncoder,
+                safe=False)
         except CommentsModel.DoesNotExist:
             return JsonResponse({"message": "Comments does not exist"})
     else:
@@ -213,18 +200,19 @@ def api_comment(request, pk):
         except CommentsModel.DoesNotExist:
             response = JsonResponse({"message": "Comment does not exist"})
             response.status_code = 404
-            return response 
+            return response
+
 
 @require_http_methods(["GET", "POST"])
-def api_movieinfo(request):#This one is called MOVIE no S
+def api_movieinfo(request):  # This one is called MOVIE no S
     if request.method == "GET":
         movie_info = MovieInformationModel.objects.all()
         return JsonResponse(
             {"Movie_Info": movie_info},
-            encoder = MovieInformationEncoder,
-            safe = False,
+            encoder=MovieInformationEncoder,
+            safe=False,
         )
-    else: 
+    else:
         content = json.loads(request.body)
         # movie = get_movies(content["movie_name"])# if broken remove
         # content.update(movie)# if broken remove
@@ -239,19 +227,19 @@ def api_movieinfo(request):#This one is called MOVIE no S
                 encoder=MovieInformationEncoder,
                 safe=False,
             )
-            
+
         except MovieInformationModel.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid Movie"}
-            )
-@require_http_methods(["GET","DELETE", "PUT"])
-def api_moviesinfo(request, pk):#This is is called MOVIES with an S
+            return JsonResponse({"message": "Invalid Movie"})
+
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
     if request.method == "GET":
         try:
             movie_info = MovieInformationModel.objects.get(id=pk)
             return JsonResponse(
                 movie_info,
-                encoder = MovieInformationEncoder,
+                encoder=MovieInformationEncoder,
                 safe=False,
             )
         except MovieInformationModel.DoesNotExist:
@@ -264,12 +252,12 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             movie_info.delete()
             return JsonResponse(
                 movie_info,
-                encoder = MovieInformationEncoder,
-                safe = False,
+                encoder=MovieInformationEncoder,
+                safe=False,
             )
         except MovieInformationModel.DoesNotExist:
             return JsonResponse({"message": "Movie does not exist"})
-    else: 
+    else:
         try:
             content = json.loads(request.body)
             MovieInformationModel.objects.filter(id=pk).update(**content)
@@ -281,10 +269,8 @@ def api_moviesinfo(request, pk):#This is is called MOVIES with an S
             )
         except MovieInformationModel.DoesNotExist:
             response = JsonResponse({"message": "Movies Does Not Exist"})
-            response.status_code=404
+            response.status_code = 404
             return response
-            
-
 
 
 def authenticate_user(request):
@@ -299,9 +285,10 @@ def authenticate_user(request):
             response = JsonResponse({"Message": "User logged in"})
             return response
         elif user.is_disabled:
-            return 
+            return
     except UserModel.DoesNotExist:
         response = JsonResponse({"Message": "Does not exist"})
+
 
 @require_http_methods("DELETE")
 def logout_view(request):
@@ -312,6 +299,7 @@ def logout_view(request):
         response = JsonResponse({"Message": "user logged out"})
         return response
 
+
 @require_http_methods("POST")
 def api_create_account(request):
     if request.method == "POST":
@@ -321,13 +309,9 @@ def api_create_account(request):
         except UserModel.DoesNotExist:
             return JsonResponse(
                 {"message": "Failed to create user"},
-                status=400
-            )
-        return JsonResponse(
-            user,
-            encoder=UserModelEncoder,
-            safe=False
-        )
+                status=400)
+        return JsonResponse(user, encoder=UserModelEncoder, safe=False)
+
 
 # @require_http_methods(["GET", "PUT", "DELETE"])
 # def api_user_account():
