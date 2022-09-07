@@ -6,7 +6,7 @@ WORKDIR /app
 # Modify these instructions to do that
 COPY requirements.txt requirements.txt
 COPY manage.py manage.py
-COPY another_file.py another_file.py
+# COPY another_file.py another_file.py
 
 # Copy all of the subdirectories in your service's directory
 # Modify these instructions to do that
