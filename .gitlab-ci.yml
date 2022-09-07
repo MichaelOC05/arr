@@ -83,7 +83,7 @@ build-adaptation-accuracy-report:
     - cp build/index.html build/404.html
   artifacts:
     paths:
-      -ghi/build/
+      - ghi/build/
 pages:
   stage: deploy
   rules:
