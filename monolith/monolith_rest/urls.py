@@ -1,5 +1,9 @@
 from django.urls import path
+<<<<<<< HEAD
 from .views import api_reviews, api_review, api_comments, api_comment, api_movieinfo, api_moviesinfo, api_user_token, authenticate_user, api_create_account, logout
+=======
+from .views import (api_reviews, api_review, api_comments, api_comment, api_movieinfo, api_moviesinfo, api_user_token, authenticate_user, api_create_account, logout_view)
+>>>>>>> main
 
 urlpatterns = [
     path('reviews/', api_reviews, name="list_of_reviews"),
@@ -11,5 +15,5 @@ urlpatterns = [
     path('movie_info/<int:pk>/', api_moviesinfo, name="detail_movies"),
     path('login/authenticate/', authenticate_user, name="authenticate_user"),
     path('login/create_user/', api_create_account, name="create_account"),
-    path('logout/', logout, name="logout")
+    path('logout/', logout_view, name="logout")
 ]

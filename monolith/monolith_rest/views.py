@@ -303,8 +303,14 @@ def authenticate_user(request):
     except UserModel.DoesNotExist:
         response = JsonResponse({"Message": "Does not exist"})
 
+@require_http_methods("DELETE")
 def logout_view(request):
-    logout(request)
+    print("hello")
+    print(request)
+    if request.method == "DELETE":
+        logout(request)
+        response = JsonResponse({"Message": "user logged out"})
+        return response
 
 @require_http_methods("POST")
 def api_create_account(request):
