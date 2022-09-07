@@ -79,7 +79,7 @@ build-adaptation-accuracy-report:
   script:
     - cd ghi
     - npm install
-    - npm rub build
+    - npm run build
     - cp build/index.html build/404.html
   artifacts:
     paths:
