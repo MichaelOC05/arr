@@ -132,7 +132,8 @@ def api_review(request, pk):
             return response
 
 
-# function to call to sign in might want to add a way to direct the user to the home/
+# function to call to sign in might want
+#  to add a way to direct the user to the home/
 @require_http_methods(["GET"])
 def api_user_token(request):
     if "jwt_access_token" in request.COOKIES:
@@ -183,7 +184,9 @@ def api_comment(request, pk):
         try:
             comment = CommentsModel.objects.get(id=pk)
             comment.delete()
-            return JsonResponse(comment, encoder=CommentsModelEncoder, safe=False)
+            return JsonResponse(comment, 
+            encoder=CommentsModelEncoder, 
+            safe=False)
         except CommentsModel.DoesNotExist:
             return JsonResponse({"message": "Comments does not exist"})
     else:
