@@ -28,4 +28,4 @@ We worked on the comic book api again today. Through some research we found out 
 We didn't have a lot of time to work on projects because of manditory fun. No coding was done but we did discuss what we wanted to work on next week.
 
 ## September 6, 2022
-Gio and I worked on the CI/CD pipeline today. We were able to get the unit test to pass but we are still having some problems getting flake8 to pass.
+Gio and I worked on the CI/CD pipeline today. We were able to get the unit test to pass but we are still having some problems getting flake8 to pass. We are going to continue to work on it tomorrow.
