@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useToken } from "./TokenContext"
-import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 function Nav() {
