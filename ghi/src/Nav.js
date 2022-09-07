@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 function Nav() {
     let cookies = new Cookies()
     let jwt_token = cookies.get("jwt_access_payload")
-    let [token, , logout] = useToken()
+    let [, , logout] = useToken()
     async function logOutButton(event) {
         event.preventDefault()
         await logout()
