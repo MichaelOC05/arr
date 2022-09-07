@@ -1,13 +1,9 @@
-from django.shortcuts import render
-
-from .acls import get_movies
 from .models import ReviewModel, CommentsModel
 from .models import MovieInformationModel, UserModel
 from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json
-import djwto.authentication as auth
 from .acls import get_movies, get_comics
 from django.contrib.auth import authenticate, login, logout
 
