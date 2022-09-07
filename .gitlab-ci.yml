@@ -75,7 +75,7 @@ build-adaptation-accuracy-report:
   stage: build
   image: node:lts-bullseye
   variables:
-    PUBLIC_URL:
+    PUBLIC_URL: https://brogrammers.gitlab.io/brogrammers
   script:
     - cd ghi
     - npm install
