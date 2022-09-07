@@ -32,18 +32,16 @@ function Nav() {
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/create_review">Create Review</NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to="/list_of_movies">Movies</NavLink>
+                    </li>
                     {jwt_token === undefined ? (
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
-<<<<<<< HEAD
-                    <li className="nav-item">
-                        <NavLink className="nav-link" aria-current="page" to="">Log out</NavLink>
-=======
                     ) : (
                     <li className="nav-item" onClick={logOutButton}>
                         <NavLink  className="nav-link"  aria-current="page" to="">Log out</NavLink>
->>>>>>> 55bcbab83f7899f2d72aa6d5cee9400f9d9fa7cb
                     </li>
                     )}
                 </ul>
