@@ -84,17 +84,17 @@ build-adaptation-accuracy-report:
   artifacts:
     paths:
       -ghi/build/
-    pages:
-      stage: deploy
-      rules:
-      - if $CI_COMMIT_BRANCJ == $CI_DEFAULT_BRANCH
-      dependencies:
-        - build-adaptation-accuracy-report
-      needs:
-        - build-adaptation-accuracy-report
-      script:
-        - mv ghi/build/public
-      artifacts:
-        paths:
-          - public
+  pages:
+    stage: deploy
+    rules:
+    - if $CI_COMMIT_BRANCJ == $CI_DEFAULT_BRANCH
+    dependencies:
+      - build-adaptation-accuracy-report
+    needs:
+      - build-adaptation-accuracy-report
+    script:
+      - mv ghi/build/public
+    artifacts:
+      paths:
+        - public
 
