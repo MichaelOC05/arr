@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useToken } from "./TokenContext"
-import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 function Nav() {
@@ -17,7 +16,7 @@ function Nav() {
         <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" height="75" width="" ></img>
+                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" alt="" height="75" width="" ></img>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
