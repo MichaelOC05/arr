@@ -3,9 +3,9 @@ import { useToken } from "./TokenContext"
 import Cookies from "universal-cookie";
 
 function Nav() {
-    let cookies = new Cookies
+    let cookies = new Cookies()
     let jwt_token = cookies.get("jwt_access_payload")
-    let [token, , logout] = useToken()
+    let [, , logout] = useToken()
     async function logOutButton(event) {
         event.preventDefault()
         await logout()
@@ -30,6 +30,9 @@ function Nav() {
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/create_review">Create Review</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to="/list_of_movies">Movies</NavLink>
                     </li>
                     {jwt_token === undefined ? (
                     <li className="nav-item">

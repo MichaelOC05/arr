@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie"
 // sets the value of internalToken to null
 let internalToken = null;
 
@@ -13,14 +12,12 @@ export function getToken() {
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
   const url = `http://localhost:8000/monolith/tokens/mine/`;
-  console.log(url, "here")
   try {
     const response = await fetch(url, {
       credentials: "include",
     });
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       internalToken = data.token;
 
       return internalToken;

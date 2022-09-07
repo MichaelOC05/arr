@@ -1,3 +1,9 @@
+## Tuesday September 6, 2022:
+    Today me and Michael worked on the Logout button on the navbar to work as well as have the login/logout button disappear depending on if a user is logged in. Kurt and Gio worked on the CICD pipeline during this time. Michael and I were able to get the login/logout button to appear and disappear without help, but we had issue with just having the logout button functional. Daniel helped us for a bit and we eventually got it working. We have it set up as a button, and I was able to figure out how to have the button set up as a navlink while still being a button. Gio and Kurt came back and were successful but not fully finished.
+
+    completed: Navbar and logout button
+    working on: CICD pipeline and create review form
+
 ## Friday September 2, 2022:
     Today we discussed how to proceed, as there were complications that arose, especially that the login wasn't working anymore. luckily that was solved in the morning as I changed the url back to its original hardcode. Also made slight changes to the bottstrap css and made the rows for the front page have only two per row rather than two, one, two, one.
 
