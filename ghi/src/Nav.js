@@ -31,6 +31,9 @@ function Nav() {
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/create_review">Create Review</NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to="/list_of_movies">Movies</NavLink>
+                    </li>
                     {jwt_token === undefined ? (
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
