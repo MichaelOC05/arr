@@ -24,8 +24,8 @@ def get_movies(movie_name):
         }
     except (KeyError, IndexError):
         return {"movie_poster": None, 
-            "movie_synopsis": None, 
-            "imdb_score": None}
+                "movie_synopsis": None, 
+                "imdb_score": None}
 
 
 def get_comics(movie_name):
