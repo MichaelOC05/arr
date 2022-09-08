@@ -1,5 +1,10 @@
+## September 8 2022
+What we need to do today:
+- detail movie page
+- review page
+- finish deploying to heroku
 ## September 7 2022
-What we did today:
+What we did today:git
 - kurt and I worked on the CI CD pipeline
 - Micheal and jack tried working on the list movies page and review page
 ## September 6 2022
