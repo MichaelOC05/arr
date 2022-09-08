@@ -1,3 +1,6 @@
+## September 7, 2022
+Today I worked with jack to get our form to have the movie instance auto added to it. From working on this I realized that I need a better understanding of how to pass id values from lists to details. In order to understand how to do this I chose to work on a easier problem which was to create a movie detail page. I was able to get the detail page to work by using the useEffect and useParams hooks. For tomorrow I will work on using this same functionality on the form.
+
 ## September 6, 2022
 Today I worked with Jack on getting our logout button to function. After much frustration and with Daniel's help we were able to get it work. The problem was we didn't realize that the logout view was contained within the djwto urls. We also worked on displaying and not displaying the login and logout buttons depending on whether we were logged in or out. We determined this by using the jwt_token. 
 
