@@ -96,6 +96,7 @@ class MovieList extends React.Component {
                                         <p className="card-text">{movie.movie_synopsis}</p>
                                         <p className="card-text"><small className="text">{movie.movie_director}</small></p>
                                         
+                                        {/* <Link to="/create_review" className="btn btn-primary btn-lg px-4 gap-3">How to Write a Review</Link> */}
                                     </div>
                                 </div>
                                 </div>
@@ -114,4 +115,4 @@ class MovieList extends React.Component {
         )
 }
 }
-export default MovieList
+export default MovieList;
