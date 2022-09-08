@@ -43,7 +43,7 @@ class ReviewModel(models.Model):
     movie_id = models.ForeignKey(
         MovieInformationModel,
         related_name="review_model",
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         null=False,
     )
     base_rating = models.SmallIntegerField(
