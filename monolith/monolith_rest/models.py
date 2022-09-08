@@ -77,4 +77,3 @@ class ReviewModel(models.Model):
 
     def __str__(self):
         return self.reviewer_id.username + "'s " + self.movie_id.movie_name
- 
