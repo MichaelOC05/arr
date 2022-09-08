@@ -1,3 +1,7 @@
+## September 7 2022
+What we did today:
+- kurt and I worked on the CI CD pipeline
+- Micheal and jack tried working on the list movies page and review page
 ## September 6 2022
 What we did today:
 - Kurt and I got one of the CI pipeline tests working and going to fix the other error tomorrow
