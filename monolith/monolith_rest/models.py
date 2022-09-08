@@ -43,7 +43,7 @@ class ReviewModel(models.Model):
     movie_id = models.ForeignKey(
         MovieInformationModel,
         related_name="review_model",
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         null=False,
     )
     base_rating = models.SmallIntegerField(
@@ -76,4 +76,4 @@ class ReviewModel(models.Model):
     )
 
     def __str__(self):
-        return self.movie_name
+        return self.reviewer_id.username + "'s " + self.movie_id.movie_name

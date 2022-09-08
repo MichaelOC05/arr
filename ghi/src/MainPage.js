@@ -9,7 +9,7 @@ function ReviewRows(props) {
                 // const movie = data.movieInformationModel;
                 const review = data;
                 return (
-                    <div key={review.id} className="card mb-3" divstyle={"max-width: 540px;"}>
+                    <div className="card mb-3" divstyle={"max-width: 540px;"}>
                         <div className="bg-primary bg-gradient">
                         <div className="shadow p-4 mt-4">
                         <div className="row g-0">
@@ -94,9 +94,9 @@ class MainPage extends React.Component {
             <div className="container">
                 <h2>Reviews from people like you...</h2>
                 <div className="row row-cols-1 row-cols-md-2 g-4">
-                {this.state.sampleReviews.map((reviewList, index) => {
+                {this.state.sampleReviews.map((reviewList) => {
                     return (
-                        <ReviewRows key={index} list={reviewList} />
+                        <ReviewRows key={reviewList.id} list={reviewList} />
                     );
                 })}
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // function MovieRows(props) {
@@ -66,7 +66,6 @@ class MovieList extends React.Component {
                         console.error(reviewResponse);
                     }
                 }
-                console.log(sampleMovies)
                 this.setState({sampleMovies: sampleMovies});
             }
         } catch (e) {
@@ -92,9 +91,11 @@ class MovieList extends React.Component {
                                     </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title"><u>{movie.movie_name} </u></h5>
+                                        <h5 className="card-title">
+                                            <Link to={`/movie/${movie.id}`}><u>{movie.movie_name} </u></Link>
+                                        </h5>
                                         <p className="card-text">{movie.movie_synopsis}</p>
-                                        <p className="card-text"><small className="text">{movie.movie_director}</small></p>
+                                        <p className="card-text"><small className="text">{movie.id}</small></p>
                                         
                                     </div>
                                 </div>
