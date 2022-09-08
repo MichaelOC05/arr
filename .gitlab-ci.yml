@@ -93,7 +93,7 @@ pages:
   needs:
     - build-adaptation-accuracy-report
   script:
-    - mv ghi/build/public
+    - mv ghi/build/ public
   artifacts:
     paths:
       - public
