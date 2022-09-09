@@ -20,3 +20,6 @@ Uploaded logo onto front page with customizations
 
 ## August 31, 2022
 Worked with seirs on researching a plan on how to integrate poster images from the API to react. 
+
+## September 8, 2022
+Worked with Michael and Jack to create a modal, ran into issues where bootstrap was not working. 
