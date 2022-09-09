@@ -1,16 +1,23 @@
+## September 9 2022
+What we're working on today:
+- jack and micheal are working on the review form
+- kurt and I are working on deploying to heroku
 ## September 8 2022
 What we need to do today:
 - detail movie page
 - review page
 - finish deploying to heroku
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 ## September 7 2022
 What we did today:git
 - kurt and I worked on the CI CD pipeline
-- Micheal and jack tried working on the list movies page and review page
+- Micheal and jack tried working on the list movies page and review page.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 ## September 6 2022
 What we did today:
 - Kurt and I got one of the CI pipeline tests working and going to fix the other error tomorrow
 - Did a little of deploying to Heroku and left off on release
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 ## September 5 2022
 Things that need to be done:
 - logout
