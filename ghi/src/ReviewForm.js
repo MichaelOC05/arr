@@ -106,6 +106,7 @@ class ReviewForm extends React.Component {
                 <h1>Create a Review</h1>
                 <form onSubmit={this.handleSubmit} id="create-review-form">
                   <div className="mb-3">
+
                     {/* <select value={this.state.movieName} onChange={this.handleMovieNameChange} required name="movie" id="movie" className="form-select">
                       <option value="">Choose a Film/TV Show</option>
                       {this.state.reviews.map(review => {
