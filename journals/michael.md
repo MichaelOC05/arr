@@ -1,3 +1,6 @@
+## September 9, 2022
+Worked on using tokens to store, update, and delete the user's user id in order to connect it with forms. We used universal-cookies to set, get, and delete the token for the userId. Got this working, but ran into an error where we needed to change some properties on the review model to blank=True, null=True. 
+
 ## September 7, 2022
 Today I worked with jack to get our form to have the movie instance auto added to it. From working on this I realized that I need a better understanding of how to pass id values from lists to details. In order to understand how to do this I chose to work on a easier problem which was to create a movie detail page. I was able to get the detail page to work by using the useEffect and useParams hooks. For tomorrow I will work on using this same functionality on the form.
 
