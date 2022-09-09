@@ -54,7 +54,7 @@ deploy-adaptation-accuracy-report:
   stage: deploy
   image: docker:20.10.16
   needs:
-    - build-adaptation-accuracy-report
+    - build-adaptation-accuracy-report-back-end
   services:
     - docker:20.10.16-dind
   script:
@@ -92,6 +92,8 @@ build-adaptation-accuracy-report-front-end:
   artifacts:
     paths:
       - ghi/build/
+
+      
 pages:
   stage: deploy
   rules:
