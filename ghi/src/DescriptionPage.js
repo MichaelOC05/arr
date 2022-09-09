@@ -26,7 +26,7 @@ class HowToReview extends React.Component {
         const isLoggedIn = cookies.get("jwt_access_payload");
         let button;
         if (isLoggedIn !== undefined) {
-            button = <Link to="/create_review" className="btn btn-primary btn-lg px-4 gap-3">Write a Review</Link>
+            button = <Link to="/list_of_movies" className="btn btn-primary btn-lg px-4 gap-3">Write a Review</Link>
         } else {
             button = <Link to="/login" className="btn btn-primary btn-lg px-4 gap-3">Login</Link>
         }

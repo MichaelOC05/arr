@@ -313,5 +313,21 @@ def api_create_account(request):
         return JsonResponse(user, encoder=UserModelEncoder, safe=False)
 
 
-# @require_http_methods(["GET", "PUT", "DELETE"])
-# def api_user_account():
+@require_http_methods("POST")
+def api_user_account(request):
+    if request.method == "POST":
+        content = json.loads(request.body)
+        username = content["username"]
+        try:
+            user = UserModel.objects.get(username=username)
+            return JsonResponse(
+                user,
+                encoder=UserModelEncoder,
+                safe=False,
+            )
+        except UserModel.DoesNotExist:
+            response = JsonResponse({"message": "Username does not exist"})
+            response.status_code = 404
+            return response
+            
+
