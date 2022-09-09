@@ -8,7 +8,6 @@ import Cookies from "universal-cookie";
 function CreateReview(props) {
   const [show, setShow] = useState(false);
   const movie = props.movie;
-  const [movieId, setMovieId] = useState(movie.id);
   const [baseRating, setBaseRating] = useState("");
   const [plotRating, setPlotRating] = useState("");
   const [settingRating, setSettingRating] = useState("");
