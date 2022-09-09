@@ -32,7 +32,7 @@ build-front-end-job:
     - npm run build
 
 
-build-adaptation-accuracy-report:
+build-adaptation-accuracy-report-back-end:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   stage: build
@@ -79,7 +79,7 @@ release-adaptation-accuracy-report:
     - heroku container:release web --app $HEROKU_ACCOUNT_API_APP
 
 
-build-adaptation-accuracy-report:
+build-adaptation-accuracy-report-front-end:
   stage: build
   image: node:lts-bullseye
   variables:
