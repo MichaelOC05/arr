@@ -33,7 +33,8 @@ ALLOWED_HOSTS = [
     ".localhost",
     "127.0.0.1",
     "[::1]",
-    os.environ.get("DEPLOYED_HOST", "localhost")
+    os.environ.get("DEPLOYED_HOST", "localhost"),
+    "adaptation-accuracy-report.herokuapp.com"
 ]
 
 AUTH_USER_MODEL = "monolith_rest.UserModel"
