@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import dj_database_url
 from datetime import datetime, timedelta
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,10 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%(jq7#xi1t^qcrz8mkxtqdk(9tbjq#6u5=rkg-q0mj)+72#mp*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = not os.environ.get("DEBUG")
+DEBUG = True #all caps
 
 ALLOWED_HOSTS = [
-    "localhost",
+    ".localhost",
+    "127.0.0.1",
+    "[::1]",
+    os.environ.get("DEPLOYED_HOST", "localhost"),
+    "adaptation-accuracy-report.herokuapp.com"
 ]
 
 AUTH_USER_MODEL = "monolith_rest.UserModel"
@@ -66,6 +72,7 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://loclhost:8000",
+    os.environ.get("CORS_HOST", "http://localhost:3001"),
 ]
 CORS_ALLOW_CREDENTIALS = True
 

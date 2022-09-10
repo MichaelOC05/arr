@@ -64,8 +64,8 @@ class ReviewModel(models.Model):
     removal_rating = models.SmallIntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)]
     )
-    rubric_rating = models.FloatField()
-    admin_rating = models.FloatField()
+    rubric_rating = models.FloatField(null=True, blank=True)
+    admin_rating = models.FloatField(null=True, blank=True)
     rating_description = models.TextField(max_length=250)
     reviewer_id = models.ForeignKey(
         UserModel,

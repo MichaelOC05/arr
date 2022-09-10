@@ -23,7 +23,7 @@ function MovieDetailPage() {
         <div>
         {movie.id ? 
             <div className="card mb-3" divstyle={"max-width: 540px;"}>
-                                {/* <div className="bg-primary bg-gradient"> */}
+                                <div className="bg-danger bg-gradient">
                                 <div className="shadow p-4 mt-4">
                                 <div className="row g-0">
                                     <div className="col-md-4">
@@ -44,7 +44,7 @@ function MovieDetailPage() {
                                 </div>
                                 </div>
                                 </div>
-                                {/* </div> */}
+                                </div>
                             </div> 
          : 
             <p>Please wait for page to load</p>

@@ -8,6 +8,8 @@ function Nav() {
     let [, , logout] = useToken()
     async function logOutButton(event) {
         event.preventDefault()
+        let cookies = new Cookies()
+        cookies.remove("userId")
         await logout()
         
     }

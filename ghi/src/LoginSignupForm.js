@@ -1,6 +1,7 @@
-import { useState } from "react"
-import { useToken } from "./TokenContext"
+import { useState } from "react";
+import { useToken } from "./TokenContext";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 
 function LoginForm (props) {
@@ -44,6 +45,16 @@ function LoginForm (props) {
 
     async function submitButton(event) {
         event.preventDefault()
+        let userUrl = `${process.env.REACT_APP_MONOLITH_HOST}/user/`
+        let submitCookie = new Cookies()
+        let fetchConfigUser = {
+          method: "POST",
+          body: JSON.stringify({"username": username})
+        }
+        let userResponse = await fetch(userUrl, fetchConfigUser)
+        const userInstance = await userResponse.json()
+        let userId = userInstance["id"]
+        submitCookie.set("userId", userId, { path: '/' })
         await login(username, password)
         let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
         let data = [username, password]
@@ -57,7 +68,7 @@ function LoginForm (props) {
         console.log("login", loginUrl)
         let response = await fetch(loginUrl, fetchConfig)
         const c = await response.json()
-        console.log("returned", c)
+        console.log(c)
         navigate("/")
         
     }
@@ -77,6 +88,18 @@ function LoginForm (props) {
       }
       let response = await fetch(loginUrl, fetchConfig)
       console.log(response)
+      let anotherUserUrl = `${process.env.REACT_APP_MONOLITH_HOST}/user/`
+      console.log(anotherUserUrl)
+      let submitAnotherCookie = new Cookies()
+      let fetchConfigAnotherUser = {
+        method: "POST",
+        body: JSON.stringify({"username": createUsername})
+      }
+      let anotherUserResponse = await fetch(anotherUserUrl, fetchConfigAnotherUser)
+      const anotherUserInstance = await anotherUserResponse.json()
+      let anotherUserId = anotherUserInstance["id"]
+      submitAnotherCookie.set("userId", anotherUserId, { path: '/' })
+      console.log(anotherUserId)
       navigate("/")
     }
 
