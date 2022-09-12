@@ -2,7 +2,6 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainPage from "./MainPage"
 import LoginForm from "./LoginSignupForm"
-import ReviewForm from './ReviewForm'
 import HowToReview from './DescriptionPage'
 import { AuthProvider } from "./TokenContext"
 import Nav from './Nav'
