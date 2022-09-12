@@ -25,4 +25,7 @@ Worked with seirs on researching a plan on how to integrate poster images from t
 Worked with Michael and Jack to create a modal, ran into issues where bootstrap was not working. 
 
 # September 9, 2022
-Worked on getting the list of reviews page fixed with Jack and Michael. 
+Worked on getting the list of reviews page fixed with Jack and Michael. We got submit review button up and running. Kurt and Gio worked together to set up the pipeline.
+
+# September 12, 2022
+
