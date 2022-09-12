@@ -17,7 +17,6 @@ function App(props) {
           <Routes>
             <Route path="/" element={<MainPage /> } />
             <Route path="/login" element={<LoginForm />} />
-            <Route path="/create_review" element={<ReviewForm />} />
             <Route path="/how_to_review" element={<HowToReview />} />
             <Route path="/movie/:movie_id" element={<MovieDetailPage />}/>
             <Route path="/list_of_movies" element={<MovieList />}/>

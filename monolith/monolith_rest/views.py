@@ -329,5 +329,3 @@ def api_user_account(request):
             response = JsonResponse({"message": "Username does not exist"})
             response.status_code = 404
             return response
-            
-
