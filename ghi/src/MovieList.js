@@ -8,7 +8,7 @@ import Cookies from "universal-cookie";
 function CreateReview(props) {
     const [show, setShow] = useState(false);
     const movie = props.movie
-    const [movieId, setMovieId] = useState(movie.id)
+    const [movieId,] = useState(movie.id)
     const [baseRating, setBaseRating] = useState("")
     const [plotRating, setPlotRating] = useState("")
     const [settingRating, setSettingRating] = useState("")
@@ -21,9 +21,6 @@ function CreateReview(props) {
     const handleShow = () => setShow(true);
     // const navigate = useNavigate()
 
-    function handleMovieId(e) {
-        setMovieId(e.target.value)
-    }
 
     function handleBaseRating(e) {
         setBaseRating(e.target.value)
