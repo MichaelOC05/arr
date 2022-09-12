@@ -1,3 +1,16 @@
+## Friday September 9, 2022:
+    Today the goal of the day was for Kurt and Gio to finish the pipeline, and me Michael, and Edgar worked on the review form to make it submit a review and it worked! we still need it to create a rubric rating and admin rating but I'm glad that we have this finished. Kurt and Gio were able to get the pipeline working which was great to hear
+
+    completed: Review Form submission, pipeline
+    working on: compiling multiple ratings and user page/movie detail page
+
+
+## Thursday September 8, 2022:
+    With help from Kieran and Ryan, we were able to get the Modal to work with the review form displaying by using the react bootstrap. We were then able to create the way we wanted the review form to present and show the way we wanted, but it is yet to be fully functional.
+
+## Wednesday September 7, 2022:
+    A lot of design decisions were made today, and we got the list of movies to display and decided to have the review form populate on the page using a modal but could not get it to work. The list of movies page is not perfect but it is a start and like the forward progress we are making.
+
 ## Tuesday September 6, 2022:
     Today me and Michael worked on the Logout button on the navbar to work as well as have the login/logout button disappear depending on if a user is logged in. Kurt and Gio worked on the CICD pipeline during this time. Michael and I were able to get the login/logout button to appear and disappear without help, but we had issue with just having the logout button functional. Daniel helped us for a bit and we eventually got it working. We have it set up as a button, and I was able to figure out how to have the button set up as a navlink while still being a button. Gio and Kurt came back and were successful but not fully finished.
 
