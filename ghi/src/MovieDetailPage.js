@@ -29,9 +29,6 @@ function MovieDetailPage() {
                                     <div className="col-md-4">
                                         <img src={url + movie.movie_poster} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
                                     </div>
-                                    <div className="col-md-4">
-                                        <img src={movie.source_cover} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
-                                    </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">

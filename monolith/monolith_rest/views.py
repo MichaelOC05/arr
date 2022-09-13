@@ -20,13 +20,11 @@ class MovieInformationEncoder(ModelEncoder):
     properties = [
         "movie_name",
         "movie_poster",
-        "source_cover",
         "movie_director",
         "source_author",
         "imdb_score",
         "movie_synopsis",
         "imdb_id",
-        "source_type",
         "id",
     ]
 
