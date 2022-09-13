@@ -6,6 +6,8 @@ function Nav() {
     let cookies = new Cookies()
     let jwt_token = cookies.get("jwt_access_payload")
     let [, , logout] = useToken()
+    let submitCookie = new Cookies()
+    let userId = Number(submitCookie.get("userId"))
     async function logOutButton(event) {
         event.preventDefault()
         let cookies = new Cookies()
@@ -38,14 +40,17 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     ) : (
-                        <>
+                    <>
                     <li className="nav-item">
                         <NavLink  className="nav-link"  aria-current="page" to="/APISearch">Search for Movie</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to={`/user/${userId}`}>My Page</NavLink>
                     </li>
                     <li className="nav-item" onClick={logOutButton}>
                         <NavLink  className="nav-link"  aria-current="page" to="">Log out</NavLink>
                     </li>
-                        </>
+                    </>
                     )}
                 </ul>
                 <form className="d-flex">

@@ -10,7 +10,8 @@ from .views import (
     authenticate_user,
     api_create_account,
     logout_view,
-    api_user_account
+    api_user_account,
+    api_user,
 )
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path("login/create_user/", api_create_account, name="create_account"),
     path("logout/", logout_view, name="logout"),
     path("user/", api_user_account, name="user"),
+    path("user/<int:pk>/", api_user, name="single_user"),
 ]
