@@ -24,7 +24,7 @@ services:
         environment:
             DATABASE_URL: postgresql://monolith:password@postgres/monolith
             WAIT_HOSTS: postgres:5432
-            COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
+            # COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
             DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
             MOVIE_KEY: ${MOVIE_KEY}
     ghi:

@@ -4,7 +4,7 @@ from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json
-from .acls import get_movies, get_comics
+from .acls import get_movies
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
@@ -20,13 +20,11 @@ class MovieInformationEncoder(ModelEncoder):
     properties = [
         "movie_name",
         "movie_poster",
-        "source_cover",
         "movie_director",
         "source_author",
         "imdb_score",
         "movie_synopsis",
         "imdb_id",
-        "source_type",
         "id",
     ]
 
@@ -218,8 +216,8 @@ def api_movieinfo(request):  # This one is called MOVIE no S
         try:
             movie = get_movies(content["movie_name"])
             content.update(movie)
-            comic = get_comics(content["movie_name"])
-            content.update(comic)
+            # comic = get_comics(content["movie_name"])
+            # content.update(comic)
             movie_info = MovieInformationModel.objects.create(**content)
             return JsonResponse(
                 movie_info,
