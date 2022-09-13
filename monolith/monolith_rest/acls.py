@@ -4,7 +4,7 @@ import requests
 
 
 MOVIE_KEY = os.environ["MOVIE_KEY"]
-COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
+# COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
 
 
 def get_movies(movie_name):
@@ -29,21 +29,21 @@ def get_movies(movie_name):
                 "imdb_score": None}
 
 
-def get_comics(movie_name):
-    url = (
-        "https://comicvine.gamespot.com/api/search/?api_key="
-        + COMIC_VINE_API_KEY
-        + "&format=json&sort=name:asc&resources=issue&query="
-        + movie_name
-    )
-    headers = {"User-Agent": "My User Agent 1.0"}
-    response = requests.get(url, headers=headers)
-    content = json.loads(response.content)
-    try:
-        return {
-            "source_cover": content["results"][0]["image"][
-                "original_url"
-            ]  # grabs image comic book cover
-        }
-    except (KeyError, IndexError):
-        return {"source_author": None, "source_cover": None}
+# def get_comics(movie_name):
+#     url = (
+#         "https://comicvine.gamespot.com/api/search/?api_key="
+#         + COMIC_VINE_API_KEY
+#         + "&format=json&sort=name:asc&resources=issue&query="
+#         + movie_name
+#     )
+#     headers = {"User-Agent": "My User Agent 1.0"}
+#     response = requests.get(url, headers=headers)
+#     content = json.loads(response.content)
+#     try:
+#         return {
+#             "source_cover": content["results"][0]["image"][
+#                 "original_url"
+#             ]  # grabs image comic book cover
+#         }
+#     except (KeyError, IndexError):
+#         return {"source_author": None, "source_cover": None}
