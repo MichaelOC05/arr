@@ -181,8 +181,8 @@ def api_comment(request, pk):
         try:
             comment = CommentsModel.objects.get(id=pk)
             comment.delete()
-            return JsonResponse(comment, 
-                                encoder=CommentsModelEncoder, 
+            return JsonResponse(comment,
+                                encoder=CommentsModelEncoder,
                                 safe=False)
         except CommentsModel.DoesNotExist:
             return JsonResponse({"message": "Comments does not exist"})
