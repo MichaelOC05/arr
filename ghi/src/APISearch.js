@@ -42,7 +42,7 @@ function MovieInstance(props) {
         }
     }
     return(
-        <div key={movie.id} className="card mb-3" divstyle={"max-width: 540px;"}>
+        <div key={movie.id} className="card mb-3 w-50 mx-auto" divstyle={"max-width: 540px;"}>
                 <div className="shadow p-4 mt-4">
                 <div className="row g-0">
                     <div className="col-md-4">
