@@ -4,7 +4,7 @@ from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json
-# from .acls import get_movies
+from .acls import get_movies
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
