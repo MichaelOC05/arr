@@ -1,3 +1,11 @@
+## September 13 2022
+What we need to do today:
+- docker 
+- heroku
+- review form 
+- models
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 ## September 9 2022
 What we're working on today:
 - jack and micheal are working on the review form

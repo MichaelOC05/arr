@@ -1,32 +1,33 @@
-import os
-import json
-import requests
+# import os
+# import json
+# import requests
 
 
-MOVIE_KEY = os.environ["MOVIE_KEY"]
+
+# MOVIE_KEY = os.environ["MOVIE_KEY"]
 # COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
 
 
-def get_movies(movie_name):
-    url = (
-        "https://api.themoviedb.org/3/search/multi?api_key="
-        + MOVIE_KEY
-        + "&language=en-US&query="
-        + movie_name
-        + "&page=1&include_adult=false"
-    )
-    response = requests.get(url)
-    content = json.loads(response.content)
-    try:
-        return {
-            "movie_poster": content["results"][0]["poster_path"],
-            "movie_synopsis": content["results"][0]["overview"],
-            "imdb_score": content["results"][0]["vote_average"],
-        }
-    except (KeyError, IndexError):
-        return {"movie_poster": None,
-                "movie_synopsis": None,
-                "imdb_score": None}
+# def get_movies(movie_name):
+#     url = (
+#         "https://api.themoviedb.org/3/search/multi?api_key="
+#         + MOVIE_KEY
+#         + "&language=en-US&query="
+#         + movie_name
+#         + "&page=1&include_adult=false"
+#     )
+#     response = requests.get(url)
+#     content = json.loads(response.content)
+#     try:
+#         return {
+#             "movie_poster": content["results"][0]["poster_path"],
+#             "movie_synopsis": content["results"][0]["overview"],
+#             "imdb_score": content["results"][0]["vote_average"],
+#         }
+#     except (KeyError, IndexError):
+#         return {"movie_poster": None,
+#                 "movie_synopsis": None,
+#                 "imdb_score": None}
 
 
 # def get_comics(movie_name):
