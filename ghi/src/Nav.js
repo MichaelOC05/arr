@@ -38,9 +38,14 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     ) : (
+                        <>
+                    <li className="nav-item">
+                        <NavLink  className="nav-link"  aria-current="page" to="/APISearch">Search for Movie</NavLink>
+                    </li>
                     <li className="nav-item" onClick={logOutButton}>
                         <NavLink  className="nav-link"  aria-current="page" to="">Log out</NavLink>
                     </li>
+                        </>
                     )}
                 </ul>
                 <form className="d-flex">
