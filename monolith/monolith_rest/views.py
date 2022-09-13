@@ -260,6 +260,8 @@ def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
     else:
         try:
             content = json.loads(request.body)
+            movie_instance = MovieInformationModel.object.get(id=pk)
+            print(movie_instance)
             MovieInformationModel.objects.filter(id=pk).update(**content)
             movie_info = MovieInformationModel.objects.get(id=pk)
             return JsonResponse(
