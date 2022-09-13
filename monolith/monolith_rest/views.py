@@ -341,9 +341,9 @@ def api_user_account(request):
             response = JsonResponse({"message": "Users does not exist"})
             response.status_code = 404
             return response
-    
+
 @require_http_methods(["GET", "PUT", "DELETE"])
-def api_user(request, pk):    
+def api_user(request, pk):
     if request.method == "GET":
         try:
             user = UserModel.objects.get(id=pk)
