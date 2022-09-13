@@ -29,3 +29,18 @@ We didn't have a lot of time to work on projects because of manditory fun. No co
 
 ## September 6, 2022
 Gio and I worked on the CI/CD pipeline today. We were able to get the unit test to pass but we are still having some problems getting flake8 to pass. We are going to continue to work on it tomorrow.
+
+## September 7, 2022
+Gio and I continued working on the CI/CD pipeline. We are currently running into some problems
+
+## September 8, 2022
+I worked with Gio on the CI/CD agian this afternoon. We are propbably going to need to get help sorting out this issue. The logs on heroku are not very descripitve.
+
+## September 9, 2022
+Gio and I worked on the CI/CD pipeline again today. We found that we had 2 jobs with the same name that was keeping one of them from running. We are still running into an error with getting the page to display on heroku though.
+
+## September 12, 2022
+Michael and I worked on writing a search function in React to seach our movie api. We were able to get it working and are porbably going to replace our ACLs with it.
+
+## September 13, 2022
+Gio and I were finally able to get the site deployed. We were missing the basename from the app.js.
