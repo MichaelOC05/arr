@@ -7,6 +7,7 @@ import { AuthProvider } from "./TokenContext"
 import Nav from './Nav'
 import MovieList from './MovieList'
 import MovieDetailPage from './MovieDetailPage'
+import UserPage from './UserPage'
 
 function App(props) {
   return (
@@ -19,6 +20,7 @@ function App(props) {
             <Route path="/how_to_review" element={<HowToReview />} />
             <Route path="/movie/:movie_id" element={<MovieDetailPage />}/>
             <Route path="/list_of_movies" element={<MovieList />}/>
+            <Route path="/user/:id" element={<UserPage />}/>
           </Routes>
       </BrowserRouter>
     </AuthProvider>
