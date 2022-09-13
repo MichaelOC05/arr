@@ -4,10 +4,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class UserModel(AbstractUser):
-    user = models.CharField(max_length=20)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
+    profile_picture = models.URLField(null=True, blank=True)
+    profile_bio = models.CharField(max_length=1000, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.set_password(self.password)
@@ -27,16 +28,12 @@ class CommentsModel(models.Model):
 
 class MovieInformationModel(models.Model):
     movie_name = models.CharField(max_length=100)
-    movie_poster = models.URLField(null=True)
-    source_cover = models.URLField(null=True)  # comic
     movie_poster = models.URLField(null=True, blank=True)
-    source_cover = models.URLField(null=True, blank=True)
-    movie_director = models.CharField(max_length=100)
+    movie_director = models.CharField(max_length=100, null=True, blank=True)
     source_author = models.CharField(max_length=100, null=True, blank=True)
     imdb_score = models.FloatField(null=True, blank=True)
     movie_synopsis = models.TextField(max_length=250)
     imdb_id = models.CharField(max_length=100)
-    source_type = models.CharField(max_length=100)
 
 
 class ReviewModel(models.Model):

@@ -8,7 +8,7 @@ variables:
   POSTGRES_PASSWORD: test
   DATABASE_URL: postgresql://postgres:test@postgres:5432/postgres
   MOVIE_KEY: ${MOVIE_KEY}
-  COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
+  # COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
   DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
 unit-test-job:
   image: python:3-bullseye
