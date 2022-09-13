@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 
 class UserModelEncoder(ModelEncoder):
     model = UserModel
-    properties = ["id", "username"]
+    properties = ["id", "username", "first_name", "last_name"]
 
 
 class MovieInformationEncoder(ModelEncoder):
@@ -313,7 +313,7 @@ def api_create_account(request):
         return JsonResponse(user, encoder=UserModelEncoder, safe=False)
 
 
-@require_http_methods("POST")
+@require_http_methods(["POST", "GET"])
 def api_user_account(request):
     if request.method == "POST":
         content = json.loads(request.body)
@@ -329,3 +329,34 @@ def api_user_account(request):
             response = JsonResponse({"message": "Username does not exist"})
             response.status_code = 404
             return response
+    else:
+        try:
+            users = UserModel.objects.get(is_active=True)
+            return JsonResponse(
+                {"Accounts": users},
+                encoder=UserModelEncoder,
+                safe=False,
+            )
+        except UserModel.DoesNotExist:
+            response = JsonResponse({"message": "Users does not exist"})
+            response.status_code = 404
+            return response
+    
+@require_http_methods(["GET", "PUT", "DELETE"])
+def api_user(request, pk):    
+    if request.method == "GET":
+        try:
+            user = UserModel.objects.get(id=pk)
+            return JsonResponse(
+                user,
+                encoder=UserModelEncoder,
+                safe=False,
+            )
+        except UserModel.DoesNotExist:
+            response = JsonResponse({"message": "User does not exist"})
+            response.status_code = 404
+            return response
+    elif request.method == "PUT":
+        pass
+    else:
+        pass
