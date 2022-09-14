@@ -16,6 +16,7 @@ export async function getTokenInternal() {
   try {
     const response = await fetch(url, {
       credentials: "include",
+      Authorization: `Bearer ${token}`,
     });
     if (response.ok) {
       const data = await response.json();
@@ -120,7 +121,7 @@ export function useToken() {
     // after the user has been authenticated we then 
     console.log("response", response)
     let cookies = new Cookies()
-    let jwt_token = cookies.get("jwt_access_payload")
+    let jwt_token = cookies.get("jwt_access_token")
     console.log("jewttokendjkns", jwt_token)
     if (response.ok) {
       const token = await getTokenInternal();
