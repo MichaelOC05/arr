@@ -117,6 +117,7 @@ export function useToken() {
       body: form,
     });
     // after the user has been authenticated we then 
+    console.log("response", response)
     if (response.ok) {
       const token = await getTokenInternal();
       console.log(token)
