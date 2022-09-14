@@ -35,3 +35,10 @@ Worked with Jack and Michael to make some changes to review form and models.
 Inserted a function for creating the average for rubric rating. 
 Gio and Kurt got heroku up and running. 
 Ran into a bunch of linting errors but we got them all fixed.
+
+# September 14, 2022
+To dos:
+Pagination for movies
+Issues with login
+Update user page
+
