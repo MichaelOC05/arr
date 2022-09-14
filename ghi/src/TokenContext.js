@@ -11,7 +11,7 @@ export function getToken() {
 // this function returns a JWT that is generated in the views
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
-  const url = `http://localhost:8000/monolith/tokens/mine/`;
+  const url = `${process.env.REACT_APP_MONOLITH_HOST}/tokens/mine/`;
   try {
     const response = await fetch(url, {
       credentials: "include",
@@ -95,18 +95,18 @@ export function useToken() {
   // I think this brings us to the home page
   async function logout() {
     if (token) {
-      const url = "http://localhost:8000/api/token/refresh/logout/";
+      const url = `${process.env.REACT_APP_LOCAL_HOST}/api/token/refresh/logout/`
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
       navigate("/");
     }
   }
-
+  
   // would we need an url that is linked with this or is this handled by django and djwt?
   // https://medium.com/geekculture/djwto-django-authentication-with-jwt-3ff6a6141fa6
   async function login(username, password) {
-    const url = `http://localhost:8000/login/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}/login/`
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
@@ -115,9 +115,6 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
-
-
-
     // after the user has been authenticated we then 
     if (response) {
       const token = await getTokenInternal();

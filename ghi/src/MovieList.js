@@ -75,7 +75,13 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
+        const movieUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movieId}/`
+        const fetchConfigMovie = {
+          method: "put",
+        }
+        const movieResponse = await fetch(movieUrl, fetchConfigMovie)
         console.log(response)
+        console.log("movieResponse", movieResponse)
         if (response.ok) {
             const newReview = await response.json()
             console.log(newReview)
@@ -237,12 +243,26 @@ class MovieList extends React.Component {
         return (
             <>
             <div className="bg-danger bg-gradient">
-            <div className="row row-cols-1 g-4 ">
+            <div className="px-4 py-5 my-5 mt-0 text-center">
+            <h6 className="display-5 fw-bold">Adaptation Accuracy</h6>
+                <img src="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png" alt="" width="200" height="200" /> 
+            <h6 className="display-5 fw-bold">Report!</h6>
+            <div className="col-lg-6 mx-auto">
+                <p className="lead mb-4">
+                Find Movies and TV shows to review below!
+                </p>
+                <Link to="/how_to_review" className="btn btn-primary btn-lg px-4 gap-3">How to Write a Review</Link>
+                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                </div>
+            </div>
+            </div>
+            <div className="row-cols-1 g-4">
                 {this.state.sampleMovies.map(movie => {
                     const url = "http://image.tmdb.org/t/p/original"
                     return (
                         // <div className="col">
-                            <div key={movie.id} className="card mb-3" divstyle={"max-width: 540px;"}>
+                        
+                            <div key={movie.id} className="card mb-3 w-50 mx-auto" divstyle={"max-width: 540px;"}>
                                 {/* <div className="bg-primary bg-gradient"> */}
                                 <div className="shadow p-4 mt-4">
                                 <div className="row g-0">
@@ -264,7 +284,7 @@ class MovieList extends React.Component {
                                 </div>
                                 {/* </div> */}
                             </div> 
-                                
+                              
                         // </div>
                         
                     );

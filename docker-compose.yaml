@@ -24,7 +24,7 @@ services:
         environment:
             DATABASE_URL: postgresql://monolith:password@postgres/monolith
             WAIT_HOSTS: postgres:5432
-            COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
+            # COMIC_VINE_API_KEY: ${COMIC_VINE_API_KEY}
             DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
             MOVIE_KEY: ${MOVIE_KEY}
     ghi:
@@ -36,7 +36,9 @@ services:
         ports:
             - "3000:3000"
         environment:
+            REACT_APP_MOVIE_KEY: ${MOVIE_KEY}
             REACT_APP_MONOLITH_HOST: http://localhost:8000/monolith
+            REACT_APP_LOCAL_HOST: http://localhost:8000            
             REACT_APP_DJANGO_SERVICE: http://localhost:8001
             REACT_APP_THIRD_PARTY_SERVICE: http://third-party.com
             HOST_OS: ${OS}

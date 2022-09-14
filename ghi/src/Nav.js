@@ -6,6 +6,8 @@ function Nav() {
     let cookies = new Cookies()
     let jwt_token = cookies.get("jwt_access_payload")
     let [, , logout] = useToken()
+    let submitCookie = new Cookies()
+    let userId = Number(submitCookie.get("userId"))
     async function logOutButton(event) {
         event.preventDefault()
         let cookies = new Cookies()
@@ -28,9 +30,6 @@ function Nav() {
                     <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" aria-current="page" to="">Reviews</NavLink>
-                    </li>
-                    <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/list_of_movies">Movies</NavLink>
                     </li>
                     {jwt_token === undefined ? (
@@ -38,15 +37,22 @@ function Nav() {
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
                     ) : (
+                    <>
+                    <li className="nav-item">
+                        <NavLink  className="nav-link"  aria-current="page" to="/APISearch">Search for Movie</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" aria-current="page" to={`/user/${userId}`}>My Page</NavLink>
+                    </li>
                     <li className="nav-item" onClick={logOutButton}>
                         <NavLink  className="nav-link"  aria-current="page" to="">Log out</NavLink>
                     </li>
+                    </>
                     )}
                 </ul>
                 <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search Reviews" aria-label="Search" />
-                <button className="btn btn-outline-primary me-2" type="submit">Search</button>
-                
+                <button className="btn btn-outline-primary me-2" type="submit">Search</button> 
             </form>
             </div>
             </div>

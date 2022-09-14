@@ -79,7 +79,6 @@ function LoginForm (props) {
       // let createUserUrl = "http://localhost:8000/monolith/login/create_account/"
       let loginUrl = `${process.env.REACT_APP_MONOLITH_HOST}/login/authenticate/`
       let newData = [createUsername, createPassword, email, firstName, lastName]
-
       let fetchConfig = {
         method: "POST",
         body: JSON.stringify(newData),
