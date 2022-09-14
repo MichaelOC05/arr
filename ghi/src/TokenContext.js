@@ -129,7 +129,7 @@ export function useToken() {
 
   async function signup(username, password, email, firstName, lastName) {
     console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
-    const url = `${process.env.REACT_APP_LOCAL_HOST}login/create_user/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/create_user/`;
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
