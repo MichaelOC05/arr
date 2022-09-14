@@ -77,7 +77,7 @@ function LoginForm (props) {
       event.preventDefault()
       await signup(createUsername, createPassword, email, firstName, lastName)
       // let createUserUrl = "http://localhost:8000/monolith/login/create_account/"
-      let loginUrl = `${REACT_LOCAL_HOST}monolith/login/authenticate/`
+      let loginUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/authenticate/`
       let newData = [createUsername, createPassword, email, firstName, lastName]
       let fetchConfig = {
         method: "POST",
@@ -88,7 +88,7 @@ function LoginForm (props) {
       }
       let response = await fetch(loginUrl, fetchConfig)
       console.log(response)
-      let anotherUserUrl = `${REACT_APP_LOCAL_HOST}monolith/user/`
+      let anotherUserUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/`
       console.log(anotherUserUrl)
       let submitAnotherCookie = new Cookies()
       let fetchConfigAnotherUser = {
