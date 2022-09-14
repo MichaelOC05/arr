@@ -39,11 +39,11 @@ class MovieInformationModel(models.Model):
     imdb_id = models.CharField(max_length=100)
     base_rating = models.FloatField(null=True, blank=True)
     plot_rating = models.FloatField(null=True, blank=True)
-    char_rating = models.FloatField(null=True, blank=True)  
-    setting_rating = models.FloatField(null=True, blank=True) 
+    char_rating = models.FloatField(null=True, blank=True)
+    setting_rating = models.FloatField(null=True, blank=True)
     add_on_rating = models.FloatField(null=True, blank=True)
     removal_rating = models.FloatField(null=True, blank=True)
-    rubric_rating = models.FloatField(null=True, blank=True) 
+    rubric_rating = models.FloatField(null=True, blank=True)
     admin_rating = models.FloatField(null=True, blank=True)
 
 
