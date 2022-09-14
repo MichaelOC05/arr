@@ -106,7 +106,7 @@ export function useToken() {
   // would we need an url that is linked with this or is this handled by django and djwt?
   // https://medium.com/geekculture/djwto-django-authentication-with-jwt-3ff6a6141fa6
   async function login(username, password) {
-    const url = `${process.env.REACT_APP_LOCAL_HOST}/login/`
+    const url = `${process.env.REACT_APP_LOCAL_HOST}login/`
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
@@ -129,7 +129,7 @@ export function useToken() {
 
   async function signup(username, password, email, firstName, lastName) {
     console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
-    const url = `${process.env.REACT_APP_MONOLITH_HOST}/login/create_user/`;
+    const url = `${process.env.REACT_APP_MONOLITH_HOST}login/create_user/`;
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -151,7 +151,7 @@ export function useToken() {
   }
 
   async function update(username, password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}api/accounts/`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
