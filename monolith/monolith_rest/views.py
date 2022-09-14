@@ -223,7 +223,7 @@ def api_movieinfo(request):  # This one is called MOVIE no S
             movie_name = content["movie_name"]
             MovieInformationModel.objects.create(**content)
             movie_instance = MovieInformationModel.objects.get(
-                             movie_name=movie_name)
+                            movie_name=movie_name)
             return JsonResponse(
                 movie_instance,
                 encoder=MovieInformationEncoder,
@@ -296,7 +296,7 @@ def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
                                                + content["setting_rating"]
                                                + content["add_on_rating"]
                                                + content["removal_rating"])
-                                            / 5), 1)
+                                              / 5), 1)
             MovieInformationModel.objects.filter(id=pk).update(**content)
             movie_info = MovieInformationModel.objects.get(id=pk)
             return JsonResponse(
