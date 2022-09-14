@@ -15,4 +15,4 @@ COPY monolith_rest monolith_rest
 # COPY common common
 
 RUN pip install -r requirements.txt
-CMD //wait && python manage.py makemigrations && python manage.py migrate && gunicorn monolith.wsgi --bind 0.0.0.0:$PORT --log-file -
+CMD python manage.py makemigrations && python manage.py migrate && gunicorn monolith.wsgi --bind 0.0.0.0:$PORT 
