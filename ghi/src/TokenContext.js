@@ -129,7 +129,7 @@ export function useToken() {
 
   async function signup(username, password, email, firstName, lastName) {
     console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
-    const url = `${process.env.REACT_APP_MONOLITH_HOST}login/create_user/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}login/create_user/`;
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -151,7 +151,7 @@ export function useToken() {
   }
 
   async function update(username, password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}api/accounts/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}api/accounts/`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
