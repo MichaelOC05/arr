@@ -18,6 +18,7 @@ export async function getTokenInternal() {
     });
     if (response.ok) {
       const data = await response.json();
+      console.log("this is data ", data)
       internalToken = data.token;
 
       return internalToken;
@@ -116,7 +117,7 @@ export function useToken() {
       body: form,
     });
     // after the user has been authenticated we then 
-    if (response) {
+    if (response.ok) {
       const token = await getTokenInternal();
       console.log(token)
       console.log("herer")
