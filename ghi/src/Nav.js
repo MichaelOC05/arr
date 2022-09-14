@@ -3,10 +3,7 @@ import { useToken } from "./TokenContext"
 import Cookies from "universal-cookie";
 
 function Nav() {
-    let cookies = new Cookies()
-    let jwt_token = cookies.get("jwt_access_payload")
     let [token, , logout] = useToken()
-    let submitCookie = new Cookies()
     let userId = Number(submitCookie.get("userId"))
     async function logOutButton(event) {
         event.preventDefault()
