@@ -38,7 +38,7 @@ services:
         environment:
             REACT_APP_MOVIE_KEY: ${MOVIE_KEY}
             REACT_APP_MONOLITH_HOST: http://localhost:8000/monolith
-            REACT_APP_LOCAL_HOST: http://localhost:8000            
+            REACT_APP_LOCAL_HOST: http://localhost:8000/     
             REACT_APP_DJANGO_SERVICE: http://localhost:8001
             REACT_APP_THIRD_PARTY_SERVICE: http://third-party.com
             HOST_OS: ${OS}
