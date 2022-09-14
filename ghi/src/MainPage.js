@@ -42,7 +42,7 @@ class MainPage extends React.Component {
     }
 
     async componentDidMount() {
-        const url = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`;
+        const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`;
 
         try {
             const response = await fetch(url);
@@ -50,7 +50,7 @@ class MainPage extends React.Component {
                 const data = await response.json();
                 const requests = [];
                 for (let review of data.Review) {
-                    const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/${review.id}/`;
+                    const detailUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/${review.id}/`;
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);

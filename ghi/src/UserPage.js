@@ -39,7 +39,7 @@ function UserInformation(props) {
     useEffect(() => {
         async function getUser() {
             if (id !== undefined) {
-                const url = `${process.env.REACT_APP_MONOLITH_HOST}/user/${id}/`
+                const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
                 const response = await fetch(url)
                 if (response.ok) {
                     const user_data = await response.json()
@@ -81,7 +81,7 @@ class UserPage extends React.Component {
     }
 
     async componentDidMount() {
-        const url = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`;
+        const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`;
         let submitCookie = new Cookies()
         let userId = Number(submitCookie.get("userId"))
         try {
@@ -90,7 +90,7 @@ class UserPage extends React.Component {
                 const data = await response.json();
                 const requests = [];
                 for (let review of data.Review) {
-                    const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/${review.id}/`;
+                    const detailUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/${review.id}/`;
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);
