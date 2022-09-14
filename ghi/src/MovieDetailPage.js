@@ -75,7 +75,13 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
+        const movieUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movieId}/`
+        const fetchConfigMovie = {
+          method: "put",
+        }
+        const movieResponse = await fetch(movieUrl, fetchConfigMovie)
         console.log(response)
+        console.log("movieResponse", movieResponse)
         if (response.ok) {
             const newReview = await response.json()
             console.log(newReview)
@@ -214,7 +220,7 @@ function MovieDetailPage() {
     return (
         <div>
         {movie.id ? 
-            <div className="card mb-3 text-center" divstyle={"max-width: 540px;"}>
+            <div className="card mb-3" divstyle={"max-width: 540px;"}>
                                 <div className="bg-danger bg-gradient">
                                 <div className="shadow p-4 mt-4">
                                 <div className="row g-0">
@@ -233,7 +239,7 @@ function MovieDetailPage() {
                                         <figcaption className="blockquote-footer text-black">Plot Rating: {movie.plot_rating}</figcaption>
                                         <figcaption className="blockquote-footer text-black">Character Rating: {movie.char_rating}</figcaption>
                                         <figcaption className="blockquote-footer text-black">Setting Rating: {movie.setting_rating}</figcaption>
-                                        <figcaption className="blockquote-footer text-black">Removal Rating: {movie.remove_rating}</figcaption>
+                                        <figcaption className="blockquote-footer text-black">Removal Rating: {movie.removal_rating}</figcaption>
                                         <figcaption className="blockquote-footer text-black">Add On Rating: {movie.add_on_rating}</figcaption>
                                         <CreateReview movie={movie} />
                                     </div>

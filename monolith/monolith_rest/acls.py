@@ -4,10 +4,7 @@ import requests
 
 
 MOVIE_KEY = os.environ["MOVIE_KEY"]
-<<<<<<< HEAD
 # COMIC_VINE_API_KEY = os.environ["COMIC_VINE_API_KEY"]
-=======
->>>>>>> 17b12b1f2b1f7b9b1d139a168aa86c085fdea8bc
 
 
 def get_movies(movie_name):
