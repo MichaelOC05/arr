@@ -1,8 +1,19 @@
+## sept 15
+- user page update pfp and bio
+- unit test 
+- test pipeline
+- stretch goals(paginate, rubric review, submit higher number but)
+- debug
+- heroku
 ## September 14 2022
 - paginate for movies
 - fix login
 - user pfp and bio
 - update user 
+What we did today:
+- fixed deployment to heroku
+- fixed login
+- fixed movie search and review page
 
 ## September 13 2022
 What we need to do today:
