@@ -1,9 +1,15 @@
+## September 14 2022
+- paginate for movies
+- fix login
+- user pfp and bio
+- update user 
+
 ## September 13 2022
 What we need to do today:
 - docker 
-- heroku
+- heroku(deployed)
 - review form 
-- models
+- models(fixed)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ## September 9 2022
