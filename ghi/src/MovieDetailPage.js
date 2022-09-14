@@ -235,7 +235,7 @@ function MovieDetailPage() {
                                         <figcaption className="blockquote-footer text-black">Setting Rating: {movie.setting_rating}</figcaption>
                                         <figcaption className="blockquote-footer text-black">Removal Rating: {movie.remove_rating}</figcaption>
                                         <figcaption className="blockquote-footer text-black">Add On Rating: {movie.add_on_rating}</figcaption>
-                                        <CreateReview />
+                                        <CreateReview movie={movie} />
                                     </div>
                                 </div>
                                 </div>
