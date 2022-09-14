@@ -24,7 +24,7 @@ function MovieInstance(props) {
 
     async function createMovie (){
         let data = {"movie_poster": moviePoster, "movie_name": movieName, "imdb_score": imdbScore, "movie_synopsis": movieSynopsis}
-        let createUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/`
+        let createUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/`
         let fetchConfig = {
             method: "POST",
             body: JSON.stringify(data),

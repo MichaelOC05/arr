@@ -269,7 +269,6 @@ def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
             setting_rating_count = 0
             add_on_rating_count = 0
             removal_rating_count = 0
-
             list_of_reviews = movie_instance.review_models.all()
             length_of_reviews = len(list_of_reviews)
             for review in list_of_reviews:
