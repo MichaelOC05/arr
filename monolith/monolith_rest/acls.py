@@ -2,7 +2,6 @@ import os
 import json
 import requests
 
-
 MOVIE_KEY = os.environ["MOVIE_KEY"]
 
 def get_movies(movie_name):
@@ -23,7 +22,6 @@ def get_movies(movie_name):
         }
     except (KeyError, IndexError):
         return {"movie_poster": None, "movie_synopsis": None, "imdb_score": None}
-
 
 # def get_comics(movie_name):
 #     url = (
