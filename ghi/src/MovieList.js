@@ -171,6 +171,8 @@ function CreateReview(props) {
                 <Form.Label>Removal Rating</Form.Label>
                 <Form.Control
                   type="number"
+                  id="Number"
+                  name="Number"
                   placeholder="Removal Rating"
                   min= "1"
                   max="10"

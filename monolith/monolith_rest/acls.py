@@ -5,6 +5,7 @@ import requests
 
 MOVIE_KEY = os.environ["MOVIE_KEY"]
 
+
 def get_movies(movie_name):
     url = (
         "https://api.themoviedb.org/3/search/multi?api_key="
