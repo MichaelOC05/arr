@@ -20,7 +20,7 @@ function ReviewRows(props) {
                             <div className="card-body">
                                 <h5 className="card-title"><u>{review.movie_id.movie_name} </u></h5>
                                 <p className="card-text">{review.rating_description}</p>
-                                <p className="card-text"><small className="text">Review By: {review.reviewer_id.username}</small></p>
+                                <p className="card-text"><small className="text">Base Rating: {review.base_rating}</small></p>
                             </div>
                         </div>
                         </div>
