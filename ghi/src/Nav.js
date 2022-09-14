@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 
 function Nav() {
     let [token, , logout] = useToken()
+    let submitCookie = new Cookies()
     let userId = Number(submitCookie.get("userId"))
     async function logOutButton(event) {
         event.preventDefault()
