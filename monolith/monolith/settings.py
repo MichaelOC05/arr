@@ -27,14 +27,14 @@ SECRET_KEY = 'django-insecure-%(jq7#xi1t^qcrz8mkxtqdk(9tbjq#6u5=rkg-q0mj)+72#mp*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = not os.environ.get("DEBUG")
-DEBUG = True #all caps
+DEBUG = True
 
 ALLOWED_HOSTS = [
     ".localhost",
     "127.0.0.1",
     "[::1]",
     os.environ.get("DEPLOYED_HOST", "localhost"),
-    "adaptation-accuracy-report.herokuapp.com"
+    "adaptation-accuracy.herokuapp.com"
 ]
 
 AUTH_USER_MODEL = "monolith_rest.UserModel"
