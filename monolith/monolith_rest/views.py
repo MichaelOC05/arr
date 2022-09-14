@@ -279,8 +279,8 @@ def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
                 setting_rating_count += review.setting_rating
                 add_on_rating_count += review.add_on_rating
                 removal_rating_count += review.removal_rating
-            content["base_rating"] = round((base_rating_count
-                                                / length_of_reviews), 1)
+            content["base_rating"] = round((base_rating_count /
+                                            length_of_reviews), 1)
             content["plot_rating"] = round((plot_rating_count
                                                 / length_of_reviews), 1)
             content["char_rating"] = round((char_rating_count
