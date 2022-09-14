@@ -75,7 +75,13 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
+        const movieUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movieId}/`
+        const fetchConfigMovie = {
+          method: "put",
+        }
+        const movieResponse = await fetch(movieUrl, fetchConfigMovie)
         console.log(response)
+        console.log("movieResponse", movieResponse)
         if (response.ok) {
             const newReview = await response.json()
             console.log(newReview)

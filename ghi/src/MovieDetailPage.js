@@ -35,8 +35,14 @@ function MovieDetailPage() {
                                             {movie.movie_name} 
                                         </h5>
                                         <p className="card-text">{movie.movie_synopsis}</p>
-                                        <p className="card-text"><small className="text">{movie.id}</small></p>
-                                        
+                                        <p className="card-text"><strong>IMDB Score: {movie.imdb_score}</strong></p>
+                                        <p className="card-text"><strong>Base Rating: {movie.base_rating}</strong></p>
+                                        <p className="card-text"><strong>Rubric Rating: {movie.rubric_rating}</strong></p>
+                                        <figcaption className="blockquote-footer text-black">Plot Rating: {movie.plot_rating}</figcaption>
+                                        <figcaption className="blockquote-footer text-black">Character Rating: {movie.char_rating}</figcaption>
+                                        <figcaption className="blockquote-footer text-black">Setting Rating: {movie.setting_rating}</figcaption>
+                                        <figcaption className="blockquote-footer text-black">Removal Rating: {movie.remove_rating}</figcaption>
+                                        <figcaption className="blockquote-footer text-black">Add On Rating: {movie.add_on_rating}</figcaption>
                                     </div>
                                 </div>
                                 </div>

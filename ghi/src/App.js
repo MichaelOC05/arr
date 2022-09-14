@@ -9,11 +9,13 @@ import MovieList from './MovieList'
 import MovieDetailPage from './MovieDetailPage'
 import APISearch from './APISearch'
 import UserPage from './UserPage'
+const domain = /https:\/\/[^/]+/;
+const basename = process.env.PUBLIC_URL.replace(domain, '');
 
 function App(props) {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Nav />
           <Routes>
             <Route path="/" element={<MainPage /> } />
