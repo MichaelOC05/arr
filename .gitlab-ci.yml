@@ -83,7 +83,7 @@ build-adaptation-accuracy-report-front-end:
   stage: build
   image: node:lts-bullseye
   variables:
-    PUBLIC_URL: https://GioM1598.gitlab.io/brogrammers
+    PUBLIC_URL: https://giom1598.gitlab.io/brogrammers/
   script:
     - cd ghi
     - npm install

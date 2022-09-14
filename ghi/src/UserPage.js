@@ -1,6 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import Cookies from "universal-cookie";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+
+function UpdateUser(props) {
+    const [show, setShow] = useState(false);
+    const user = props.user
+    const [userId] = useState(user.id)
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [profilePicture, setProfilePicture] = useState("")
+    const [profileBio, setProfileBio] = useState("")
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
+
+    function handleFirstName(e) {
+        setFirstName(e.target.value)
+    }
+
+    function handleLastName(e) {
+        setLastName(e.target.value)
+    }
+
+    function handleEmail(e) {
+        setEmail(e.target.value)
+    }
+
+    function handleProfilePicture(e) {
+        setProfilePicture(e.target.value)
+    }
+
+    function handleProfileBio(e) {
+        setProfileBio(e.target.value)
+    }
+
+    async function submitButton(event) {
+        event.preventDefault();
+        let locationUrl = ``
+    }
+}
 
 function ReviewRows(props) {
     const url = "http://image.tmdb.org/t/p/original"
@@ -21,7 +62,6 @@ function ReviewRows(props) {
                                 <h5 className="card-title"><u>{review.movie_id.movie_name} </u></h5>
                                 <p className="card-text">{review.rating_description}</p>
                                 <p className="card-text"><small className="text">Your Base Rating: {review.base_rating}</small></p>
-                                <p className="card-text"><small className="text">Your Rubric Rating: {review.rubric_rating}</small></p>
                             </div>
                         </div>
                         </div>
@@ -40,7 +80,7 @@ function UserInformation(props) {
     useEffect(() => {
         async function getUser() {
             if (id !== undefined) {
-                const url = `${process.env.REACT_APP_MONOLITH_HOST}/user/${id}/`
+                const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
                 const response = await fetch(url)
                 if (response.ok) {
                     const user_data = await response.json()
@@ -56,7 +96,7 @@ function UserInformation(props) {
         <div className="shadow p-4 mt-4">
         <div className="row g-0">
             <div className="col-md-4">
-                <img src={user.profile_pic} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
+                <img src={user.profile_pic} className="img-fluid rounded-start" alt="Your Profile Pic Should Be Here"></img>
             </div>
         <div className="col-md-8">
             <div className="card-body">
@@ -82,7 +122,7 @@ class UserPage extends React.Component {
     }
 
     async componentDidMount() {
-        const url = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`;
+        const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`;
         let submitCookie = new Cookies()
         let userId = Number(submitCookie.get("userId"))
         try {
@@ -91,7 +131,7 @@ class UserPage extends React.Component {
                 const data = await response.json();
                 const requests = [];
                 for (let review of data.Review) {
-                    const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/${review.id}/`;
+                    const detailUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/${review.id}/`;
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);
