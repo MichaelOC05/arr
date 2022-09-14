@@ -279,22 +279,21 @@ def api_moviesinfo(request, pk):  # This is is called MOVIES with an S
                 setting_rating_count += review.setting_rating
                 add_on_rating_count += review.add_on_rating
                 removal_rating_count += review.removal_rating
-            
             content["base_rating"] = round((base_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["plot_rating"] = round((plot_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["char_rating"] = round((char_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["setting_rating"] = round((setting_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["add_on_rating"] = round((add_on_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["removal_rating"] = round((removal_rating_count
-                                            / length_of_reviews), 1)
+                                                / length_of_reviews), 1)
             content["rubric_rating"] = round(((content["plot_rating"]
-                                            + content["char_rating"] + content["setting_rating"] +
-                                            content["add_on_rating"] + content["removal_rating"]) / 5), 1)
+                                                + content["char_rating"] + content["setting_rating"] +
+                                                content["add_on_rating"] + content["removal_rating"]) / 5), 1)
             MovieInformationModel.objects.filter(id=pk).update(**content)
             movie_info = MovieInformationModel.objects.get(id=pk)
             return JsonResponse(
