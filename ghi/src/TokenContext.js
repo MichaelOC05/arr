@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 // sets the value of internalToken to null
 let internalToken = null;
 
@@ -118,6 +119,9 @@ export function useToken() {
     });
     // after the user has been authenticated we then 
     console.log("response", response)
+    let cookies = new Cookies()
+    let jwt_token = cookies.get("jwt_access_payload")
+    console.log("jewttokendjkns", jwt_token)
     if (response.ok) {
       const token = await getTokenInternal();
       console.log(token)
