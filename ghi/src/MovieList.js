@@ -52,7 +52,7 @@ function CreateReview(props) {
 
     async function submitButton(event) {
         event.preventDefault();
-        let locationUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`
+        let locationUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`
         let submitCookie = new Cookies()
         let userId = Number(submitCookie.get("userId"))
         let data = {
@@ -75,7 +75,7 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
-        const movieUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movieId}/`
+        const movieUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movieId}/`
         const fetchConfigMovie = {
           method: "put",
         }
@@ -212,7 +212,7 @@ class MovieList extends React.Component {
     }
     
     async componentDidMount() {
-        const url = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/`;
+        const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/`;
 
         try {
             const response = await fetch(url);
@@ -220,7 +220,7 @@ class MovieList extends React.Component {
                 const data = await response.json();
                 const requests = [];
                 for (let movie of data.Movie_Info) {
-                    const detailUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movie.id}/`;
+                    const detailUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movie.id}/`;
                     requests.push(fetch(detailUrl));
                 }
                 const responses = await Promise.all(requests);
