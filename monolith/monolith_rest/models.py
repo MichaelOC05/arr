@@ -30,7 +30,7 @@ class CommentsModel(models.Model):
 
 
 class MovieInformationModel(models.Model):
-    movie_name = models.CharField(max_length=100, unique)
+    movie_name = models.CharField(max_length=100, unique=True)
     movie_poster = models.URLField(null=True, blank=True)
     movie_director = models.CharField(max_length=100, null=True, blank=True)
     source_author = models.CharField(max_length=100, null=True, blank=True)
