@@ -119,8 +119,8 @@ export function useToken() {
     if (response) {
       const token = await getTokenInternal();
       console.log(token)
+      console.log("herer")
       setToken(token);
-
       return;
     }
     let error = await response.json();
