@@ -25,7 +25,13 @@ Worked with seirs on researching a plan on how to integrate poster images from t
 Worked with Michael and Jack to create a modal, ran into issues where bootstrap was not working. 
 
 # September 9, 2022
-Worked on getting the list of reviews page fixed with Jack and Michael. We got submit review button up and running. Kurt and Gio worked together to set up the pipeline.
+Worked on getting the list of reviews page fixed with Jack and Michael. We got submit review button up and running. 
+Kurt and Gio worked together to set up the pipeline.
 
 # September 12, 2022
 
+# September 13, 2022
+Worked with Jack and Michael to make some changes to review form and models. 
+Inserted a function for creating the average for rubric rating. 
+Gio and Kurt got heroku up and running. 
+Ran into a bunch of linting errors but we got them all fixed.
