@@ -223,7 +223,7 @@ def api_movieinfo(request):  # This one is called MOVIE no S
             movie_name = content["movie_name"]
             MovieInformationModel.objects.create(**content)
             movie_instance = MovieInformationModel.objects.get(
-                            movie_name=movie_name)
+                movie_name=movie_name)
             return JsonResponse(
                 movie_instance,
                 encoder=MovieInformationEncoder,
