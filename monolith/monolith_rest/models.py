@@ -10,9 +10,8 @@ class UserModel(AbstractUser):
     profile_picture = models.URLField(null=True, blank=True)
     profile_bio = models.CharField(max_length=1000, null=True, blank=True)
 
-
     def save(self, *args, **kwargs):
-        if self.is_staff != True:
+        if self.is_staff is not True:
             self.set_password(self.password)
             super().save(*args, **kwargs)
         else:
@@ -40,11 +39,11 @@ class MovieInformationModel(models.Model):
     imdb_id = models.CharField(max_length=100)
     base_rating = models.FloatField(null=True, blank=True)
     plot_rating = models.FloatField(null=True, blank=True)
-    char_rating = models.FloatField(null=True, blank=True)  # rating based on character accuracy
-    setting_rating = models.FloatField(null=True, blank=True)  # rating based on setting accuracy
+    char_rating = models.FloatField(null=True, blank=True)
+    setting_rating = models.FloatField(null=True, blank=True)
     add_on_rating = models.FloatField(null=True, blank=True)
     removal_rating = models.FloatField(null=True, blank=True)
-    rubric_rating = models.FloatField(null=True, blank=True) 
+    rubric_rating = models.FloatField(null=True, blank=True)
     admin_rating = models.FloatField(null=True, blank=True)
 
 

@@ -11,7 +11,7 @@ export function getToken() {
 // this function returns a JWT that is generated in the views
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_MONOLITH_HOST}/tokens/mine/`;
+  const url = `${process.env.REACT_APP_LOCAL_HOST}/monolith/tokens/mine/`;
   try {
     const response = await fetch(url, {
       credentials: "include",
@@ -129,7 +129,7 @@ export function useToken() {
 
   async function signup(username, password, email, firstName, lastName) {
     console.log("anything")// const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
-    const url = `${process.env.REACT_APP_MONOLITH_HOST}/login/create_user/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}/monolith/login/create_user/`;
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -151,7 +151,7 @@ export function useToken() {
   }
 
   async function update(username, password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+    const url = `${process.env.REACT_APP_LOCAL_HOST}/api/accounts/`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
