@@ -52,7 +52,7 @@ function CreateReview(props) {
 
     async function submitButton(event) {
         event.preventDefault();
-        let locationUrl = `${process.env.REACT_APP_MONOLITH_HOST}/reviews/`
+        let locationUrl = `${process.env.REACT_APP_LOCAL_HOST}/reviews/`
         let submitCookie = new Cookies()
         let userId = Number(submitCookie.get("userId"))
         let data = {
