@@ -45,7 +45,7 @@ function LoginForm (props) {
 
     async function submitButton(event) {
         event.preventDefault()
-        let userUrl = `/monolith/user/`
+        let userUrl = `${process.env.REACT_APP_LOCAL_HOST}/monolith/user/`
         let submitCookie = new Cookies()
         let fetchConfigUser = {
           method: "POST",

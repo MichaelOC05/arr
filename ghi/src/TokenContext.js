@@ -11,7 +11,7 @@ export function getToken() {
 // this function returns a JWT that is generated in the views
 // think we need to change the url links referencing this page https://djwto.readthedocs.io/en/latest/
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_LOCAL_HOST}/tokens/mine/`;
+  const url = `${process.env.REACT_APP_LOCAL_HOST}/monolith/tokens/mine/`;
   try {
     const response = await fetch(url, {
       credentials: "include",
