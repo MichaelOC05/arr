@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 function Nav() {
     let cookies = new Cookies()
     let jwt_token = cookies.get("jwt_access_payload")
-    let [, , logout] = useToken()
+    let [token, , logout] = useToken()
     let submitCookie = new Cookies()
     let userId = Number(submitCookie.get("userId"))
     async function logOutButton(event) {
@@ -32,7 +32,7 @@ function Nav() {
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/list_of_movies">Movies</NavLink>
                     </li>
-                    {jwt_token === undefined ? (
+                    {token === null ? (
                     <li className="nav-item">
                         <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
                     </li>
