@@ -15,8 +15,7 @@ export async function getTokenInternal() {
   const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/tokens/mine/`;
   try {
     const response = await fetch(url, {
-      credentials: "include",
-      Authorization: `Bearer ${token}`,
+      credentials: "include"
     });
     if (response.ok) {
       const data = await response.json();
