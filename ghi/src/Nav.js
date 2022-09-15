@@ -18,6 +18,7 @@ function Nav() {
             const payloadUserId = tokenReturned["id"]
             setUserId(payloadUserId)
         }
+        getUserId()
     }, [userId])
     async function logOutButton(event) {
         event.preventDefault()
