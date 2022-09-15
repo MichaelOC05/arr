@@ -34,7 +34,8 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "[::1]",
     os.environ.get("DEPLOYED_HOST", "localhost"),
-    "adaptation-accuracy.herokuapp.com"
+    "adaptation-accuracy.herokuapp.com",
+    "https://adaptation-accuracy.herokuapp.com"
 ]
 
 AUTH_USER_MODEL = "monolith_rest.UserModel"
@@ -67,12 +68,14 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://adaptation-accuracy.herokuapp.com",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://loclhost:8000",
     os.environ.get("CORS_HOST", "http://localhost:3001"),
+    "https://adaptation-accuracy.herokuapp.com",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
