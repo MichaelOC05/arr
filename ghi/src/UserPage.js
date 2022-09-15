@@ -7,15 +7,28 @@ import Modal from 'react-bootstrap/Modal';
 
 function UpdateUser(props) {
     const [show, setShow] = useState(false);
-    const [user] = useState({})
+    const [user, setUser] = useState({})
     const {id} = useParams()
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [profilePicture, setProfilePicture] = useState("")
-    const [profileBio, setProfileBio] = useState("")
+    const [firstName, setFirstName] = useState(user.first_name)
+    const [lastName, setLastName] = useState(user.last_name)
+    const [email, setEmail] = useState(user.email)
+    const [profilePicture, setProfilePicture] = useState(user.profile_picture)
+    const [profileBio, setProfileBio] = useState(user.profile_bio)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
+    useEffect(() => {
+        async function autofill() {
+            if (id !== undefined) {
+                const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
+                const response = await fetch(url)
+                if (response.ok) {
+                    const user_data = await response.json()
+                    setUser(user_data)
+                }
+            }
+        }
+        autofill()
+    }, [id])
 
     function handleFirstName(e) {
         setFirstName(e.target.value)
@@ -59,6 +72,14 @@ function UpdateUser(props) {
         if (userResponse.ok) {
             const updateProfile = await userResponse.json()
             console.log(updateProfile)
+            if (id !== undefined) {
+                const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
+                const response = await fetch(url)
+                if (response.ok) {
+                    const user_data = await response.json()
+                    setUser(user_data)
+                }
+            }
             handleClose()
         }
         else {
@@ -82,7 +103,7 @@ function UpdateUser(props) {
                 onChange={handleFirstName}
               >
                 <Form.Label>First Name</Form.Label>
-                <Form.Control as="textarea"/>
+                <Form.Control type="text" defaultValue={user.first_name}/>
             </Form.Group>
             <Form.Group
                 className="mb-3"
@@ -90,7 +111,7 @@ function UpdateUser(props) {
                 onChange={handleLastName}
               >
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control as="textarea"/>
+                <Form.Control type="text" defaultValue={user.last_name}/>
             </Form.Group>
             <Form.Group
                 className="mb-3"
@@ -98,7 +119,7 @@ function UpdateUser(props) {
                 onChange={handleEmail}
               >
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="text" value={user.email}/>
+                <Form.Control type="text" defaultValue={user.email}/>
             </Form.Group>
             <Form.Group
                 className="mb-3"
@@ -106,7 +127,7 @@ function UpdateUser(props) {
                 onChange={handleProfilePicture}
               >
                 <Form.Label>Profile Picture URL</Form.Label>
-                <Form.Control as="textarea"/>
+                <Form.Control as="textarea" defaultValue={user.profile_picture}/>
             </Form.Group>
             <Form.Group
                 className="mb-3"
@@ -114,7 +135,7 @@ function UpdateUser(props) {
                 onChange={handleProfileBio}
               >
                 <Form.Label>Your Bio</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" rows={3} defaultValue={user.profile_bio}/>
             </Form.Group>
             </Form>
           </Modal.Body>
@@ -184,7 +205,7 @@ function UserInformation(props) {
         <div className="shadow p-4 mt-4">
         <div className="row g-0">
             <div className="col-md-4">
-                <img src={user.profile_picture} className="img-fluid rounded-start" alt="Your Profile Pic Should Be Here"></img>
+                <img src={user.profile_picture} className="img-fluid rounded-start" alt="Your Profile Pic Can Be Here"></img>
             </div>
         <div className="col-md-8">
             <div className="card-body">
@@ -251,7 +272,9 @@ class UserPage extends React.Component {
         return (
             <>
             <UserInformation />
+            <div className="d-grid gap-2 col-6 mx-auto">
             <UpdateUser />
+            </div>
             <div className="container">
                 <h2>Your Reviews</h2>
                 <div className="row row-cols-1 row-cols-md-2 g-4">
