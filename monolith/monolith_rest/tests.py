@@ -70,6 +70,7 @@ class TestCreateMovie(TestCase):
         movie = MovieInformationModel.objects.get(movie_name="Spider-Man: Into the Spider-Verse")
         self.assertEquals(movie, MovieInformationModel.objects.get(id=1))
 
+
 # Edgars Test
 class TestEmail(TestCase):
     def setUp(self):
