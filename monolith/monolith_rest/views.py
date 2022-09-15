@@ -328,6 +328,7 @@ def authenticate_user(request):
     user = authenticate(username=username, password=password)
     try:
         if user.is_active:
+            login(request, user)
             response = JsonResponse({"Message": "User logged in"})
             return response
         elif user.is_disabled:
