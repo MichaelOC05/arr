@@ -1,15 +1,26 @@
 import { NavLink } from "react-router-dom";
 import { useToken } from "./TokenContext"
-import Cookies from "universal-cookie";
+import { useState, useEffect } from "react";
+
 
 function Nav() {
     let [token, , logout] = useToken()
-    let submitCookie = new Cookies()
-    let userId = Number(submitCookie.get("userId"))
+    const [userId, setUserId] = useState()
+    useEffect(() => {
+        async function getUserId () {
+            const payloadTokenUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/payload_token/`
+                const fetchConfigToken = {
+                  method: "get",
+                  credentials: "include"
+                }
+            const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
+            const tokenReturned = await tokenResponse.json()
+            const payloadUserId = tokenReturned["id"]
+            setUserId(payloadUserId)
+        }
+    }, [userId])
     async function logOutButton(event) {
         event.preventDefault()
-        let cookies = new Cookies()
-        cookies.remove("userId")
         await logout()
         
     }

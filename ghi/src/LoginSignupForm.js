@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useToken } from "./TokenContext";
 import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
 
 
 function LoginForm (props) {
@@ -45,16 +44,6 @@ function LoginForm (props) {
 
     async function submitButton(event) {
         event.preventDefault()
-        let userUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/`
-        let submitCookie = new Cookies()
-        let fetchConfigUser = {
-          method: "POST",
-          body: JSON.stringify({"username": username})
-        }
-        let userResponse = await fetch(userUrl, fetchConfigUser)
-        const userInstance = await userResponse.json()
-        let userId = userInstance["id"]
-        submitCookie.set("userId", userId, { path: '/' })
         await login(username, password)
         let loginUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/authenticate/`
         let data = [username, password]
@@ -67,8 +56,8 @@ function LoginForm (props) {
         }
         console.log("login", loginUrl)
         let response = await fetch(loginUrl, fetchConfig)
-        const c = await response.json()
-        console.log(c)
+        const returnedReview = await response.json()
+        console.log(returnedReview)
         navigate("/")
         
     }
@@ -90,16 +79,6 @@ function LoginForm (props) {
       console.log(response)
       let anotherUserUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/`
       console.log(anotherUserUrl)
-      let submitAnotherCookie = new Cookies()
-      let fetchConfigAnotherUser = {
-        method: "POST",
-        body: JSON.stringify({"username": createUsername})
-      }
-      let anotherUserResponse = await fetch(anotherUserUrl, fetchConfigAnotherUser)
-      const anotherUserInstance = await anotherUserResponse.json()
-      let anotherUserId = anotherUserInstance["id"]
-      submitAnotherCookie.set("userId", anotherUserId, { path: '/' })
-      console.log(anotherUserId)
       navigate("/")
     }
 

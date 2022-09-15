@@ -5,9 +5,11 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 import json
 from django.contrib.auth import authenticate, login, logout
+import djwto.authentication as auth
+import os
 
 # Create your views here.
-
+s = os.environ["DJWTO_SIGNING_KEY"]
 
 class UserModelEncoder(ModelEncoder):
     model = UserModel
@@ -396,3 +398,16 @@ def api_user(request, pk):
         pass
     else:
         pass
+
+
+
+@auth.jwt_login_required
+@require_http_methods("GET")
+def get_payload_token(request):
+    token_data = request.payload
+    userId = token_data["user"]["id"]
+    print(userId)
+    if userId:
+        return JsonResponse({"id": userId})
+    response = JsonResponse({"token": None})
+    return response

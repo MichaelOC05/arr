@@ -12,6 +12,7 @@ from .views import (
     logout_view,
     api_user_account,
     api_user,
+    get_payload_token,
 )
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path("logout/", logout_view, name="logout"),
     path("user/", api_user_account, name="user"),
     path("user/<int:pk>/", api_user, name="single_user"),
+    path("payload_token/", get_payload_token, name="get_payload_token"),
 ]
