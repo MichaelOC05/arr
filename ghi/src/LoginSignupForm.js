@@ -51,13 +51,14 @@ function LoginForm (props) {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
+            credentials: "include",
           }
         }
         console.log("login", loginUrl)
         let response = await fetch(loginUrl, fetchConfig)
-        const returnedReview = await response.json()
-        console.log(returnedReview)
+        const returnedMessage = await response.json()
+        console.log(returnedMessage)
         navigate("/")
         
     }
