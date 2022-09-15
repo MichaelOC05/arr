@@ -3,7 +3,7 @@ from django.urls import reverse
 from .models import MovieInformationModel, ReviewModel, UserModel
 
 
-# Create your tests here.
+# Kurt's test
 class TestMovieView(TestCase):
     def setUp(self):
         MovieInformationModel.objects.create(movie_name="Spiderman")
@@ -36,7 +36,7 @@ class TestReviewModel(TestCase):
         response = client.get(reverse("list_of_reviews"))
         self.assertEquals(response.status_code, 200)
 
-        
+#Gios Test        
 class TestUserModel(TestCase):
     def setUp(self):
         UserModel.objects.create(first_name="gio")
