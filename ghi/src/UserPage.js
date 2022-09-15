@@ -1,6 +1,135 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import Cookies from "universal-cookie";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+
+function UpdateUser(props) {
+    const [show, setShow] = useState(false);
+    const [user] = useState({})
+    const {id} = useParams()
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [profilePicture, setProfilePicture] = useState("")
+    const [profileBio, setProfileBio] = useState("")
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
+
+    function handleFirstName(e) {
+        setFirstName(e.target.value)
+    }
+
+    function handleLastName(e) {
+        setLastName(e.target.value)
+    }
+
+    function handleEmail(e) {
+        setEmail(e.target.value)
+    }
+
+    function handleProfilePicture(e) {
+        setProfilePicture(e.target.value)
+    }
+
+    function handleProfileBio(e) {
+        setProfileBio(e.target.value)
+    }
+
+    async function submitButton(event) {
+        event.preventDefault();
+        let locationUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}`
+        let data = {
+            "first_name": firstName,
+            "last_name": lastName,
+            "email": email,
+            "profile_picture": profilePicture,
+            "profile_bio": profileBio, 
+        }
+        let fetchConfigUser = {
+            method: "put",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+        const userResponse = await fetch(locationUrl, fetchConfigUser)
+        console.log("user", userResponse)
+        if (userResponse.ok) {
+            const updateProfile = await userResponse.json()
+            console.log(updateProfile)
+            handleClose()
+        }
+        else {
+            console.log("profile not updated")
+        }
+    }
+    return (
+        <>
+        <Button variant="primary" onClick={handleShow}>
+          Update My Profile
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>All Fields Must Be Filled</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+            <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                onChange={handleFirstName}
+              >
+                <Form.Label>First Name</Form.Label>
+                <Form.Control as="textarea"/>
+            </Form.Group>
+            <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                onChange={handleLastName}
+              >
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control as="textarea"/>
+            </Form.Group>
+            <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                onChange={handleEmail}
+              >
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="text" value={user.email}/>
+            </Form.Group>
+            <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                onChange={handleProfilePicture}
+              >
+                <Form.Label>Profile Picture URL</Form.Label>
+                <Form.Control as="textarea"/>
+            </Form.Group>
+            <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+                onChange={handleProfileBio}
+              >
+                <Form.Label>Your Bio</Form.Label>
+                <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={submitButton}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        </>
+    )
+}
 
 function ReviewRows(props) {
     const url = "http://image.tmdb.org/t/p/original"
@@ -20,7 +149,7 @@ function ReviewRows(props) {
                             <div className="card-body">
                                 <h5 className="card-title"><u>{review.movie_id.movie_name} </u></h5>
                                 <p className="card-text">{review.rating_description}</p>
-                                <p className="card-text"><small className="text">Base Rating: {review.base_rating}</small></p>
+                                <p className="card-text"><small className="text">Your Base Rating: {review.base_rating}</small></p>
                             </div>
                         </div>
                         </div>
@@ -55,14 +184,15 @@ function UserInformation(props) {
         <div className="shadow p-4 mt-4">
         <div className="row g-0">
             <div className="col-md-4">
-                <img src={user.profile_pic} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
-                
+                <img src={user.profile_picture} className="img-fluid rounded-start" alt="Your Profile Pic Should Be Here"></img>
             </div>
         <div className="col-md-8">
             <div className="card-body">
                 <h5 className="card-title"><u>{user.username} </u></h5>
-                <p className="card-text">{user.profile_description}</p>
-                <p className="card-text"><small className="text">{user.id}</small></p>
+                <p className="card-text">My Name: {user.first_name} {user.last_name}</p>
+                <p className="card-text">My Email: {user.email}</p>
+                <p className="card-text">{user.profile_bio}</p>
+                <p className="card-text"><small className="text">User ID: {user.id}</small></p>
             </div>
         </div>
         </div>
@@ -121,6 +251,7 @@ class UserPage extends React.Component {
         return (
             <>
             <UserInformation />
+            <UpdateUser />
             <div className="container">
                 <h2>Your Reviews</h2>
                 <div className="row row-cols-1 row-cols-md-2 g-4">

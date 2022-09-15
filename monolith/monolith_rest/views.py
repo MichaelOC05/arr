@@ -11,7 +11,15 @@ from django.contrib.auth import authenticate, login, logout
 
 class UserModelEncoder(ModelEncoder):
     model = UserModel
-    properties = ["id", "username", "first_name", "last_name"]
+    properties = [
+        "id", 
+        "username", 
+        "first_name", 
+        "last_name",
+        "email", 
+        "profile_picture", 
+        "profile_bio"
+    ]
 
 
 class MovieInformationEncoder(ModelEncoder):
@@ -393,6 +401,18 @@ def api_user(request, pk):
             response.status_code = 404
             return response
     elif request.method == "PUT":
-        pass
+        try:
+            content = json.loads(request.body)
+            UserModel.objects.filter(id=pk).update(**content)
+            user = UserModel.objects.get(id=pk)
+            return JsonResponse(
+                user,
+                encoder=UserModelEncoder,
+                safe=False,
+            )
+        except UserModel.DoesNotExist:
+            response = JsonResponse({"message": "User does not exist"})
+            response.status_code = 404
+            return response
     else:
         pass
