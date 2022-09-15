@@ -11,11 +11,12 @@ import os
 # Create your views here.
 s = os.environ["DJWTO_SIGNING_KEY"]
 
+
 class UserModelEncoder(ModelEncoder):
     model = UserModel
     properties = [
-        "id", 
-        "username", 
+        "id",
+        "username",
         "first_name",
         "last_name",
         "email",

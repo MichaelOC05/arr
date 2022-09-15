@@ -42,3 +42,4 @@ Pagination for movies
 Issues with login
 Update user page
 
+#September 15, 2022
