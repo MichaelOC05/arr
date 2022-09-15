@@ -133,7 +133,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Plot Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -143,7 +143,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Setting Rating"
                   min= "1"
-                  max="10"
+                  max="10"                
                   autoFocus
                 />
               </Form.Group>
@@ -153,7 +153,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Character Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -170,12 +170,10 @@ function CreateReview(props) {
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" onChange={handleRemovalRating}>
                 <Form.Label>Removal Rating</Form.Label>
                 <Form.Control
-                  type="number" //added type, id, and name. Remove if it breaks
-                  id="Rating"
-                  name="Rating"
+                  type="number" 
                   placeholder="Removal Rating"
-                  minLength={1}  // Changed from "min" to "minLength={}"
-                  maxLength={10} // Changed from "max" to "maxLength={}"
+                  min="1"  
+                  max="10" 
                   autoFocus
                 />
               </Form.Group>

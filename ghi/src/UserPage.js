@@ -56,6 +56,7 @@ function UserInformation(props) {
         <div className="row g-0">
             <div className="col-md-4">
                 <img src={user.profile_pic} className="img-fluid rounded-start" alt="https://i.ibb.co/cJkH3nF/Untitled-Artwork.png"></img>
+                
             </div>
         <div className="col-md-8">
             <div className="card-body">
