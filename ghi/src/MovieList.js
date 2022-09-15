@@ -170,12 +170,12 @@ function CreateReview(props) {
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" onChange={handleRemovalRating}>
                 <Form.Label>Removal Rating</Form.Label>
                 <Form.Control
-                  type="number"
-                  id="Number"
-                  name="Number"
+                  type="number" //added type, id, and name. Remove if it breaks
+                  id="Rating"
+                  name="Rating"
                   placeholder="Removal Rating"
-                  min= "1"
-                  max="10"
+                  minLength={1}  // Changed from "min" to "minLength={}"
+                  maxLength={10} // Changed from "max" to "maxLength={}"
                   autoFocus
                 />
               </Form.Group>
