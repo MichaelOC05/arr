@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from .models import MovieInformationModel
+from .models import MovieInformationModel, UserModel
 
 
 # Create your tests here.
@@ -14,3 +14,11 @@ class TestMovieView(TestCase):
         self.assertEquals(response.status_code, 200)
 
 
+class TestUserModel(TestCase):
+    def setUp(self):
+        UserModel.objects.create(first_name="gio")
+
+    def test_user_exists(self):
+        client = Client()
+        response = client.get(reverse("user"))
+        self.assertEquals(response.status_code,200)
