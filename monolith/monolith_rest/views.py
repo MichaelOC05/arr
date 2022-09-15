@@ -16,10 +16,10 @@ class UserModelEncoder(ModelEncoder):
     properties = [
         "id", 
         "username", 
-        "first_name", 
+        "first_name",
         "last_name",
-        "email", 
-        "profile_picture", 
+        "email",
+        "profile_picture",
         "profile_bio"
     ]
 
@@ -418,7 +418,6 @@ def api_user(request, pk):
             return response
     else:
         pass
-
 
 
 @auth.jwt_login_required
