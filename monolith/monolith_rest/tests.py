@@ -37,3 +37,11 @@ class TestReviewModel(TestCase):
         self.assertEquals(response.status_code, 200)
 
         
+class TestUserModel(TestCase):
+    def setUp(self):
+        UserModel.objects.create(first_name="gio")
+
+    def test_user_exists(self):
+        client = Client()
+        response = client.get(reverse("user"))
+        self.assertEquals(response.status_code,200)

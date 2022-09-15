@@ -1,4 +1,4 @@
-from .models import ReviewModel, CommentsModel
+from .models import ReviewModel
 from .models import MovieInformationModel, UserModel
 from .common.encoders import ModelEncoder
 from django.views.decorators.http import require_http_methods
@@ -65,13 +65,13 @@ class ReviewModelEncoder(ModelEncoder):
     }
 
 
-class CommentsModelEncoder(ModelEncoder):
-    model = CommentsModel
-    properties = [
-        "date_posted",
-        "comment",
-        "commenter_id",
-    ]
+# class CommentsModelEncoder(ModelEncoder):
+#     model = CommentsModel
+#     properties = [
+#         "date_posted",
+#         "comment",
+#         "commenter_id",
+#     ]
 
 
 @require_http_methods(["GET", "POST"])
@@ -153,65 +153,65 @@ def api_user_token(request):
     return response
 
 
-@require_http_methods(["GET", "POST"])
-def api_comments(request):
-    if request.method == "GET":
-        comments = CommentsModel.objects.all()
-        return JsonResponse(
-            {"Comments": comments},
-            encoder=CommentsModelEncoder,
-            safe=False,
-        )
-    else:
-        content = json.loads(request.body)
-        try:
-            comment = CommentsModel.objects.create(**content)
-            return JsonResponse(
-                comment,
-                encoder=CommentsModelEncoder,
-                safe=False,
-            )
-        except CommentsModel.DoesNotExist:
-            return JsonResponse({"message": "Invalid Comment"})
+# @require_http_methods(["GET", "POST"])
+# def api_comments(request):
+#     if request.method == "GET":
+#         comments = CommentsModel.objects.all()
+#         return JsonResponse(
+#             {"Comments": comments},
+#             encoder=CommentsModelEncoder,
+#             safe=False,
+#         )
+#     else:
+#         content = json.loads(request.body)
+#         try:
+#             comment = CommentsModel.objects.create(**content)
+#             return JsonResponse(
+#                 comment,
+#                 encoder=CommentsModelEncoder,
+#                 safe=False,
+#             )
+#         except CommentsModel.DoesNotExist:
+#             return JsonResponse({"message": "Invalid Comment"})
 
 
-@require_http_methods(["GET", "DELETE", "PUT"])
-def api_comment(request, pk):
-    if request.method == "GET":
-        try:
-            comment = CommentsModel.objects.get(id=pk)
-            return JsonResponse(
-                comment,
-                encoder=CommentsModelEncoder,
-                safe=False,
-            )
-        except CommentsModel.DoesNotExist:
-            response = JsonResponse({"message": "Comment does not exist"})
-            response.status_code = 404
-            return response
-    elif request.method == "DELETE":
-        try:
-            comment = CommentsModel.objects.get(id=pk)
-            comment.delete()
-            return JsonResponse(comment,
-                                encoder=CommentsModelEncoder,
-                                safe=False)
-        except CommentsModel.DoesNotExist:
-            return JsonResponse({"message": "Comments does not exist"})
-    else:
-        try:
-            content = json.loads(request.body)
-            CommentsModel.objects.filter(id=pk).update(**content)
-            comment = CommentsModel.objects.get(id=pk)
-            return JsonResponse(
-                comment,
-                encoder=CommentsModelEncoder,
-                safe=False,
-            )
-        except CommentsModel.DoesNotExist:
-            response = JsonResponse({"message": "Comment does not exist"})
-            response.status_code = 404
-            return response
+# @require_http_methods(["GET", "DELETE", "PUT"])
+# def api_comment(request, pk):
+#     if request.method == "GET":
+#         try:
+#             comment = CommentsModel.objects.get(id=pk)
+#             return JsonResponse(
+#                 comment,
+#                 encoder=CommentsModelEncoder,
+#                 safe=False,
+#             )
+#         except CommentsModel.DoesNotExist:
+#             response = JsonResponse({"message": "Comment does not exist"})
+#             response.status_code = 404
+#             return response
+#     elif request.method == "DELETE":
+#         try:
+#             comment = CommentsModel.objects.get(id=pk)
+#             comment.delete()
+#             return JsonResponse(comment,
+#                                 encoder=CommentsModelEncoder,
+#                                 safe=False)
+#         except CommentsModel.DoesNotExist:
+#             return JsonResponse({"message": "Comments does not exist"})
+#     else:
+#         try:
+#             content = json.loads(request.body)
+#             CommentsModel.objects.filter(id=pk).update(**content)
+#             comment = CommentsModel.objects.get(id=pk)
+#             return JsonResponse(
+#                 comment,
+#                 encoder=CommentsModelEncoder,
+#                 safe=False,
+#             )
+#         except CommentsModel.DoesNotExist:
+#             response = JsonResponse({"message": "Comment does not exist"})
+#             response.status_code = 404
+#             return response
 
 
 @require_http_methods(["GET", "POST"])

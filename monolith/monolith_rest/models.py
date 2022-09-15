@@ -18,15 +18,15 @@ class UserModel(AbstractUser):
             super().save(*args, **kwargs)
 
 
-class CommentsModel(models.Model):
-    date_posted = models.DateTimeField()
-    comment = models.TextField(max_length=250)
-    commenter_id = models.ForeignKey(
-        UserModel,
-        related_name="comment_model",
-        on_delete=models.PROTECT,
-        null=True,  # CHANGE BACK TO FALSE!!!!
-    )
+# class CommentsModel(models.Model):
+#     date_posted = models.DateTimeField()
+#     comment = models.TextField(max_length=250)
+#     commenter_id = models.ForeignKey(
+#         UserModel,
+#         related_name="comment_model",
+#         on_delete=models.PROTECT,
+#         null=True,  # CHANGE BACK TO FALSE!!!!
+#     )
 
 
 class MovieInformationModel(models.Model):
