@@ -15,7 +15,8 @@ class UserModelEncoder(ModelEncoder):
         "id", 
         "username", 
         "first_name", 
-        "last_name", 
+        "last_name",
+        "email", 
         "profile_picture", 
         "profile_bio"
     ]
@@ -403,9 +404,9 @@ def api_user(request, pk):
         try:
             content = json.loads(request.body)
             UserModel.objects.filter(id=pk).update(**content)
-            comment = UserModel.objects.get(id=pk)
+            user = UserModel.objects.get(id=pk)
             return JsonResponse(
-                comment,
+                user,
                 encoder=UserModelEncoder,
                 safe=False,
             )
