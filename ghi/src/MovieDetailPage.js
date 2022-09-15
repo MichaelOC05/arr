@@ -206,7 +206,7 @@ function MovieDetailPage() {
     useEffect(() => {
         async function getMovie() {
                 if (movie_id !== undefined) {
-                    const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movie_id}/`
+                    const url = `${process.env.REACT_APP_LOCAL_HOST}/movie_info/${movie_id}/`
                     const response = await fetch(url)
                     if (response.ok) {
                         const movie_data = await response.json()

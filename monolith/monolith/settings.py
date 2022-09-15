@@ -27,14 +27,15 @@ SECRET_KEY = 'django-insecure-%(jq7#xi1t^qcrz8mkxtqdk(9tbjq#6u5=rkg-q0mj)+72#mp*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = not os.environ.get("DEBUG")
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     ".localhost",
     "127.0.0.1",
     "[::1]",
     os.environ.get("DEPLOYED_HOST", "localhost"),
-    "adaptation-accuracy.herokuapp.com"
+    "adaptation-accuracy.herokuapp.com",
+    "https://adaptation-accuracy.herokuapp.com"
 ]
 
 AUTH_USER_MODEL = "monolith_rest.UserModel"
@@ -67,12 +68,14 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://adaptation-accuracy.herokuapp.com",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://loclhost:8000",
     os.environ.get("CORS_HOST", "http://localhost:3001"),
+    "https://adaptation-accuracy.herokuapp.com",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
