@@ -42,6 +42,7 @@ class TestReviewModel(TestCase):
         response = client.get(reverse("list_of_reviews"))
         self.assertEquals(response.status_code, 200)
 
+
 # Gios Test        
 class TestUserModel(TestCase):
     def setUp(self):
@@ -57,17 +58,18 @@ class TestUserModel(TestCase):
 class TestCreateMovie(TestCase):
     def setUp(self):
         MovieInformationModel.objects.create(
-            movie_name="Spider-Man: Into the Spider-Verse",
-	        movie_poster="/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
-	        movie_director=None,
-	        source_author=None, 
-	        imdb_score=8.4,
-	        movie_synopsis="Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
-	        imdb_id= "",
+        movie_name="Spider-Man: Into the Spider-Verse",
+        movie_poster="/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+        movie_director=None,
+        source_author=None,
+        imdb_score=8.4,
+        movie_synopsis="Miles Morales is juggling.",
+        imdb_id="",
         )
 
     def test_movie_matches(self):
-        movie = MovieInformationModel.objects.get(movie_name="Spider-Man: Into the Spider-Verse")
+        movie = MovieInformationModel.objects.get(
+            movie_name="Spider-Man: Into the Spider-Verse")
         self.assertEquals(movie, MovieInformationModel.objects.get(id=1))
 
 
@@ -79,4 +81,4 @@ class TestEmail(TestCase):
     def test_user_exists(self):
         client = Client()
         response = client.get(reverse("user"))
-        self.assertEquals(response.status_code,200)
+        self.assertEquals(response.status_code, 200)
