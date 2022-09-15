@@ -133,7 +133,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Plot Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -143,7 +143,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Setting Rating"
                   min= "1"
-                  max="10"
+                  max="10"                
                   autoFocus
                 />
               </Form.Group>
@@ -153,7 +153,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Character Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -170,12 +170,10 @@ function CreateReview(props) {
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" onChange={handleRemovalRating}>
                 <Form.Label>Removal Rating</Form.Label>
                 <Form.Control
-                  type="number" //added type, id, and name. Remove if it breaks
-                  id="Rating"
-                  name="Rating"
+                  type="number" 
                   placeholder="Removal Rating"
-                  minLength={1}  // Changed from "min" to "minLength={}"
-                  maxLength={10} // Changed from "max" to "maxLength={}"
+                  min="1"  
+                  max="10" 
                   autoFocus
                 />
               </Form.Group>
@@ -289,6 +287,20 @@ class MovieList extends React.Component {
                         
                     );
                 })}
+<<<<<<< HEAD
+=======
+                <ul className="pagination justify-content-center">
+                    <li className="page-item disabled">
+                    <a className="page-link">Previous</a>
+                    </li>
+                    <li className="page-item"><a className="page-link" href="#">1</a></li>
+                    <li className="page-item"><a className="page-link" href="#">2</a></li>
+                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                    <li className="page-item">
+                    <a className="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+>>>>>>> 3b79f6d1792ea46fc2cdbc40657bc09514ee80ad
                 </div>
                 </div>
             </>
