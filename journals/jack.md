@@ -1,3 +1,9 @@
+## Tuesday September 13, 2022:
+    We decided to remove the Comic Api as the information we were getting was not what we wanted, unfortunate but necessary. Today we worked on the review form to get an aggregate score for the rubric rating. We were successful in doing so today mostly thanks to Michael with help from Andrew. Gio and Kurt were able to get the webpage to display on the web app on heroku, but we learned that some aspects of it are not functional due to the transfer. We worked on it as a team but have not gotten it to fully work by end of day due to linting errors and how the code is formatted. I got the review form to work on the Movie Detail Page and made some cosmetic changes with help from michael. We are in a good spot in my opinion, but we still have a lot to do.
+
+## Monday September 12, 2022:
+    After the test I worked with Edgar on the user page to get something to populate as well as have the reviews the user created to display. With most of the work done, I went to Michael Kurt to get some help in making it fully functional, and with some discussion realized we needed to change the user model and movie model to reflect new additions and remove unnecesary data. We realized it was best to do this in the morning of the next day to make sure we do it as a team to avoid errors as well as be on the same page. After the 5 o'clock attendance, I worked on some design elements to make the movie list page look better and called it a day.
+
 ## Friday September 9, 2022:
     Today the goal of the day was for Kurt and Gio to finish the pipeline, and me Michael, and Edgar worked on the review form to make it submit a review and it worked! we still need it to create a rubric rating and admin rating but I'm glad that we have this finished. Kurt and Gio were able to get the pipeline working which was great to hear
 

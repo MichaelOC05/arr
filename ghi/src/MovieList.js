@@ -122,7 +122,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Plot Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -132,7 +132,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Setting Rating"
                   min= "1"
-                  max="10"
+                  max="10"                
                   autoFocus
                 />
               </Form.Group>
@@ -142,7 +142,7 @@ function CreateReview(props) {
                   type="number"
                   placeholder="Character Rating"
                   min= "1"
-                  max="10"
+                  max="10"                  
                   autoFocus
                 />
               </Form.Group>
@@ -159,10 +159,10 @@ function CreateReview(props) {
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" onChange={handleRemovalRating}>
                 <Form.Label>Removal Rating</Form.Label>
                 <Form.Control
-                  type="number"
+                  type="number" 
                   placeholder="Removal Rating"
-                  min= "1"
-                  max="10"
+                  min="1"  
+                  max="10" 
                   autoFocus
                 />
               </Form.Group>
@@ -188,7 +188,6 @@ function CreateReview(props) {
       </>
     );
   }
-
 
 class MovieList extends React.Component {
     constructor(props) {
@@ -264,7 +263,6 @@ class MovieList extends React.Component {
                                             <Link to={`/movie/${movie.id}`}><u>{movie.movie_name} </u></Link>
                                         </h5>
                                         <p className="card-text">{movie.movie_synopsis}</p>
-                                        <p className="card-text"><small className="text">{movie.id}</small></p>
                                         <CreateReview movie={movie} />
                                         {/* <Link to="/create_review" className="btn btn-primary btn-lg px-4 gap-3">How to Write a Review</Link> */}
                                     </div>
@@ -278,7 +276,6 @@ class MovieList extends React.Component {
                         
                     );
                 })}
-                
                 </div>
                 </div>
             </>
