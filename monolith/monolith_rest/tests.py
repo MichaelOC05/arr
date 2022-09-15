@@ -35,7 +35,7 @@ class TestReviewModel(TestCase):
             removal_rating="8",
             rating_description="meh",
             reviewer_id=user
-            )
+        )
 
     def test_review_exits(self):
         client = Client()
@@ -43,7 +43,7 @@ class TestReviewModel(TestCase):
         self.assertEquals(response.status_code, 200)
 
 
-# Gios Test        
+# Gios Test
 class TestUserModel(TestCase):
     def setUp(self):
         UserModel.objects.create(first_name="gio")
@@ -51,20 +51,20 @@ class TestUserModel(TestCase):
     def test_user_exists(self):
         client = Client()
         response = client.get(reverse("user"))
-        self.assertEquals(response.status_code,200) 
+        self.assertEquals(response.status_code, 200)
 
 
 # Michael's Tests
 class TestCreateMovie(TestCase):
     def setUp(self):
         MovieInformationModel.objects.create(
-        movie_name="Spider-Man: Into the Spider-Verse",
-        movie_poster="/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
-        movie_director=None,
-        source_author=None,
-        imdb_score=8.4,
-        movie_synopsis="Miles Morales is juggling.",
-        imdb_id="",
+            movie_name="Spider-Man: Into the Spider-Verse",
+            movie_poster="/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+            movie_director=None,
+            source_author=None,
+            imdb_score=8.4,
+            movie_synopsis="Miles Morales is juggling.",
+            imdb_id="",
         )
 
     def test_movie_matches(self):
