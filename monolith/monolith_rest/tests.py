@@ -45,3 +45,13 @@ class TestUserModel(TestCase):
         client = Client()
         response = client.get(reverse("user"))
         self.assertEquals(response.status_code,200)
+
+#Edgars Test
+class TestEmailModel(TestCase):
+    def setUp(self):
+        UserModel.objects.create(email="edgarhakobyan@yahoo.com")
+
+    def test_user_exists(self):
+        client = Client()
+        response = client.get(reverse("user"))
+        self.assertEquals(response.status_code,200)
