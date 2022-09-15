@@ -50,7 +50,7 @@ class TestUserModel(TestCase):
     def test_user_exists(self):
         client = Client()
         response = client.get(reverse("user"))
-        self.assertEquals(response.status_code,200)
+        self.assertEquals(response.status_code,200) 
 
 
 # Michael's Tests
@@ -60,7 +60,7 @@ class TestCreateMovie(TestCase):
             movie_name="Spider-Man: Into the Spider-Verse",
 	        movie_poster="/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
 	        movie_director=None,
-	        source_author=None,
+	        source_author=None, 
 	        imdb_score=8.4,
 	        movie_synopsis="Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
 	        imdb_id= "",
