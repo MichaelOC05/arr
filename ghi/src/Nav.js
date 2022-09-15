@@ -61,8 +61,8 @@ function Nav() {
                     )}
                 </ul>
                 <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search Reviews" aria-label="Search" />
-                <button className="btn btn-outline-primary me-2" type="submit">Search</button> 
+                {/* <input className="form-control me-2" type="search" placeholder="Search Reviews" aria-label="Search" /> */}
+                {/* <button className="btn btn-outline-primary me-2" type="submit">Search</button>  */}
             </form>
             </div>
             </div>
