@@ -14,10 +14,21 @@ function UpdateUser(props) {
     const [email, setEmail] = useState(user.email)
     const [profilePicture, setProfilePicture] = useState(user.profile_picture)
     const [profileBio, setProfileBio] = useState(user.profile_bio)
+    const [payloadUserId, setPayloadUserId] = useState()
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
+
     useEffect(() => {
         async function autofill() {
+            const payloadTokenUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/payload_token/`
+            const fetchConfigToken = {
+              method: "get",
+              credentials: "include"
+            }
+            const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
+            const tokenReturned = await tokenResponse.json()
+            const payloadUserId = tokenReturned["id"]
+            setPayloadUserId(payloadUserId)
             if (id !== undefined) {
                 const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
                 const response = await fetch(url)
@@ -76,7 +87,7 @@ function UpdateUser(props) {
                 const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/${id}/`
                 const response = await fetch(url)
                 if (response.ok) {
-                    const user_data = await response.json()
+                    const user_data = await response.json()             
                     setUser(user_data)
                 }
             }
@@ -86,6 +97,7 @@ function UpdateUser(props) {
             console.log("profile not updated")
         }
     }
+    if (user.id == payloadUserId) {
     return (
         <>
         <Button variant="primary" onClick={handleShow}>
@@ -150,6 +162,7 @@ function UpdateUser(props) {
         </Modal>
         </>
     )
+    }
 }
 
 function ReviewRows(props) {
@@ -198,7 +211,7 @@ function UserInformation(props) {
             }
         }
         getUser()
-    }, [id])
+    }, [id,])
     return (
         <div className="card mb-3" divstyle={"max-width: 540px;"}>
         <div className="bg-danger bg-gradient">

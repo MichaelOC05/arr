@@ -71,10 +71,7 @@ function LoginForm (props) {
       let fetchConfig = {
         method: "POST",
         body: JSON.stringify(newData),
-        headers: {
-          Authorization: `Bearer ${token}`,
-          credentials: "include",
-        }
+
       }
       let response = await fetch(loginUrl, fetchConfig)
       console.log(response)
