@@ -1,3 +1,6 @@
+## September 16, 2022
+Fixed some problems with our signup as well as with the ability for other users to update my user information. Then relaxed.
+
 ## September 15, 2022
 Created a view that decodes the jwt tokens and returns the user information, used this information when necessary.
 
