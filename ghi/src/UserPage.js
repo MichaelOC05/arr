@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import Cookies from "universal-cookie";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -198,7 +197,7 @@ function UserInformation(props) {
             }
         }
         getUser()
-    }, [id])
+    }, [id, user] )
     return (
         <div className="card mb-3" divstyle={"max-width: 540px;"}>
         <div className="bg-danger bg-gradient">
@@ -233,9 +232,15 @@ class UserPage extends React.Component {
     }
 
     async componentDidMount() {
+        const payloadTokenUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/payload_token/`
+                const fetchConfigToken = {
+                  method: "get",
+                  credentials: "include"
+                }
+            const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
+            const tokenReturned = await tokenResponse.json()
+            const payloadUserId = tokenReturned["id"]
         const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`;
-        let submitCookie = new Cookies()
-        let userId = Number(submitCookie.get("userId"))
         try {
             const response = await fetch(url);
             if (response.ok) {
@@ -251,7 +256,7 @@ class UserPage extends React.Component {
                 for (const reviewResponse of responses) {
                     if (reviewResponse.ok) {
                         const details = await reviewResponse.json();
-                        if (details.reviewer_id.id === userId) {
+                        if (details.reviewer_id.id === payloadUserId) {
                         sampleReviews[i].push(details);
                         i = i + 1;
                         if (i > 1) {
