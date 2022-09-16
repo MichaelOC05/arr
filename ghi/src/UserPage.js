@@ -96,7 +96,7 @@ function UpdateUser(props) {
             console.log("profile not updated")
         }
     }
-    if (user.id == payloadUserId) {
+    if (user.id === payloadUserId) {
     return (
         <>
         <Button variant="primary" onClick={handleShow}>
