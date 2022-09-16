@@ -116,6 +116,7 @@ export function useToken() {
     // after the user has been authenticated we then 
     if (response.ok) {
       const token = await getTokenInternal();
+      console.log("this is token", token)
       setToken(token);
       return;
     }

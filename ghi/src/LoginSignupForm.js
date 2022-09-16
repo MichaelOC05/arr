@@ -45,21 +45,21 @@ function LoginForm (props) {
     async function submitButton(event) {
         event.preventDefault()
         await login(username, password)
-        let loginUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/authenticate/`
-        let data = [username, password]
-        let fetchConfig = {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-        console.log("login", loginUrl)
-        let response = await fetch(loginUrl, fetchConfig)
-        const returnedReview = await response.json()
-        console.log(returnedReview)
-        navigate("/")
-        
+        // let loginUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/authenticate/`
+        // let data = [username, password]
+        // let fetchConfig = {
+        //   method: "POST",
+        //   body: JSON.stringify(data),
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //     credentials: "include",
+        //   }
+        // }
+        // console.log("login", loginUrl)
+        // let response = await fetch(loginUrl, fetchConfig)
+        // const returnedMessage = await response.json()
+        // console.log(returnedMessage)
+        navigate("/")   
     }
 
     async function submitCreateButton(event) {
@@ -72,7 +72,8 @@ function LoginForm (props) {
         method: "POST",
         body: JSON.stringify(newData),
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
+          credentials: "include",
         }
       }
       let response = await fetch(loginUrl, fetchConfig)
