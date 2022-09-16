@@ -75,7 +75,7 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
-        const movieUrl = `${process.env.REACT_APP_MONOLITH_HOST}/movie_info/${movieId}/`
+        const movieUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movieId}/`
         const fetchConfigMovie = {
           method: "put",
         }
@@ -206,7 +206,7 @@ function MovieDetailPage() {
     useEffect(() => {
         async function getMovie() {
                 if (movie_id !== undefined) {
-                    const url = `${process.env.REACT_APP_LOCAL_HOST}/movie_info/${movie_id}/`
+                    const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movie_id}/`
                     const response = await fetch(url)
                     if (response.ok) {
                         const movie_data = await response.json()
