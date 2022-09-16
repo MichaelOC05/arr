@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import Cookies from "universal-cookie";
 
 function CreateReview(props) {
     const [show, setShow] = useState(false);
@@ -52,9 +51,15 @@ function CreateReview(props) {
 
     async function submitButton(event) {
         event.preventDefault();
-        let locationUrl = `${process.env.REACT_APP_LOCAL_HOST}/reviews/`
-        let submitCookie = new Cookies()
-        let userId = Number(submitCookie.get("userId"))
+        let locationUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`
+        const payloadTokenUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/payload_token/`
+        const fetchConfigToken = {
+          method: "get",
+          credentials: "include"
+        }
+        const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
+        const tokenReturned = await tokenResponse.json()
+        const payloadUserId = tokenReturned["id"]
         let data = {
             "movie_id": movieId, 
             "base_rating": baseRating, 
@@ -64,8 +69,8 @@ function CreateReview(props) {
             "add_on_rating": addOnRating, 
             "removal_rating": removalRating, 
             "rating_description": ratingDescription, 
-            "reviewer_id": userId
-             }
+            "reviewer_id": payloadUserId
+            }
         console.log(data)
         let fetchConfig = {
             method: "post",
