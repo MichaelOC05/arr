@@ -38,7 +38,7 @@ function UpdateUser(props) {
             }
         }
         autofill()
-    }, [id, user])
+    }, [id])
 
     function handleFirstName(e) {
         setFirstName(e.target.value)
@@ -250,9 +250,9 @@ class UserPage extends React.Component {
                   method: "get",
                   credentials: "include"
                 }
-            const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
-            const tokenReturned = await tokenResponse.json()
-            const payloadUserId = tokenReturned["id"]
+        const tokenResponse = await fetch(payloadTokenUrl, fetchConfigToken)
+        const tokenReturned = await tokenResponse.json()
+        const payloadUserId = tokenReturned["id"]
         const url = `${process.env.REACT_APP_LOCAL_HOST}monolith/reviews/`;
         try {
             const response = await fetch(url);

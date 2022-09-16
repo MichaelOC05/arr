@@ -66,16 +66,6 @@ function LoginForm (props) {
       event.preventDefault()
       await signup(createUsername, createPassword, email, firstName, lastName)
       // let createUserUrl = "http://localhost:8000/monolith/login/create_account/"
-      let loginUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/login/authenticate/`
-      let newData = [createUsername, createPassword, email, firstName, lastName]
-      let fetchConfig = {
-        method: "POST",
-        body: JSON.stringify(newData),
-      }
-      let response = await fetch(loginUrl, fetchConfig)
-      console.log(response)
-      let anotherUserUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/user/`
-      console.log(anotherUserUrl)
       navigate("/")
     }
 
