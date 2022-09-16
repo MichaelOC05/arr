@@ -44,3 +44,9 @@ Michael and I worked on writing a search function in React to seach our movie ap
 
 ## September 13, 2022
 Gio and I were finally able to get the site deployed. We were missing the basename from the app.js.
+
+## September 14, 2022
+We worked as group today. We fixed our Heroku deployment. Also worked on fixing the login, movie search and review pages.
+
+## September 15, 2022
+Finished the rest of the unit tests. Fixed all the linting issues so the pipeline would run.
