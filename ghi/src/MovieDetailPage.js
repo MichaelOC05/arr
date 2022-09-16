@@ -80,7 +80,7 @@ function CreateReview(props) {
             },
         };
         const response = await fetch(locationUrl, fetchConfig)
-        const movieUrl = `${process.env.REACT_APP_LOCAL_HOST}/movie_info/${movieId}/`
+        const movieUrl = `${process.env.REACT_APP_LOCAL_HOST}monolith/movie_info/${movieId}/`
         const fetchConfigMovie = {
           method: "put",
         }
@@ -90,6 +90,7 @@ function CreateReview(props) {
         if (response.ok) {
             const newReview = await response.json()
             console.log(newReview)
+            window.location.reload(false);
             handleClose()
             // navigate("/list_of_movies")
             // const cleared = {
