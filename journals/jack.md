@@ -1,3 +1,17 @@
+## Friday September 16, 2022:
+    We found a bug last night that wasn't showing the reviews from viewers on their web page. We immediately 
+    fixed the problem and got it all fixed within two hours, deployed, and now we are no longer adding anymore
+    code for this project until we can work on strech goals. I am proud of our project. Could there have been more?
+    always, but that is for the strech goals because we got a minimum viable product that works and I find enjoyable.
+
+## Thursday September 15, 2022:
+    Today we created all of our unit tests as per requirements for the project. mine took a little help from andrew 
+    as I was trying to create a review to see if it was in the database for my test. Got all the 
+    tests running and was able to fix the update button for the user page to work and lastly removed 
+    a model that was not being used. We spent the rest of the day trying to get our mvp up and running by 
+    our code freeze at five. Unfortunately, we had to chase a bug that made us work till six. We decided to call 
+    it there and made sure that the deployment was working before we called it a  day.
+
 ## Wednesday September 14, 2022:
     For the majority of the day, we worked on getting the website to operate as it should when
     it is deployed. It took a long time, with help from multiple seirs and teachers, and major
