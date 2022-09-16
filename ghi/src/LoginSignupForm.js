@@ -71,7 +71,6 @@ function LoginForm (props) {
       let fetchConfig = {
         method: "POST",
         body: JSON.stringify(newData),
-
       }
       let response = await fetch(loginUrl, fetchConfig)
       console.log(response)

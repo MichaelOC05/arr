@@ -90,6 +90,7 @@ function CreateReview(props) {
         if (response.ok) {
             const newReview = await response.json()
             console.log(newReview)
+            window.location.reload(false);
             handleClose()
             // navigate("/list_of_movies")
             // const cleared = {

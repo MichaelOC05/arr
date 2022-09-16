@@ -43,3 +43,7 @@ Issues with login
 Update user page
 
 #September 15, 2022
+Linting fixes
+Token was not being read on heroku but was working locally, Michael changed debug to false and it fixed the issue.
+Worked together on some updates to user page. 
+
