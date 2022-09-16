@@ -71,7 +71,7 @@ function CreateReview(props) {
             "removal_rating": removalRating, 
             "rating_description": ratingDescription, 
             "reviewer_id": payloadUserId
-             }
+            }
         let fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
